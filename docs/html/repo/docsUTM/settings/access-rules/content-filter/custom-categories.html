@@ -1,0 +1,1591 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ru" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Описание категорий контент-фильтра &#8212; Ideco NGFW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../../../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../../../_static/translations.js?v=29b1f277"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'repo/docsUTM/settings/access-rules/content-filter/custom-categories';</script>
+    <link rel="index" title="Алфавитный указатель" href="../../../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../../../search.html" />
+    <link rel="next" title="1. Настройка фильтрации HTTPS" href="filtering-https-traffic.html" />
+    <link rel="prev" title="1. Контент-фильтр" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ru"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Перейти к основному содержанию</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="../../../../../index.html">Оглавление</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">1. Об Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../general/license.html">1. Лицензирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../general/data-update-source-ideco-utm.html">1. Cистемные требования и источники обновления данных Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../general/technical-support.html">1. Техническая поддержка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/tips-for-initial-setup.html">1. Рекомендации при первоначальной настройке</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/initial-action-my-ideco.html">1. Личный кабинет my.ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/preparation-install.html">1. Подготовка к установке на устройство</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/specifics-of-hypervisor-settings.html">1. Настройка гипервизора</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/usb.html">1. Создание загрузочного USB flash-диска</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation-process.html">1. Установка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/initial-setup.html">1. Первоначальная настройка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/server-registration.html">1. Регистрация сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../monitor-panel.html">1. Панель мониторинга</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/README.html">1. Пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/user-tree/README.html">1. Учетные записи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/user-tree/user-management.html">1. Управление пользователями</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/user-tree/customization-of-users.html">1. Настройка пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/README.html">1. Авторизация пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/web-authorization.html">1. Веб-аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/ip-and-mac-authorization/README.html">1. IP и MAC авторизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/ip-and-mac-authorization/ip-authorization.html">1. Авторизация по IP-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/ip-and-mac-authorization/mac-authorization.html">1. Авторизация по MAC-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/authorization-by-subnet.html">1. Авторизация по подсетям</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/terminal-server.html">1. Авторизация пользователей терминальных серверов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/user-personal-account.html">1. Личный кабинет пользователя</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/vpn-connection/README.html">1. VPN-подключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/two-factor-authentication.html">1. Двухфакторная аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/vpn-connection/pptp.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/vpn-connection/pppoe.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/vpn-connection/ipsec-ikev2.html">1. Подключение по IKEv2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/vpn-connection/sstp.html">1. Подключение по SSTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/vpn-connection/l2tp-ipsec.html">1. Подключение по L2TP/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/vpn-connection/features.html">1. Особенности маршрутизации и организации доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/authorization/vpn-connection/running-powershell-scripts.html">1. Инструкция по запуску PowerShell скриптов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/ideco-client/README.html">1. Ideco Client</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/ideco-client/ideco-client-windows.html">1. Установка и настройка Ideco Client на Windows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/ideco-client/ideco-client-macos.html">1. Установка и настройка Ideco Client на MacOS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/hip-profiles.html">1. Профили устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/active-directory/README.html">1. Интеграция с Microsoft Active Directory/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/active-directory/entering-the-server-into-the-domain.html">1. Ввод сервера в домен</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/active-directory/active-directory-user-authorization.html">1. Аутентификация пользователей AD/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/active-directory/auto-de-authorization-script.html">1. Скрипты автоматической разавторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/active-directory/user-import.html">1. Импорт пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/radius.html">1. Интеграция с RADIUS-сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/ald-pro.html">1. ALD Pro</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/device-discovery.html">1. Обнаружение устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../users/wifi-network.html">1. Wi-Fi-сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../monitor/README.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../monitor/authorized-users.html">1. Авторизованные пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../monitor/workload-schedule.html">1. График загруженности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../monitor/traffic.html">1. Монитор трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../monitor/telegram-bot.html">1. Telegram-бот</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../monitor/snmp.html">1. SNMP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../monitor/zabbix.html">1. Интеграция с Zabbix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">1. Правила трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../firewall.html">1. Файрвол</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../firewall-tables.html">1. Таблицы файрвола (FORWARD, DNAT, INPUT и SNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../logging.html">1. Логирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../application-control.html">1. Контроль приложений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">1. Контент-фильтр</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Описание категорий контент-фильтра</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. Специальные категории</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.2. Расширенные категории</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="filtering-https-traffic.html">1. Настройка фильтрации HTTPS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="block-page.html">1. Изменение страницы блокировки Контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../shaper.html">1. Ограничение скорости</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../antivirus.html">1. Антивирусы веб-трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ips/README.html">1. Предотвращение вторжений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ips/log.html">1. Журнал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ips/rules.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ips/exceptions-rules.html">1. Исключения из правил</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ips/settings.html">1. Настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ips/user-ip-exceptions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aliases.html">1. Объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quotas.html">1. Квоты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/README.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/connection-to-provider/README.html">1. Сетевые интерфейсы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/connection-to-provider/local-ethernet.html">1. Настройка Локального Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/connection-to-provider/ethernet-connection.html">1. Настройка Внешнего Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/connection-to-provider/pptp-connection.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/connection-to-provider/l2tp-connection.html">1. Настройка подключения по L2TP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/connection-to-provider/pppoe-connection.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/connection-to-provider/3g-4g-connection.html">1. Подключение по 3G и 4G</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/multiple-simultaneous-connections.html">1. Балансировка и резервирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/routing.html">1. Маршрутизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/bgp.html">1. BGP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ospf.html">1. OSPF</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/igmp.html">1. IGMP Proxy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/proxy/README.html">1. Прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/proxy/exclusions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/proxy/direct-connection-proxy.html">1. Настройка прямого подключения к прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/proxy/proxy-single-interface.html">1. Настройка прокси с одним интерфейсом</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/reverse-proxy.html">1. Обратный прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/dns/README.html">1. DNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/dns/dns-external.html">1. Внешние DNS-серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/dns/master-zon.html">1. Master-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/dns/forward-zon.html">1. Forward-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/dns/ddns.html">1. DDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/dhcp.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ntp.html">1. NTP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/README.html">1. IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/site-to-site/ipsec-utm-to-utm-tunnel.html">1. Подключение между двумя Ideco NGFW в туннельном режиме работы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/site-to-site/ipsec-utm-to-utm-transport.html">1. Подключение между двумя Ideco NGFW в транспортном режиме работы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/site-to-site/site-to-site-ideco-mikrotik.html">1. Подключение Ideco NGFW и MikroTik</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/site-to-site/utm-to-mikrotik-vpn.html">1. Подключение MikroTik и Ideco NGFW по L2TP/IPsec и IKev2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/site-to-site/connect-utm-to-cisco-via-ipsec.html">1. Подключение Cisco IOS и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/site-to-site/ipsec-connection-pfsense-to-utm.html">1. Подключение pfSense к Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/site-to-site/ipsec-connection-kerio-control-to-utm.html">1. Подключение Kerio Control и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/site-to-site/keenetic-connection.html">1. Подключение Keenetic по SSTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../services/ipsec/site-to-site/keenetic-connection.html#keenetic-ipsec">2. Подключение Keenetic по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/certificates/README.html">1. Сертификаты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/certificates/upload-ssl-certificate-to-server.html">1. Загрузка SSL-сертификата на сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/certificates/creating-ssl-sert-powershell.html">1. Создание самоподписанного сертификата c помощью PowerShell</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../services/certificates/creating-openssl-cert.html">1. Создание самоподписанного сертификата c помощью openssl</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/README.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/traffic.html">1. Трафик</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/logs.html">1. Журнал событий</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/web-logs.html">1. Журнал веб-доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/antivirus-logs.html">1. Журнал антивируса</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/security-events.html">1. События безопасности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/administrator-actions.html">1. Действия администраторов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/authorization-log.html">1. Журнал авторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/report-designer.html">1. Конструктор отчетов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reports/syslog.html">1. Syslog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/README.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/admins.html">1. Администраторы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/central-console.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/vce.html">1. VCE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/cluster.html">1. Кластеризация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/server-update.html">1. Автоматическое обновление</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/server-update.html#id2">2. Процесс выхода релизов в каналы обновлений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/server-update.html#ngfw">3. Особенности обновления NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/backup.html">1. Бекапы на удаленное файловое хранилище по протоколу FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/backup.html#netbios-cifs">2. Бекапы на сетевое файловое хранилище по протоколу NetBIOS (CIFS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/backup.html#id1">3. Бекапы на локальный жесткий диск</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/backup.html#id2">4. Восстановление конфигурации из бекапа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/terminal.html">1. Терминал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/license-management.html">1. Лицензия</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server-management/additionally.html">1. Дополнительно</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/README.html">1. Почтовый релей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/mail-server-settings/README.html">1. Основные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/mail-server-settings/web-mail.html">1. Web-почта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/mail-server-settings/mail-relay-settings.html">1. Настройка почтового релея</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/mail-server-settings/mail-server-settings.html">1. Настройка почтового сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/advanced-settings/README.html">1. Расширенные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/advanced-settings/domain-settings-at-zone-holder.html">1. Настройка домена у регистратора/держателя зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/antispam.html">1. Антиспам</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/regulations/README.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/regulations/mail-forwarding.html">1. Переадресация почты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/mail-queue.html">1. Почтовая очередь</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/configuring-email-clients.html">1. Настройка почтовых клиентов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mail/filtering-scheme-for-mail-traffic.html">1. Схема фильтрации почтового трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../publishing-resources/README.html">1. Публикация ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../publishing-resources/access-from-external-network-without-nat.html">1. Доступ из внешней сети без NAT</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../publishing-resources/publishing-web-applications.html">1. Публикация веб-приложений (обратный прокси-сервер)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../publishing-resources/configure-public-ip-on-computer-on-the-local-net.html">1. Настройка публичного IP-адреса на компьютере в локальной сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../publishing-resources/portmapping.html">1. Портмаппинг (проброс портов, DNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../skydns.html">1. Интеграция NGFW и SkyDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-my/README.html">1. О личном кабинете MY.IDECO</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-my/ngfw.html">1. NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-my/bot-security.html">1. Monitoring Bot и Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-my/personal-details-and-companies.html">1. Личные данные и Компании</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-cc/README.html">1. Об Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-cc/setup.html">1. Установка Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-cc/servers.html">1. Серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-cc/monitor.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-cc/policies-and-objects.html">1. Политики и объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-cc/services.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-cc/reports.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../settings-cc/server-management.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/README.html">1. FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/remote-assistant.html">1. Режим удаленного помощника</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/allow-internet-all.html">1. Разрешить интернет всем: диагностика неполадок</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/remote-access-for-server-management.html">1. Удаленный доступ к серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/memory-testing.html">1. Тестирование оперативной памяти сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/README.html">1. Инструкции по созданию VPN-подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/connection-for-ubuntu.html">1. Создание VPN-подключения в Ubuntu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/connection-for-fedora.html">1. Инструкция по созданию подключения в Fedora</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/connection-for-astra-linux.html">1. Инструкция по созданию подключения в Astra Linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/auto-connect.html">1. Автоматическое создание подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/connection-for-windows10.html">1. Инструкция по созданию подключения в Windows 10</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/connection-for-windows7.html">1. Создание подключения в Windows 7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/connection-for-mobile-devices.html">1. Инструкция по созданию VPN-подключения на мобильных устройствах</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/connection-for-high-sierra-macos.html">1. Инструкция по созданию подключения в Mac OS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vpn/sstp-connecting-keenetic-wi-fi-routers.html">1. Подключение по SSTP Wi-Fi-роутеров Keenetic</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/access-to-remote-networks.html">1. Как избавиться от асимметричной маршрутизации трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/dnsbl-list.html">1. Что делать если IP попал в черные списки DNSBL</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/restore-access-to-ideco-utm.html">1. Как восстановить доступ к Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/go-back.html">1. Как восстановиться на прошлую версию после обновления Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/security-ideco.html">1. Проверка настроек фильтрации с помощью security ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/choosing-hardware-platform.html">1. Выбор аппаратной платформы для Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/legacy-encryption-support.html">1. Поддержка устаревших алгоритмов шифрования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/configuring-proxifier.html">1. Настройка программы Proxifier для прямых подключений к прокси серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/blocking-popular-resources.html">1. Блокировка популярных ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/authorization-astra-linux.html">1. Настройка прозрачной авторизации на Astra linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/auto-authorization-linux.html">1. Инструкция по настройке автоматической веб-аутентификации на Ideco NGFW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/auto-authorization-linux.html#id1">2. Настройка автозагрузки скрипта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/transferring-data-to-another-server.html">1. Перенос данных и настроек на другой сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/processing-order.html">1. Порядок обработки веб-трафика в Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/integrity.html">1. Интеграция Ideco NGFW и брокера сетевых пакетов DS Integrity NG</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/vipnet-coordinator.html">1. Рекомендации по настройке NGFW для работы совместно с ViPNet-координатором</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/block-chat-bot.html">1. Блокировка чат-ботов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/open-ports.html">1. Доступные из внешней сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/open-ports.html#id2">2. Доступные из локальной сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/popular-recipes/open-ports.html#id3">3. Как проверить, открыт ли порт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/problem-diagnosis/README.html">1. Диагностика проблем</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/problem-diagnosis/site-does-not-open.html">1. Ошибка при открытии сайта ERR_CONNECTION_TIMED_OUT или Не открывается сайт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/problem-diagnosis/what-to-do-if-the-internet-does-not-work.html">1. Что делать, если не работает интернет</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/problem-diagnosis/old-browser.html">1. Ошибка при авторизации «The browser is outdated»</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../recipes/problem-diagnosis/ipsec.html">1. Если соединение по IPsec не устанавливается</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/description-of-handlers.html">1. Описание основных хендлеров</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/active-directory-api.html">1. Управление интеграцией с Active Directory</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/user-management-api.html">1. Управление пользователями и группами</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/access-rules-api.html">1. Управление правилами трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/dhcp-api.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/dns-api.html">1. DNS-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/logs-api.html">1. Настройка удаленной передачи системных логов (Syslog)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/cc-api.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/backup-api.html">1. Бекапы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/examples/README.html">1. Примеры использования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/examples/editing-a-custom-category.html">1. Редактирование пользовательской категории контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/examples/creating-a-forward-rule.html">1. Создание правила Forward</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/ideco-utm/README.html">1. Ideco NGFW 17.X</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/cc/README.html">1. Ideco Center 17.Х</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../../_sources/repo/docsUTM/settings/access-rules/content-filter/custom-categories.md">
+      <i class="fa-solid fa-file-lines"></i> Исходный текст
+    </a>
+  </div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Загрузите эту страницу">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../../_sources/repo/docsUTM/settings/access-rules/content-filter/custom-categories.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Скачать исходный файл"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Распечатать в PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Полноэкранный режим"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="светлая/темная" aria-label="светлая/темная" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Описание категорий контент-фильтра</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1. Специальные категории</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.2. Расширенные категории</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="id1">
+<h1><span class="section-number">1. </span>Описание категорий контент-фильтра<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2><span class="section-number">1.1. </span>Специальные категории<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Все запросы</strong> - под эту категорию попадают все запросы к веб-ресурсам;</p></li>
+<li><p><strong>Все категоризированные запросы</strong> - все запросы к веб-ресурсам, категоризированные по встроенным или пользовательским категориям;</p></li>
+<li><p><strong>Все не категоризированные запросы</strong> - все запросы к веб-ресурсам, которые не были категоризированы по встроенным или пользовательским категориям;</p></li>
+<li><p><strong>Прямое обращение по IP</strong> - запросы к веб-ресурсам по IP-адресу (<a class="reference external" href="http://84.201.128.105/">http://84.201.128.105/</a>).</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">1.2. </span>Расширенные категории<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Категория</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>«Запаркованные»</p></td>
+<td><p>Веб-сайты, которые используются в качестве «заглушек» для приобретенных, но не используемых доменных имен</p></td>
+</tr>
+<tr class="row-odd"><td><p>Веб-почта</p></td>
+<td><p>Службы, предоставляющие пользователям веб-доступ к почтовым ящикам. Как правило, речь идет о бесплатных ящиках</p></td>
+</tr>
+<tr class="row-even"><td><p>Аборты</p></td>
+<td><p>Веб-страницы, на которых обсуждаются аборты с медицинской, юридической, исторической и других точек зрения</p></td>
+</tr>
+<tr class="row-odd"><td><p>Аборты — одобрение</p></td>
+<td><p>Веб-сайты, одобряющие применение абортов</p></td>
+</tr>
+<tr class="row-even"><td><p>Аборты — осуждение</p></td>
+<td><p>Веб-сайты, осуждающие применение абортов</p></td>
+</tr>
+<tr class="row-odd"><td><p>Автомобили/Транспорт</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Активность в социальных сетях</p></td>
+<td><p>Возможность писать/добавлять/загружать что-то в социальные сети</p></td>
+</tr>
+<tr class="row-odd"><td><p>Алкоголь</p></td>
+<td><p>Веб-сайты, призывающие к употреблению алкоголя (или оправдывающие его употребление), а также сайты, осуществляющие продажу алкогольной продукции, включая пиво, вина и т. д.</p></td>
+</tr>
+<tr class="row-even"><td><p>Анонимайзеры</p></td>
+<td><p>Веб-сайты, предназначенные для обхода сетевых фильтров. Такие ресурсы могут быть использованы сотрудниками компании с целью посещения запрещенных сайтов</p></td>
+</tr>
+<tr class="row-odd"><td><p>Архитектура</p></td>
+<td><p>Веб-сайты, посвященные строительству, проектированию зданий и сооружений, архитектуре, а также организациям или услугам, связанным с дизайном, строительством и строительным проектированием</p></td>
+</tr>
+<tr class="row-even"><td><p>Астрология и гороскопы</p></td>
+<td><p>Веб-сайты об астрологии, гороскопах, а также предсказаниях по звездам или знаку зодиака</p></td>
+</tr>
+<tr class="row-odd"><td><p>Атеизм и агностицизм</p></td>
+<td><p>Веб-сайты, ведущие антирелигиозную пропаганду или подвергающие сомнению религиозные, духовные, метафизические, или сверхъестественные воззрения</p></td>
+</tr>
+<tr class="row-even"><td><p>Аудио для прослушивания и скачивания</p></td>
+<td><p>Сайты-хранилища, вещающие музыку или другой аудио контент (может потребить всю доступную ширину канала компании)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Аукционы и рынки</p></td>
+<td><p>Веб-сайты, посвященные продажам товаров и услуг через объявления, онлайн-аукционы или через другие нетрадиционные каналы</p></td>
+</tr>
+<tr class="row-even"><td><p>Банки</p></td>
+<td><p>Веб-сайты банков и иных кредитных учреждений, включая сайты интернет-банков. В эту категорию не входят сайты организаций, предлагающих брокерские услуги</p></td>
+</tr>
+<tr class="row-odd"><td><p>Безопасность</p></td>
+<td><p>Сайты, относящиеся к продуктам и услугам, касающимся безопасности, за исключением компьютерной</p></td>
+</tr>
+<tr class="row-even"><td><p>Бизнес и услуги (общая)</p></td>
+<td><p>Веб-сайты о бизнесе и услугах. В эту категорию включены ресурсы, которые не подлежат более точному категорированию, чем бизнес и услуги</p></td>
+</tr>
+<tr class="row-odd"><td><p>Бизнес/Сервисы</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Биотехнологии</p></td>
+<td><p>Веб-сайты, посвященные исследованиям в области генетики, а также сайты исследовательских институтов и организаций, работающих в сфере биотехнологий</p></td>
+</tr>
+<tr class="row-odd"><td><p>Благотворительные учреждения</p></td>
+<td><p>Сайты с информацией о благотворительных учреждениях и других некоммерческих филантропических организациях</p></td>
+</tr>
+<tr class="row-even"><td><p>Ботнеты</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Веб-хостинг, интернет-провайдеры и телекоммуникационные компании</p></td>
+<td><p>Сайты, предлагающие услуги веб-хостинга, блог-хостинга, интернет-провайдеры и телекоммуникационные компании</p></td>
+</tr>
+<tr class="row-even"><td><p>Взлом</p></td>
+<td><p>Веб-сайты, содержащие информацию или утилиты, которые могут быть использованы для совершения онлайн-преступлений</p></td>
+</tr>
+<tr class="row-odd"><td><p>Видео для прослушивания и скачивания</p></td>
+<td><p>Сайты-хранилища, вещающие видео, в том числе в браузере (может потребить всю доступную ширину канала компании)</p></td>
+</tr>
+<tr class="row-even"><td><p>Виртуальные открытки</p></td>
+<td><p>Сайты, позволяющие пользователям отправлять и принимать открытки</p></td>
+</tr>
+<tr class="row-odd"><td><p>Возможный риск</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Войска и вооружения</p></td>
+<td><p>Веб-сайты об оружии и силовых структурах</p></td>
+</tr>
+<tr class="row-odd"><td><p>Вооруженные силы</p></td>
+<td><p>Веб-сайты, спонсируемые вооруженными силами и иными государственными военными учреждениями</p></td>
+</tr>
+<tr class="row-even"><td><p>Высокий уровень риска</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Геи, лесбиянки и бисексуалы</p></td>
+<td><p>Веб-сайты, на которых обсуждаются вопросы, связанные с нетрадиционной сексуальной ориентацией</p></td>
+</tr>
+<tr class="row-even"><td><p>Готовые домашние задания</p></td>
+<td><p>Сайты с ответами к тестам, готовыми сочинениями, пошаговыми решениями задач и аналогичные ресурсы, которые могут использоваться для списывания</p></td>
+</tr>
+<tr class="row-odd"><td><p>Для взрослых</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Дом, сад и семья</p></td>
+<td><p>Веб-сайты, которые раскрывают вопросы о семейных отношениях и обустройства дома, включая информацию о воспитании, внутреннем украшении, озеленении, уборке, семье и т. д.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Дом/Отдых</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Дома престарелых и уход за больными</p></td>
+<td><p>Сайты о домах престарелых и тематические сообщества, включая уход за больными и хосписную помощь</p></td>
+</tr>
+<tr class="row-odd"><td><p>Домашние животные</p></td>
+<td><p>Сайты, содержащие информацию, продукты и услуги для домашних животных</p></td>
+</tr>
+<tr class="row-even"><td><p>Доставка и логистика</p></td>
+<td><p>Сайты об управлении запасами, включая транспортировку, склад, дистрибуцию, хранение, выполнение и доставку заказов</p></td>
+</tr>
+<tr class="row-odd"><td><p>Еда и рестораны</p></td>
+<td><p>Сайты о еде: от ресторанов и кафе до рецептов и советов по готовке</p></td>
+</tr>
+<tr class="row-even"><td><p>Загрузка файлов в файлообменники</p></td>
+<td><p>Загрузка файлов в файлообменники через браузер, например, в Google Drive, Яндекс.Диск, облако Mail.ru, Dropbox.com</p></td>
+</tr>
+<tr class="row-odd"><td><p>Законодательство и политика</p></td>
+<td><p>Сайты о законодательстве, политике, партиях, выборах, их результатах и мнениях</p></td>
+</tr>
+<tr class="row-even"><td><p>Здоровье</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Здравоохранение и медицина</p></td>
+<td><p>Веб-сайты, посвященные личному здоровью, медицинским услугам, медицинскому оборудованию, процедурам, психическому здоровью, больницам и клиникам</p></td>
+</tr>
+<tr class="row-even"><td><p>Знакомства</p></td>
+<td><p>Веб-сайты, посвященные знакомствам, браку и т. д.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Игрушки</p></td>
+<td><p>Сайты производителей игрушек, а также маркетинговые ресурсы и онлайн-магазины игрушек</p></td>
+</tr>
+<tr class="row-even"><td><p>Изображения жестокого обращения с детьми</p></td>
+<td><p>Веб-сайты с изображениями физического или сексуального насилия над детьми</p></td>
+</tr>
+<tr class="row-odd"><td><p>Интернет и IP-телефония</p></td>
+<td><p>Веб-сайты, позволяющие совершать звонки через web или сайты программных продуктов, которые предназначены для совершения звонков через интернет</p></td>
+</tr>
+<tr class="row-even"><td><p>Интернет-магазины</p></td>
+<td><p>Интернет-магазины и иные сайты, предлагающие совершить онлайн-покупки</p></td>
+</tr>
+<tr class="row-odd"><td><p>Информационная безопасность</p></td>
+<td><p>Веб-сайты организаций, предоставляющих услуги в сфере информационной безопасности</p></td>
+</tr>
+<tr class="row-even"><td><p>Искусство</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Казино, лотереи, тотализаторы</p></td>
+<td><p>Сайты казино и прочих игровых систем</p></td>
+</tr>
+<tr class="row-even"><td><p>Каталоги</p></td>
+<td><p>Веб-сайты с продуктовыми списками и каталогами без возможности совершить онлайн-покупку</p></td>
+</tr>
+<tr class="row-odd"><td><p>Компьютерные игры</p></td>
+<td><p>Веб-сайты, посвященные компьютерным играм, а также сайты с онлайн-играми</p></td>
+</tr>
+<tr class="row-even"><td><p>Компьютеры и технологии</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Конкурсы и опросы</p></td>
+<td><p>Веб-сайты, посвященные онлайн-тотализаторам, соревнованиям, распродажам и лотереям, которые создаются для изучения потребительских предпочтений, а также могут использоваться в качестве элемента различной маркетинговой деятельности</p></td>
+</tr>
+<tr class="row-even"><td><p>Контент-серверы</p></td>
+<td><p>CDN-серверы, на которых кешируется часть контента или страница целиком</p></td>
+</tr>
+<tr class="row-odd"><td><p>Криминальные навыки</p></td>
+<td><p>Веб-сайты, предоставляющие информацию о том, как совершить незаконную деятельность, такую как кража, убийство, создание бомбы, вскрытие замка и т. д.</p></td>
+</tr>
+<tr class="row-even"><td><p>Криминальные навыки/хакинг</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Купальные костюмы</p></td>
+<td><p>Сайты, содержащие изображения людей в купальных костюмах. Изображения самих костюмов не попадают в эту категорию</p></td>
+</tr>
+<tr class="row-even"><td><p>Купоны</p></td>
+<td><p>Веб-сайты, предлагающие приобретение скидочных купонов (купонаторы)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Литература и книги</p></td>
+<td><p>Сайты, на которых представлена литература, включая беллетристику и документальные романы, стихи и биографии</p></td>
+</tr>
+<tr class="row-even"><td><p>Марихуана</p></td>
+<td><p>Сайты, на которых представлена информация о марихуане, ее выращивании или курении, включая сайты, посвященные легальному использованию марихуаны, например, в медицине</p></td>
+</tr>
+<tr class="row-odd"><td><p>Маркетинговые услуги</p></td>
+<td><p>Сайты рекламных и маркетинговых агентств, кроме баннерных сетей</p></td>
+</tr>
+<tr class="row-even"><td><p>Мгновенные сообщения</p></td>
+<td><p>Веб-сайты служб мгновенных сообщений, а также сайтов, призывающих поддерживать контакты с друзьями через сервисы обмена сообщениями</p></td>
+</tr>
+<tr class="row-odd"><td><p>Мебель для дома и офиса</p></td>
+<td><p>Веб-сайты, которые включают информацию о производителях мебели, розничных магазинах по продаже мебели, столов, стульев, кабинетов и т. д.</p></td>
+</tr>
+<tr class="row-even"><td><p>Мобильные телефоны</p></td>
+<td><p>Сайты производителей мобильных телефонов, включая сайты, осуществляющие продажу мобильных телефонов и аксессуаров к ним</p></td>
+</tr>
+<tr class="row-odd"><td><p>Мода и красота</p></td>
+<td><p>Веб-сайты, посвященные моде и красоте, включая сайты, связанные с модой и содержащие информацию об одежде, ювелирных украшениях, косметике и парфюме</p></td>
+</tr>
+<tr class="row-even"><td><p>Музыка</p></td>
+<td><p>Веб-сайты, посвященные музыке. Интернет-радио, файлы в формате mp3, информация о музыкальных группах, клипы и т. д.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Мультфильмы, аниме и комиксы</p></td>
+<td><p>Веб-сайты, на которых размещены мультипликационные ТВ-шоу, фильмы, комиксы</p></td>
+</tr>
+<tr class="row-even"><td><p>Наркотики</p></td>
+<td><p>Веб-сайты, призывающие к употреблению наркотических веществ, включая неправильное употребление лекарственных препаратов</p></td>
+</tr>
+<tr class="row-odd"><td><p>Насилие</p></td>
+<td><p>Веб-сайты, содержащие призывы к сомнительным действиям, таким как насилие и агрессия</p></td>
+</tr>
+<tr class="row-even"><td><p>Не для детского просмотра</p></td>
+<td><p>Материалы, неуместные для детей: безвкусные, жестокие (в том числе, по отношению к животным), туалетный юмор и т. п.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Недвижимость</p></td>
+<td><p>Веб-сайты, посвященные вопросам, связанным с недвижимостью (приобретение, продажа, аренда и т. д.)</p></td>
+</tr>
+<tr class="row-even"><td><p>Недоступные</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Неизвестные сайты</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Неизвестный уровень риска</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Некоммерческие организации</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Нераспознаваемый контент</p></td>
+<td><p>Сайты с нераспознаваемым контентом, что не позволяет их категоризировать</p></td>
+</tr>
+<tr class="row-odd"><td><p>Нетрадиционные религии и оккультные верования</p></td>
+<td><p>Сайты, посвященные религиям, не находящимся в мейнстриме или не входящим в ТОП-10 мировых религий (народные религии, мистика, культы и секты)</p></td>
+</tr>
+<tr class="row-even"><td><p>Новости</p></td>
+<td><p>Новостные веб-ресурсы. Сайты газет, журналов, новостные ленты</p></td>
+</tr>
+<tr class="row-odd"><td><p>Обзоры продукции и сравнение цен</p></td>
+<td><p>Сайты, призванные помочь покупателям сравнить магазины, продукты и цены, но не торгующие онлайн</p></td>
+</tr>
+<tr class="row-even"><td><p>Оборудование, ПО, электроника</p></td>
+<td><p>Сайты о компьютерном оборудовании, ПО, периферии, сетях данных, электронике, а также ресурсы производителей соответствующих товаров и услуг</p></td>
+</tr>
+<tr class="row-odd"><td><p>Образование и учебные учреждения</p></td>
+<td><p>Сайты и ресурсы сообществ, создающих информационные документы, доступные на редактирование всем участникам</p></td>
+</tr>
+<tr class="row-even"><td><p>Онлайн-офисы</p></td>
+<td><p>Сайты брокерских компаний, осуществляющих онлайн-торговлю ценными бумагами и т. д.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Онлайн-реклама и баннеры</p></td>
+<td><p>Веб-страницы, строго посвященные рекламе, баннерам или выскакивающим окнам с рекламой</p></td>
+</tr>
+<tr class="row-even"><td><p>Онлайн-торговля акциями</p></td>
+<td><p>Сайты фондовых рынков</p></td>
+</tr>
+<tr class="row-odd"><td><p>Онлайн-управление информацией</p></td>
+<td><p>Сайты, посвященные программам для управления личной информацией, например, приложения для управления со списками задач, календарями, адресные книги и т. д.</p></td>
+</tr>
+<tr class="row-even"><td><p>Плата за серфинг</p></td>
+<td><p>Сайты компаний, предлагающих оплату за просмотр рекламы в их специализированных приложениях</p></td>
+</tr>
+<tr class="row-odd"><td><p>Откровенные изображения</p></td>
+<td><p>Сайты с фотографиями и видеороликами, на которых изображены девушки в сексуальной провокационной одежде, например, в дамском белье</p></td>
+</tr>
+<tr class="row-even"><td><p>Парки, зоны отдыха и спортивные залы</p></td>
+<td><p>Сайты, посвященные паркам и иным зонам, предназначенным для оздоровительных активностей, таких как плавание, скейтбординг, альпинизм и т. д.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Переадресация</p></td>
+<td><p>Сайты, перенаправляющие посетителя на другие ресурсы</p></td>
+</tr>
+<tr class="row-even"><td><p>Переводчики</p></td>
+<td><p>Словари и переводчики с иностранных языков</p></td>
+</tr>
+<tr class="row-odd"><td><p>Персональные страницы</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Персональные страницы и блоги</p></td>
+<td><p>Персональные страницы, включая блоги и другие средства обмена новостями, мнениями и информацией об авторе, а также домашние и семейные страницы</p></td>
+</tr>
+<tr class="row-odd"><td><p>Пиратство и хищение авторских прав</p></td>
+<td><p>Сайты, предоставляющие доступ к незаконному контенту, например, пиратскому программному обеспечению (warez), пиратским фильмам, музыке и т. д.</p></td>
+</tr>
+<tr class="row-even"><td><p>Пиринговые сети</p></td>
+<td><p>Сайты пиринговых сетей</p></td>
+</tr>
+<tr class="row-odd"><td><p>Питание и диеты</p></td>
+<td><p>Сайты с информацией о здоровом питании, похудении, диетах, программах похудения и пищевой аллергии</p></td>
+</tr>
+<tr class="row-even"><td><p>Пищевые добавки и витамины</p></td>
+<td><p>Сайты, содержащие сведения о витаминах и других веществах нерегулируемого оборота</p></td>
+</tr>
+<tr class="row-odd"><td><p>Платные сайты мобильных операторов</p></td>
+<td><p>Сайты сотовых операторов, за доступ к которым взимается отдельная плата с абонента</p></td>
+</tr>
+<tr class="row-even"><td><p>Поиск работы</p></td>
+<td><p>Веб-сайты, посвященные поиску работы, включая рекрутинговые агентства</p></td>
+</tr>
+<tr class="row-odd"><td><p>Поисковики изображений</p></td>
+<td><p>Сайты и поисковые машины, используемые для поиска изображений и возвращающие результаты, содержащие миниатюры последних</p></td>
+</tr>
+<tr class="row-even"><td><p>Поисковые системы</p></td>
+<td><p>Поисковые системы, осуществляющие поиск по веб-сайтам, новостным группам, картинкам и другому контенту</p></td>
+</tr>
+<tr class="row-odd"><td><p>Политика и закон</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Порнография</p></td>
+<td><p>Сайты, содержащие изображения или видео с откровенной демонстрацией полового акта или обнаженного тела</p></td>
+</tr>
+<tr class="row-odd"><td><p>Порнография/секс</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Порталы</p></td>
+<td><p>Веб-ресурсы, предоставляющие доступ к настраиваемым персональным порталам, включая «желтые страницы» и другие каталоги</p></td>
+</tr>
+<tr class="row-odd"><td><p>Правительство</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Природа и ее сохранение</p></td>
+<td><p>Веб-сайты с информацией об окружающей среде, экологии и т. д.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Производство</p></td>
+<td><p>Сайты, посвященные бизнесу, связанному с промышленным производством</p></td>
+</tr>
+<tr class="row-even"><td><p>Профессиональные сообщества</p></td>
+<td><p>Сайты социальных сетей, ориентированных на профессионалов и выстраивание деловых отношений</p></td>
+</tr>
+<tr class="row-odd"><td><p>Развлекательные места и события</p></td>
+<td><p>Веб-сайты, посвященные культурным заведениям, таким как театры, кинотеатры, ночные клубы, фестивали и т. д.</p></td>
+</tr>
+<tr class="row-even"><td><p>Развлекательные новости и сайты про знаменитостей</p></td>
+<td><p>Веб-сайты, посвященные новостям о знаменитостях, телешоу, фильмах и шоу-бизнесе в целом</p></td>
+</tr>
+<tr class="row-odd"><td><p>Развлечения и видео</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Разное</p></td>
+<td><p>Веб-сайты, которые не могут быть однозначно отнесены ни к одной из категорий</p></td>
+</tr>
+<tr class="row-odd"><td><p>Религии</p></td>
+<td><p>Сайты об основных мировых религиях, а также общерелигиозной тематики и теологические</p></td>
+</tr>
+<tr class="row-even"><td><p>Религия</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Рестораны</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Сайты для детей</p></td>
+<td><p>Сайты, предназначенные для маленьких детей (до 10 лет), включая игры и развлекательные страницы</p></td>
+</tr>
+<tr class="row-odd"><td><p>Сайты сообществ</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Самопомощь и зависимости</p></td>
+<td><p>Сайты, предлагающие информацию и помощь при алкогольной, наркотической, игровой зависимостях, а также расстройствах пищевого поведения (анорексия и пр.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Секс и Эротика</p></td>
+<td><p>Сайты, предлагающие продукты и услуги, связанные с сексом, но не содержащие обнаженной натуры и других откровенных изображений</p></td>
+</tr>
+<tr class="row-even"><td><p>Сексуальное воспитание и образование</p></td>
+<td><p>Сайты с обучающими материалами и клиническими пояснениями о сексе, безопасном сексе, беременности, родам и т. п., ориентированные на детей и подростков</p></td>
+</tr>
+<tr class="row-odd"><td><p>Сельское хозяйство</p></td>
+<td><p>Веб-сайты, посвященные науке, искусству и бизнесу, связанному с сельским хозяйством (производство зерновых культур, подъем домашнего скота, продуктов, услуг и т. д.).</p></td>
+</tr>
+<tr class="row-even"><td><p>Системы централизованной аутентификации</p></td>
+<td><p>Сайты, которые используются для единой аутентификации и получения доступа к большому разнообразию услуг. Например, такие системы, как Yahoo или Google</p></td>
+</tr>
+<tr class="row-odd"><td><p>Сквернословие</p></td>
+<td><p>Сайты с непристойными, бранными словами</p></td>
+</tr>
+<tr class="row-even"><td><p>Скомпрометированные</p></td>
+<td><p>Веб-сайты, которые были скомпрометированы злоумышленниками и выглядят как официальные ресурсы, но на самом деле содержат вредоносный код</p></td>
+</tr>
+<tr class="row-odd"><td><p>Сообщества лоббистов и торговые ассоциации</p></td>
+<td><p>Веб-сайты, посвященные промышленным торговым группам, лоббистам, союзам, профессиональным организациям и другим ассоциациям, включая сообщества единомышленников</p></td>
+</tr>
+<tr class="row-even"><td><p>Социальные сети</p></td>
+<td><p>Сайты социальных сетей — сообществ, в которых люди «дружат» между собой</p></td>
+</tr>
+<tr class="row-odd"><td><p>Социальные сообщества</p></td>
+<td><p>Социальные сети, а также веб-сайты различных онлайн-сообществ</p></td>
+</tr>
+<tr class="row-even"><td><p>Спам</p></td>
+<td><p>Веб-сайты, рекламируемые с помощью спама</p></td>
+</tr>
+<tr class="row-odd"><td><p>Список Минюста</p></td>
+<td><p>Федеральный список экстремистских материалов, составленный Министерством юстиции РФ</p></td>
+</tr>
+<tr class="row-even"><td><p>Спонсируемые государством</p></td>
+<td><p>Веб-сайты, посвященные государственным организациям, включая полицию, пожарные службы, избирательные комиссии, спонсируемые государством исследования и программы</p></td>
+</tr>
+<tr class="row-odd"><td><p>Спорт</p></td>
+<td><p>Сайты о соревновательных видах спорта, где люди или команды состязаются в атлетических (например, футбол) и прочих (бильярд) дисциплинах</p></td>
+</tr>
+<tr class="row-even"><td><p>Спорт и отдых</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Спортивная охота</p></td>
+<td><p>Сайты о любительской охоте на живых животных</p></td>
+</tr>
+<tr class="row-even"><td><p>Спортивные соревнования</p></td>
+<td><p>Сайты, посвященные тренировкам и соревнованиям по боевым искусствам: бокс, борьба, фехтование и т. п.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Справочные материалы и карты</p></td>
+<td><p>Сайты, содержащие справочные материалы и наборы данных: атласы, словари, энциклопедии, переписи и т. п.</p></td>
+</tr>
+<tr class="row-even"><td><p>Средний уровень риска</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Страхование</p></td>
+<td><p>Веб-сайты, посвященные всем типам страхования, включая медицинское, государственное, страхование имущества и т. д.</p></td>
+</tr>
+<tr class="row-even"><td><p>Табак</p></td>
+<td><p>Веб-сайты, призывающие к употреблению табачной продукции (сигареты, сигары, трубки и т. д.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Тайный сбор информации</p></td>
+<td><p>Сайты, идентифицированные как шпионские, пересылающие информацию о посетителях по специальному адресу</p></td>
+</tr>
+<tr class="row-even"><td><p>Текстовые сообщения</p></td>
+<td><p>Сайты, предназначенные для обмена короткими текстовыми сообщениями (SMS) между веб-страницей и мобильным телефоном</p></td>
+</tr>
+<tr class="row-odd"><td><p>Телевидение и фильмы</p></td>
+<td><p>Сайты о телешоу и фильмах, включая обзоры, программы передач, сюжеты, обсуждения, трейлеры, маркетинг и т. п.</p></td>
+</tr>
+<tr class="row-even"><td><p>Технологии (в целом)</p></td>
+<td><p>Веб-сайты, посвященные веб-дизайну, стандартизации в интернете (например, RFC), спецификациям протоколов, новостям и другим широким обсуждениям технологий</p></td>
+</tr>
+<tr class="row-odd"><td><p>Только для взрослых (18+)</p></td>
+<td><p>Сайты, в содержании которых обязательно содержится материал, предназначенный только для взрослой аудитории. Там может быть затронута сексуальная тематика или не учебные материалы</p></td>
+</tr>
+<tr class="row-even"><td><p>Торговля и покупки</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Торрент-трекеры</p></td>
+<td><p>Сайты, размещающие торрент-файлы, позволяющие загрузить потенциально большие файлы по P2P-сетям</p></td>
+</tr>
+<tr class="row-even"><td><p>Транспортные средства</p></td>
+<td><p>Сайты о транспортных средствах, включая продажу, продвижение, обсуждение, ресурсы производителей и онлайн-магазины</p></td>
+</tr>
+<tr class="row-odd"><td><p>Туризм</p></td>
+<td><p>Сайты гостиниц, туристических агентств и операторов</p></td>
+</tr>
+<tr class="row-even"><td><p>Удаленный доступ</p></td>
+<td><p>Сайты, предоставляющие удаленный доступ к частным компьютерам и сетям, ресурсам интернета (файлам и веб-приложениям)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Учебные заведения</p></td>
+<td><p>Веб-сайты школ, университетов и иных образовательных учреждений</p></td>
+</tr>
+<tr class="row-even"><td><p>Учебные материалы и исследования</p></td>
+<td><p>Веб-сайты, на которых размещены академические публикации, журналы, результаты исследований, учебные планы, а также онлайн-курсы, учебники и т. д.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Файловые архивы</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Файловые хранилища</p></td>
+<td><p>Веб-сайты с каталогами программного обеспечения, включая условно-бесплатное, бесплатное и свободно распространяемое программное обеспечение</p></td>
+</tr>
+<tr class="row-odd"><td><p>Файлообменники</p></td>
+<td><p>Сайты файлообменников</p></td>
+</tr>
+<tr class="row-even"><td><p>Фармацевтика</p></td>
+<td><p>Веб-сайты, содержащие информацию о лекарственных препаратах (включая легальные наркотические вещества), а также их применении</p></td>
+</tr>
+<tr class="row-odd"><td><p>Финансовые инструменты и котировки</p></td>
+<td><p>Сайты, содержащие информацию о финансовых котировках, а также инструменты финансового анализа и бюджетного планирования, такие как ипотечные калькуляторы, программное обеспечение для формирования налоговой отчетности и т. д.</p></td>
+</tr>
+<tr class="row-even"><td><p>Финансы</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Финансы (в целом)</p></td>
+<td><p>Веб-сайты, на страницах которых обсуждаются экономические вопросы, инвестиционные стратегии, пенсионное и налоговое планирование</p></td>
+</tr>
+<tr class="row-even"><td><p>Фитнес и отдых</p></td>
+<td><p>Веб-сайты, посвященные фитнесу и другим оздоровительным активностям</p></td>
+</tr>
+<tr class="row-odd"><td><p>Фишинг/мошенничество</p></td>
+<td><p>Веб-сайты, используемые для мошенничества, также известны как фишинговые. Как правило, представляются официальными веб-страницами финансовых или иных учреждений с целью несанкционированного доступа к конфиденциальной информации, например, пин-кодам банковских карт</p></td>
+</tr>
+<tr class="row-even"><td><p>Форумы</p></td>
+<td><p>Сайты форумов, новостных групп, архивы списков рассылки, доски объявлений и аналогичные ресурсы сообществ</p></td>
+</tr>
+<tr class="row-odd"><td><p>Фотогалереи</p></td>
+<td><p>Сайты с архивами фотографий, фотостоки</p></td>
+</tr>
+<tr class="row-even"><td><p>Хобби и Досуг</p></td>
+<td><p>Веб-сайты, содержащие информацию о различных ремеслах и хобби, таких как вышивание, коллекционирование, авиамоделирование и т. д.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Центры распространения вредоносного ПО</p></td>
+<td><p>Сайты, на которых размещены вирусы, эксплоиты и другое вредоносное ПО</p></td>
+</tr>
+<tr class="row-even"><td><p>Центры управления и контроля</p></td>
+<td><p>Интернет-серверы, использующиеся для управления ботнетами</p></td>
+</tr>
+<tr class="row-odd"><td><p>Частные IP-адреса</p></td>
+<td><p>Сайты, обслуживаемые на частных IP-адресах, зарезервированных для использования внутри организаций и дома</p></td>
+</tr>
+<tr class="row-even"><td><p>Чаты</p></td>
+<td><p>Онлайн-чаты</p></td>
+</tr>
+<tr class="row-odd"><td><p>Чаты/Мессенджеры</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-even"><td><p>Шпионские и опасные сайты</p></td>
+<td><p>Категория не содержит адресов и будет удалена в будущем</p></td>
+</tr>
+<tr class="row-odd"><td><p>Шпионское и сомнительное ПО</p></td>
+<td><p>Сайты с ПО, пересылающим информацию на центральный сервер, включая шпионское ПО и клавиатурные шпионы</p></td>
+</tr>
+<tr class="row-even"><td><p>Экстремизм</p></td>
+<td><p>Веб-сайты, призывающие к экстремизму, дискриминации по половому, расовому, религиозному и другим признакам</p></td>
+</tr>
+<tr class="row-odd"><td><p>Эротика</p></td>
+<td><p>Веб-сайты, содержащие материалы эротического характера (частичное или полное обнажение), исключая порнографические материалы</p></td>
+</tr>
+<tr class="row-even"><td><p>Юмор</p></td>
+<td><p>Веб-сайты, содержащие информацию юмористического характера, такую как комиксы, шутки, смешные картинки</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="предыдущая страница">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">назад</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Контент-фильтр</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="filtering-https-traffic.html"
+       title="следующая страница">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">вперёд</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Настройка фильтрации HTTPS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1. Специальные категории</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.2. Расширенные категории</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+По Ideco
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Копирайт 2024, Ideco.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

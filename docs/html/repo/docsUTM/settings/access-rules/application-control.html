@@ -1,0 +1,1880 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ru" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Контроль приложений &#8212; Ideco NGFW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../../_static/translations.js?v=29b1f277"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'repo/docsUTM/settings/access-rules/application-control';</script>
+    <link rel="index" title="Алфавитный указатель" href="../../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../../search.html" />
+    <link rel="next" title="1. Контент-фильтр" href="content-filter/README.html" />
+    <link rel="prev" title="1. Логирование" href="logging.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ru"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Перейти к основному содержанию</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="../../../../index.html">Оглавление</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">1. Об Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../general/license.html">1. Лицензирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../general/data-update-source-ideco-utm.html">1. Cистемные требования и источники обновления данных Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../general/technical-support.html">1. Техническая поддержка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/tips-for-initial-setup.html">1. Рекомендации при первоначальной настройке</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/initial-action-my-ideco.html">1. Личный кабинет my.ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/preparation-install.html">1. Подготовка к установке на устройство</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/specifics-of-hypervisor-settings.html">1. Настройка гипервизора</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/usb.html">1. Создание загрузочного USB flash-диска</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation-process.html">1. Установка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/initial-setup.html">1. Первоначальная настройка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/server-registration.html">1. Регистрация сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor-panel.html">1. Панель мониторинга</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/README.html">1. Пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/user-tree/README.html">1. Учетные записи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/user-tree/user-management.html">1. Управление пользователями</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/user-tree/customization-of-users.html">1. Настройка пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/README.html">1. Авторизация пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/web-authorization.html">1. Веб-аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/ip-and-mac-authorization/README.html">1. IP и MAC авторизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/ip-and-mac-authorization/ip-authorization.html">1. Авторизация по IP-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/ip-and-mac-authorization/mac-authorization.html">1. Авторизация по MAC-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/authorization-by-subnet.html">1. Авторизация по подсетям</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/terminal-server.html">1. Авторизация пользователей терминальных серверов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/user-personal-account.html">1. Личный кабинет пользователя</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/README.html">1. VPN-подключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/two-factor-authentication.html">1. Двухфакторная аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/pptp.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/pppoe.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/ipsec-ikev2.html">1. Подключение по IKEv2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/sstp.html">1. Подключение по SSTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/l2tp-ipsec.html">1. Подключение по L2TP/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/features.html">1. Особенности маршрутизации и организации доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/running-powershell-scripts.html">1. Инструкция по запуску PowerShell скриптов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/ideco-client/README.html">1. Ideco Client</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/ideco-client/ideco-client-windows.html">1. Установка и настройка Ideco Client на Windows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/ideco-client/ideco-client-macos.html">1. Установка и настройка Ideco Client на MacOS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/hip-profiles.html">1. Профили устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/README.html">1. Интеграция с Microsoft Active Directory/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/entering-the-server-into-the-domain.html">1. Ввод сервера в домен</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/active-directory-user-authorization.html">1. Аутентификация пользователей AD/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/auto-de-authorization-script.html">1. Скрипты автоматической разавторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/user-import.html">1. Импорт пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/radius.html">1. Интеграция с RADIUS-сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/ald-pro.html">1. ALD Pro</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/device-discovery.html">1. Обнаружение устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/wifi-network.html">1. Wi-Fi-сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/README.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/authorized-users.html">1. Авторизованные пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/workload-schedule.html">1. График загруженности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/traffic.html">1. Монитор трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/telegram-bot.html">1. Telegram-бот</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/snmp.html">1. SNMP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/zabbix.html">1. Интеграция с Zabbix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">1. Правила трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">1. Файрвол</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="firewall-tables.html">1. Таблицы файрвола (FORWARD, DNAT, INPUT и SNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">1. Логирование</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Контроль приложений</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. Создание правил</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-filter/README.html">1. Контент-фильтр</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-filter/custom-categories.html">1. Описание категорий контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-filter/filtering-https-traffic.html">1. Настройка фильтрации HTTPS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-filter/block-page.html">1. Изменение страницы блокировки Контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="shaper.html">1. Ограничение скорости</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="antivirus.html">1. Антивирусы веб-трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ips/README.html">1. Предотвращение вторжений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ips/log.html">1. Журнал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ips/rules.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ips/exceptions-rules.html">1. Исключения из правил</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ips/settings.html">1. Настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ips/user-ip-exceptions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aliases.html">1. Объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quotas.html">1. Квоты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/README.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/README.html">1. Сетевые интерфейсы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/local-ethernet.html">1. Настройка Локального Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/ethernet-connection.html">1. Настройка Внешнего Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/pptp-connection.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/l2tp-connection.html">1. Настройка подключения по L2TP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/pppoe-connection.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/3g-4g-connection.html">1. Подключение по 3G и 4G</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/multiple-simultaneous-connections.html">1. Балансировка и резервирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/routing.html">1. Маршрутизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/bgp.html">1. BGP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ospf.html">1. OSPF</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/igmp.html">1. IGMP Proxy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/README.html">1. Прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/exclusions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/direct-connection-proxy.html">1. Настройка прямого подключения к прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/proxy-single-interface.html">1. Настройка прокси с одним интерфейсом</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/reverse-proxy.html">1. Обратный прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/README.html">1. DNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/dns-external.html">1. Внешние DNS-серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/master-zon.html">1. Master-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/forward-zon.html">1. Forward-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/ddns.html">1. DDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dhcp.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ntp.html">1. NTP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/README.html">1. IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-utm-to-utm-tunnel.html">1. Подключение между двумя Ideco NGFW в туннельном режиме работы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-utm-to-utm-transport.html">1. Подключение между двумя Ideco NGFW в транспортном режиме работы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/site-to-site-ideco-mikrotik.html">1. Подключение Ideco NGFW и MikroTik</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/utm-to-mikrotik-vpn.html">1. Подключение MikroTik и Ideco NGFW по L2TP/IPsec и IKev2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/connect-utm-to-cisco-via-ipsec.html">1. Подключение Cisco IOS и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-connection-pfsense-to-utm.html">1. Подключение pfSense к Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-connection-kerio-control-to-utm.html">1. Подключение Kerio Control и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/keenetic-connection.html">1. Подключение Keenetic по SSTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/keenetic-connection.html#keenetic-ipsec">2. Подключение Keenetic по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/README.html">1. Сертификаты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/upload-ssl-certificate-to-server.html">1. Загрузка SSL-сертификата на сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/creating-ssl-sert-powershell.html">1. Создание самоподписанного сертификата c помощью PowerShell</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/creating-openssl-cert.html">1. Создание самоподписанного сертификата c помощью openssl</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/README.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/traffic.html">1. Трафик</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/logs.html">1. Журнал событий</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/web-logs.html">1. Журнал веб-доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/antivirus-logs.html">1. Журнал антивируса</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/security-events.html">1. События безопасности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/administrator-actions.html">1. Действия администраторов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/authorization-log.html">1. Журнал авторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/report-designer.html">1. Конструктор отчетов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/syslog.html">1. Syslog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/README.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/admins.html">1. Администраторы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/central-console.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/vce.html">1. VCE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/cluster.html">1. Кластеризация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/server-update.html">1. Автоматическое обновление</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/server-update.html#id2">2. Процесс выхода релизов в каналы обновлений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/server-update.html#ngfw">3. Особенности обновления NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html">1. Бекапы на удаленное файловое хранилище по протоколу FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html#netbios-cifs">2. Бекапы на сетевое файловое хранилище по протоколу NetBIOS (CIFS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html#id1">3. Бекапы на локальный жесткий диск</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html#id2">4. Восстановление конфигурации из бекапа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/terminal.html">1. Терминал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/license-management.html">1. Лицензия</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/additionally.html">1. Дополнительно</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/README.html">1. Почтовый релей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/README.html">1. Основные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/web-mail.html">1. Web-почта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/mail-relay-settings.html">1. Настройка почтового релея</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/mail-server-settings.html">1. Настройка почтового сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/advanced-settings/README.html">1. Расширенные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/advanced-settings/domain-settings-at-zone-holder.html">1. Настройка домена у регистратора/держателя зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/antispam.html">1. Антиспам</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/regulations/README.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/regulations/mail-forwarding.html">1. Переадресация почты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-queue.html">1. Почтовая очередь</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/configuring-email-clients.html">1. Настройка почтовых клиентов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/filtering-scheme-for-mail-traffic.html">1. Схема фильтрации почтового трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/README.html">1. Публикация ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/access-from-external-network-without-nat.html">1. Доступ из внешней сети без NAT</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/publishing-web-applications.html">1. Публикация веб-приложений (обратный прокси-сервер)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/configure-public-ip-on-computer-on-the-local-net.html">1. Настройка публичного IP-адреса на компьютере в локальной сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/portmapping.html">1. Портмаппинг (проброс портов, DNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../skydns.html">1. Интеграция NGFW и SkyDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/README.html">1. О личном кабинете MY.IDECO</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/ngfw.html">1. NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/bot-security.html">1. Monitoring Bot и Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/personal-details-and-companies.html">1. Личные данные и Компании</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/README.html">1. Об Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/setup.html">1. Установка Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/servers.html">1. Серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/monitor.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/policies-and-objects.html">1. Политики и объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/services.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/reports.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/server-management.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/README.html">1. FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/remote-assistant.html">1. Режим удаленного помощника</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/allow-internet-all.html">1. Разрешить интернет всем: диагностика неполадок</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/remote-access-for-server-management.html">1. Удаленный доступ к серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/memory-testing.html">1. Тестирование оперативной памяти сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/README.html">1. Инструкции по созданию VPN-подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-ubuntu.html">1. Создание VPN-подключения в Ubuntu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-fedora.html">1. Инструкция по созданию подключения в Fedora</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-astra-linux.html">1. Инструкция по созданию подключения в Astra Linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/auto-connect.html">1. Автоматическое создание подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-windows10.html">1. Инструкция по созданию подключения в Windows 10</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-windows7.html">1. Создание подключения в Windows 7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-mobile-devices.html">1. Инструкция по созданию VPN-подключения на мобильных устройствах</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-high-sierra-macos.html">1. Инструкция по созданию подключения в Mac OS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/sstp-connecting-keenetic-wi-fi-routers.html">1. Подключение по SSTP Wi-Fi-роутеров Keenetic</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/access-to-remote-networks.html">1. Как избавиться от асимметричной маршрутизации трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/dnsbl-list.html">1. Что делать если IP попал в черные списки DNSBL</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/restore-access-to-ideco-utm.html">1. Как восстановить доступ к Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/go-back.html">1. Как восстановиться на прошлую версию после обновления Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/security-ideco.html">1. Проверка настроек фильтрации с помощью security ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/choosing-hardware-platform.html">1. Выбор аппаратной платформы для Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/legacy-encryption-support.html">1. Поддержка устаревших алгоритмов шифрования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/configuring-proxifier.html">1. Настройка программы Proxifier для прямых подключений к прокси серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/blocking-popular-resources.html">1. Блокировка популярных ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/authorization-astra-linux.html">1. Настройка прозрачной авторизации на Astra linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/auto-authorization-linux.html">1. Инструкция по настройке автоматической веб-аутентификации на Ideco NGFW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/auto-authorization-linux.html#id1">2. Настройка автозагрузки скрипта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/transferring-data-to-another-server.html">1. Перенос данных и настроек на другой сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/processing-order.html">1. Порядок обработки веб-трафика в Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/integrity.html">1. Интеграция Ideco NGFW и брокера сетевых пакетов DS Integrity NG</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vipnet-coordinator.html">1. Рекомендации по настройке NGFW для работы совместно с ViPNet-координатором</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/block-chat-bot.html">1. Блокировка чат-ботов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/open-ports.html">1. Доступные из внешней сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/open-ports.html#id2">2. Доступные из локальной сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/open-ports.html#id3">3. Как проверить, открыт ли порт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/README.html">1. Диагностика проблем</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/site-does-not-open.html">1. Ошибка при открытии сайта ERR_CONNECTION_TIMED_OUT или Не открывается сайт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/what-to-do-if-the-internet-does-not-work.html">1. Что делать, если не работает интернет</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/old-browser.html">1. Ошибка при авторизации «The browser is outdated»</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/ipsec.html">1. Если соединение по IPsec не устанавливается</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/description-of-handlers.html">1. Описание основных хендлеров</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/active-directory-api.html">1. Управление интеграцией с Active Directory</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/user-management-api.html">1. Управление пользователями и группами</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/access-rules-api.html">1. Управление правилами трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/dhcp-api.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/dns-api.html">1. DNS-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/logs-api.html">1. Настройка удаленной передачи системных логов (Syslog)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/cc-api.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/backup-api.html">1. Бекапы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/examples/README.html">1. Примеры использования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/examples/editing-a-custom-category.html">1. Редактирование пользовательской категории контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/examples/creating-a-forward-rule.html">1. Создание правила Forward</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/ideco-utm/README.html">1. Ideco NGFW 17.X</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/cc/README.html">1. Ideco Center 17.Х</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../_sources/repo/docsUTM/settings/access-rules/application-control.md">
+      <i class="fa-solid fa-file-lines"></i> Исходный текст
+    </a>
+  </div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Загрузите эту страницу">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/repo/docsUTM/settings/access-rules/application-control.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Скачать исходный файл"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Распечатать в PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Полноэкранный режим"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="светлая/темная" aria-label="светлая/темная" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Контроль приложений</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1. Создание правил</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="id1">
+<h1><span class="section-number">1. </span>Контроль приложений<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>Название службы раздела <em>Контроля приложений</em>: <code class="docutils literal notranslate"><span class="pre">ideco-app-backend</span></code> и <code class="docutils literal notranslate"><span class="pre">ideco-app-control&#64;Leth&lt;номер</span> <span class="pre">локального</span> <span class="pre">интерфейса&gt;</span></code>.<br />
+Список имен служб для других разделов доступен по <a class="reference internal" href="#/settings/server-management/terminal.md"><span class="xref myst">ссылке</span></a>.</p>
+<p>Правила разделов <a class="reference internal" href="#ips/"><span class="xref myst">Предотвращения вторжений</span></a>, <a class="reference internal" href="#"><span class="std std-doc">Контроля приложений</span></a> и <a class="reference internal" href="shaper.html"><span class="std std-doc">Ограничение скорости</span></a> не обрабатывают трафик между локальными сетями и сетями филиалов.</p>
+<p>Для исключения пользователя или групп пользователей из обработки этих разделов добавьте соответствующее правило в <strong>Правила трафика -&gt; Исключения</strong>.</p>
+<p>Сессии, установленные, пока <strong>Контроль приложений</strong> был отключен, не будут проверены после включении модуля. Если необходимо, чтобы <strong>Контроль приложений</strong> их проверил, нужно вручную разорвать эти сессии и установить заново.</p>
+<p>Статус модуля можно посмотреть, нажав на стрелку в верхней части экрана около надписи <strong>Контроль приложений</strong>:</p>
+<p><img alt="" src=".gitbook/assets/application-control.gif" /></p>
+<p>Модуль работает только в редакции Enterprise у пользователей с активной подпиской на обновления и техническую поддержку, а также в редакции Ideco SMB с приобретенным модулем.</p>
+<p>Принцип действия набора правил:<br />
+Ideco NGFW анализирует трафик, ищет правило, которое подходит к этому трафику из списка, и применяет его. Если в списке есть несколько правил с одними и теми же условиями (колонки <strong>Применяются для</strong> и <strong>Протоколы</strong>), то будет применено правило, стоящее выше по списку.</p>
+<p>При отключении модуля <strong>Контроль приложений</strong> в левом верхнем углу:</p>
+<ul class="simple">
+<li><p>Статистика по трафику, предоставляемая этим разделом, перестанет появляться в разделе <strong>Отчеты и журналы -&gt; Трафик</strong>;</p></li>
+<li><p>Перестанет работать раздел <strong>Мониторинг -&gt; Монитор трафика</strong>.</p></li>
+</ul>
+<p>Рекомендуем указывать на устройствах пользователя в качестве DNS-сервера Ideco NGFW, а не иной DNS-сервер в локальной сети (например, контроллер домена). Иначе Контроль приложений может некорректно определять тип протокола приложений, использующих HTTPS как транспортный протокол. <br />
+Причина в том, что Ideco NGFW будет получать DNS-запрос от DNS-сервера, а не от устройства пользователя.</p>
+<section id="id2">
+<h2><span class="section-number">1.1. </span>Создание правил<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Правила настраиваются в разделе <strong>Правила трафика -&gt; Контроль приложений</strong>.</p>
+<p>Чтобы создать новое правило, выполните действия:</p>
+<p>1. Нажмите <strong>Добавить</strong> в левом верхнем углу экрана:</p>
+<p><img alt="" src=".gitbook/assets/application-control.png" /></p>
+<p>2. Укажите значения следующих параметров:</p>
+<ul class="simple">
+<li><p><strong>Название</strong> - введите название правила для удобства администрирования;</p></li>
+<li><p><strong>Применяется для</strong> - можно выбрать объекты следующих типов: пользователь, группа пользователей, IP-адрес, диапазон IP-адресов, подсеть, список IP-адресов или специальный объект <strong>Превышена квота</strong> (в этот объект попадают пользователи, превысившие квоту по трафику);</p></li>
+<li><p><strong>Протоколы</strong> - выберите протокол(ы) 7-го уровня (приложения) из списка;</p></li>
+<li><p><strong>Действие</strong> - разрешить или запретить выбранный протокол;</p></li>
+<li><p><strong>Комментарий</strong> - введите описание правила или оставьте поле пустым.</p></li>
+</ul>
+<p>3. Нажмите <strong>Сохранить</strong>.</p>
+<p>О блокировке программ удаленного доступа, анонимайзеров, торрентов и других популярных ресурсов смотрите в статье <a class="reference internal" href="#/recipes/popular-recipes/blocking-popular-resources.md"><span class="xref myst">Блокировка популярных ресурсов</span></a>.</p>
+<details>
+<summary>Описание протоколов и сервисов, доступных для создания правил</summary>
+<p><strong>FTP_CONTROL</strong> <br />
+Протокол, предназначенный для передачи файлов в компьютерных сетях.</p>
+<p><strong>POP3</strong> <br />
+Протокол, используемый клиентами электронной почты для получения почты с удаленного сервера по TСP.</p>
+<p><strong>SMTP</strong> <br />
+Протокол, предназначенный для передачи электронной почты.</p>
+<p><strong>IMAP</strong> <br />
+Протокол для доступа к электронной почте.</p>
+<p><strong>DNS</strong> <br />
+Протокол, используемый для получения IP адреса хоста по его доменному имени.</p>
+<p><strong>IPP</strong> <br />
+Протокол, используемый для передачи документов на печать.</p>
+<p><strong>HTTP</strong> <br />
+Протокол для получения с серверов гипертекстовых документов в формате HTML.</p>
+<p><strong>MDNS</strong> <br />
+Многоадресный протокол DNS, используемый для преобразования имени хостов в IP-адреса в небольших сетях, не включающих локальный сервер имен.</p>
+<p><strong>NTP</strong> <br />
+Протокол для синхронизации внутренних часов компьютера.</p>
+<p><strong>NetBIOS</strong> <br />
+Протокол, используемый для обнаружения компьютеров в сети.</p>
+<p><strong>NFS</strong> <br />
+Протокол сетевого доступа к файловым системам.</p>
+<p><strong>SSDP</strong> <br />
+Протокол, служащий для объявления и обнаружения сетевых сервисов.</p>
+<p><strong>BGP</strong> <br />
+Протокол динамической маршрутизации.</p>
+<p><strong>SNMP</strong> <br />
+Протокол для управления устройствами в IP-сетях.</p>
+<p><strong>XDMCP</strong> <br />
+Протокол аутентификации между X-сервером и X-клиентом.</p>
+<p><strong>SMBv1</strong> <br />
+Протокол для общего доступа к файлам, который позволяет приложениям компьютера читать и записывать файлы, а также запрашивать службы серверных программ в компьютерной сети.</p>
+<p><strong>Syslog</strong> <br />
+Протокол отправки и регистрации сообщений о происходящих в системе событиях.</p>
+<p><strong>DHCP</strong> <br />
+Протокол, позволяющий сетевым устройствам автоматически получать IP-адрес и другие параметры, необходимые для работы в сети.</p>
+<p><strong>PostgreSQL</strong> <br />
+Протокол, используемый для взаимодействия клиентов и серверов PostgreSQL.</p>
+<p><strong>MySQL</strong> <br />
+Протокол, используемый для взаимодействия клиентов и серверов MySQL.</p>
+<p><strong>COAP</strong> <br />
+Протокол для взаимодействия простых устройств, например, датчиков малой мощности, выключателей, клапанов, которые управляются или контролируются удаленно через интернет.</p>
+<p><strong>SMTPS</strong> <br />
+Протокол для передачи электронной почты, включающий в себя обязательное шифрование.</p>
+<p><strong>POPS</strong> <br />
+Протокол, используемый клиентами электронной почты для получения почты с удаленного сервера по TCP, включающий в себя обязательное шифрование.</p>
+<p><strong>DTLS</strong> <br />
+Протокол передачи данных, обеспечивающий защищенность соединений для протоколов, использующих датаграммы.</p>
+<p><strong>Gnutella</strong> <br />
+Протокол для распределенного обмена файлами, в основном, музыкальными.</p>
+<p><strong>BitTorrent</strong> <br />
+Пиринговый протокол для кооперативного обмена файлами через интернет.</p>
+<p><strong>Signal</strong> <br />
+Криптографический протокол, созданный для обеспечения сквозного шифрования голосовых вызовов, видеозвонков и мгновенных сообщений.</p>
+<p><strong>Memcached</strong> <br />
+Протокол кэширования, используемый для ускорения динамических веб-приложений путем кэширования данных в памяти.</p>
+<p><strong>SMBv23</strong> <br />
+Протокол для общего доступа к файлам, который позволяет приложениям компьютера читать и записывать файлы, а также запрашивать службы серверных программ в компьютерной сети.</p>
+<p><strong>Mining</strong> <br />
+Протоколы, использующиеся программами-майнерами.</p>
+<p><strong>Modbus</strong> <br />
+Протокол, основанный на архитектуре ведущий - ведомый, применяется в промышленности для организации связи между электронными устройствами.</p>
+<p><strong>WhatsAppCall</strong> <br />
+Протокол голосовой передачи, основанный на VoIP.</p>
+<p><strong>QQ</strong> <br />
+Протокол мгновенного обмена сообщениями.</p>
+<p><strong>IMAPS</strong> <br />
+Протокол для осуществления доступа к электронной почте, включающий в себя обязательное шифрование.</p>
+<p><strong>IceCast</strong> <br />
+Протокол для организации потокового цифрового аудио и видеовещания.</p>
+<p><strong>Zattoo</strong> <br />
+Телевизионная платформа, которая предлагает прямые телетрансляции и контент по запросу для компьютеров, мобильных телефонов, планшетов и других сетевых устройств.</p>
+<p><strong>TVUplayer</strong> <br />
+Протокол, используемый для просмотра телевидения через интернет.</p>
+<p><strong>MongoDB</strong> <br />
+Протокол, используемый для взаимодействия клиентов и серверов MongoDB.</p>
+<p><strong>OCSP</strong> <br />
+Протокол, используемый для получения статуса отзыва цифрового сертификата X.509.</p>
+<p><strong>VXLAN</strong> <br />
+Протокол инкапсуляции, который обеспечивает подключение центров обработки данных с использованием туннелирования для расширения соединений канального уровня в используемой сети сетевого уровня.</p>
+<p><strong>IRC</strong> <br />
+Протокол прикладного уровня для обмена сообщениями в режиме реального времени.</p>
+<p><strong>Jabber</strong> <br />
+Протокол, основанный на XML, свободный для использования протокол для мгновенного обмена сообщениями и информацией о присутствии в режиме, близком к режиму реального времени.</p>
+<p><strong>Nats</strong> <br />
+Протокол обмена сообщениями.</p>
+<p><strong>VRRP</strong> <br />
+Протокол, предназначенный для увеличения доступности маршрутизаторов, выполняющих роль шлюза по умолчанию.</p>
+<p><strong>Telnet</strong> <br />
+Протокол для реализации текстового терминального интерфейса по сети.</p>
+<p><strong>STUN</strong> <br />
+Протокол, который позволяет клиенту, находящемуся за сервером трансляции адресов (или за несколькими такими серверами), определить свой внешний IP-адрес, способ трансляции адреса и порта во внешней сети, связанный с определенным внутренним номером порта.</p>
+<p><strong>IPSec</strong> <br />
+Набор протоколов для обеспечения защиты данных, передаваемых по межсетевому протоколу IP.</p>
+<p><strong>GRE</strong> <br />
+Протокол туннелирования сетевых пакетов, разработанный компанией Cisco Systems.</p>
+<p><strong>EGP</strong> <br />
+Устаревший протокол обмена информации между маршрутизаторами нескольких автономных систем.</p>
+<p><strong>IP_in_IP</strong> <br />
+Протокол IP-туннелирования, который инкапсулирует один IP-пакет в другой IP-пакет.</p>
+<p><strong>RTP</strong> <br />
+Протокол, используемый при передаче трафика реального времени.</p>
+<p><strong>RDP</strong> <br />
+Протокол удаленного рабочего стола.</p>
+<p><strong>VNC</strong> <br />
+Протокол удаленного доступа к рабочему столу.</p>
+<p><strong>Tumblr</strong> <br />
+Протокол микроблогов, включающий в себя множество картинок, статей, видео и gif-изображений по разным тематикам и позволяющий пользователям публиковать посты в их тамблелог.</p>
+<p><strong>TLS</strong> <br />
+Протокол защиты транспортного уровня.</p>
+<p><strong>SSH</strong> <br />
+Протокол, позволяющий производить удаленное управление операционной системой и туннелирование TCP-соединений.</p>
+<p><strong>Usenet</strong> <br />
+Протокол, используемый для общения и публикации файлов.</p>
+<p><strong>MGCP</strong> <br />
+Протокол управления медиашлюзами.</p>
+<p><strong>IAX</strong> <br />
+Протокол обмена VoIP-данными между IP-АТС Asterisk и другим аналогичным софтсвичом или VoIP-телефоном.</p>
+<p><strong>AFP</strong> <br />
+Протокол представительского и прикладного уровней сетевой модели OSI, предоставляющий доступ к файлам в MacOS X.</p>
+<p><strong>SIP</strong> <br />
+Протокол передачи данных, описывающий способ установления и завершения пользовательского сеанса связи, включающего обмен мультимедийным содержимым (IP-телефония, видео- и аудиоконференции, мгновенные сообщения, онлайн-игры).</p>
+<p><strong>ICMPV6</strong> <br />
+Протокол управляющих сообщений для межсетевого протокола версии 6.</p>
+<p><strong>DHCPV6</strong> <br />
+Протокол динамического конфигурирования хостов для межсетевого протокола версии 6.</p>
+<p><strong>Kerberos</strong> <br />
+Протокол аутентификации, который предлагает механизм взаимной аутентификации клиента и сервера перед установлением связи между ними.</p>
+<p><strong>LDAP</strong> <br />
+Протокол для доступа к службе каталогов X.500.</p>
+<p><strong>PPTP</strong> <br />
+Туннельный протокол типа точка-точка, позволяющий компьютеру устанавливать защищенное соединение с сервером за счет создания специального туннеля в стандартной, незащищенной сети.</p>
+<p><strong>NetFlow</strong> <br />
+Протокол, предназначенный для учета сетевого трафика, разработанный компанией Cisco Systems.</p>
+<p><strong>sFlow</strong> <br />
+Протокол, используемый для сбора, отправки и анализа информации о сетевом трафике в целях мониторинга.</p>
+<p><strong>CHECKMK</strong> <br />
+Протокол используется для мониторинга серверных и контейнерных систем в ИТ-инфраструктуре.</p>
+<p><strong>AJP</strong> <br />
+Протокол, который может проводить входящие запросы с веб-сервера до сервера приложений, который находится позади веб-сервера.</p>
+<p><strong>RADIUS</strong> <br />
+Протокол удаленной аутентификации пользователей, представляет собой ключевой элемент в обеспечении безопасности и управлении доступом в сетях.</p>
+<p><strong>SAP</strong> <br />
+Протокол позволяет сетевым устройствам постоянно корректировать данные о том, какие сервисные услуги имеются сейчас в сети.</p>
+<p><strong>GTP</strong> <br />
+Протокол туннелирования GPRS.</p>
+<p><strong>WSD</strong> <br />
+Протокол многоадресного обнаружения для поиска сервисов в локальной сети. Работает через TCP- и UDP-порт 3702 и использует IP-адрес многоадресной рассылки 239.255.255.250 или ff02::c..</p>
+<p><strong>LLMNR</strong> <br />
+Протокол, основанный на формате пакета данных DNS, который позволяет компьютерам выполнять разрешение имен хостов в локальной сети.</p>
+<p><strong>H323</strong> <br />
+Набор стандартов для передачи мультимедиа-данных по сетям с пакетной передачей.</p>
+<p><strong>OpenVPN</strong> <br />
+Протокол VPN c открытым исходным кодом.</p>
+<p><strong>CiscoVPN</strong> <br />
+Протокол VPN, разработанный компанией Cisco Systems.</p>
+<p><strong>Tor</strong> <br />
+Протокол анонимной сети виртуальных туннелей, предоставляющий передачу данных в зашифрованном виде.</p>
+<p><strong>RTCP</strong> <br />
+Протокол управления передачей в реальном времени.</p>
+<p><strong>SOCKS</strong> <br />
+Протокол сеансового уровня модели OSI, который позволяет пересылать пакеты от клиента к серверу через прокси-сервер прозрачно (незаметно для них) и таким образом использовать сервисы за межсетевыми экранами (файрволами).</p>
+<p><strong>RTMP</strong> <br />
+Проприетарный протокол потоковой передачи данных, в основном используемый для передачи потокового видео и аудиопотоков с веб-камер через интернет.</p>
+<p><strong>QUIC</strong> <br />
+Экспериментальный интернет-протокол, позволяющий мультиплексировать несколько потоков данных между двумя компьютерами, работая поверх протокола UDP, и содержит возможности шифрования, эквивалентные TLS и SSL.</p>
+<p><strong>AMQP</strong> <br />
+Открытый протокол прикладного уровня для передачи сообщений между компонентами системы.</p>
+<p><strong>MPEG_TS</strong> <br />
+Протокол для передачи аудио и видеоданных, описанным в MPEG2.</p>
+<p><strong>SMPP</strong> <br />
+Протокол одноранговой передачи коротких сообщений.</p>
+<p><strong>DNScrypt</strong> <br />
+Протокол шифрования DNS-трафика.</p>
+<p><strong>TINC</strong> <br />
+Открытый, самомаршрутизирующийся сетевой протокол и программная реализация, используемая для сжатых и зашифрованных виртуальных частных сетей.</p>
+<p><strong>Teredo</strong> <br />
+Cетевой протокол, предназначенный для передачи IPv6-пакетов через сети IPv4, в частности, через устройства, работающие по технологии NAT, путем их инкапсуляции в UDP-дейтаграммы.</p>
+<p><strong>MQTT</strong> <br />
+Упрощенный сетевой протокол, работающий поверх, ориентированный на обмен сообщениями между устройствами по принципу «издатель - подписчик».</p>
+<p><strong>OpenDNS</strong> <br />
+Протокол, предоставляющий общедоступные DNS-серверы.</p>
+<p><strong>DRDA</strong> <br />
+Набор протоколов, обеспечивающих возможность связи между программами и системами баз данных на разных платформах и позволяющих распределять реляционные данные по нескольким платформам.</p>
+<p><strong>FIX</strong> <br />
+Протокол передачи данных, являющийся международным стандартом для обмена данными между участниками биржевых торгов в режиме реального времени.</p>
+<p><strong>Diameter</strong> <br />
+Cеансовый протокол, созданный, отчасти, для преодоления некоторых ограничений протокола RADIUS.</p>
+<p><strong>DNP3</strong> <br />
+Протокол передачи данных, используемый для связи между компонентами АСУ ТП.</p>
+<p><strong>IEC60870</strong> <br />
+Набор протоколов для контроля и управления с использованием постоянного соединения.</p>
+<p><strong>CAPWAP</strong> <br />
+Cетевой протокол с возможностью взаимодействия, который позволяет центральному контроллеру доступа к беспроводной локальной сети управлять набором беспроводных оконечных точек.</p>
+<p><strong>WebSocket</strong> <br />
+Протокол связи поверх TCP-соединения, предназначенный для обмена сообщениями между браузером и веб-сервером, используя постоянное соединение.</p>
+<p><strong>SOAP</strong> <br />
+Протокол обмена структурированными сообщениями в распределенной вычислительной среде.</p>
+<p><strong>Z3950</strong> <br />
+Клиент-серверный протокол для поиска и получения информации с удаленных компьютерных баз данных.</p>
+<p><strong>GTP_U</strong> <br />
+Протокол используется для транспортировки пользовательских данных между пакетной сетью и радиосетью.</p>
+<p><strong>GTP_C</strong> <br />
+Группа протоколов соединения на основе IP, используемая в сетях GSM, UMTS и LTE.</p>
+<p><strong>GTP_PRIME</strong> <br />
+Группа протоколов связи на основе IP, используемых для передачи услуг пакетной радиосвязи общего пользования (GPRS) в сетях GSM, UMTS, LTE.</p>
+<p><strong>EthernetIP</strong> <br />
+Промышленный сетевой стандарт, который поддерживает неявный обмен сообщениями (обмен сообщениями ввода/вывода в реальном времени), явный обмен (обмен сообщениями) или оба и использует широко распространенные коммерческие чипы связи Ethernet и физические носители.</p>
+<p><strong>HSRP</strong> <br />
+Протокол маршрутизации семейства FHRP (англ. First-hop redundancy protocols), разработанный компанией Cisco и стандартизованный в RFC 2281.</p>
+<p><strong>MpegDash</strong> <br />
+Протокол потоковой передачи данных, предоставляющая возможность доставки потокового мультимедиа-контента через интернет по протоколу HTTP.</p>
+<p><strong>PGM</strong> <br />
+Протокол надежной многоадресной передачи данных.</p>
+<p><strong>IP_PIM</strong> <br />
+Семейство многоадресных протоколов маршрутизации для IP сетей, созданное для решения проблем групповой маршрутизации.</p>
+<p><strong>FastCGI</strong> <br />
+Клиент-серверный протокол взаимодействия веб-сервера и приложения, дальнейшее развитие технологии CGI.</p>
+<p><strong>FTPS</strong> <br />
+Расширение широко используемого протокола передачи файлов FTP, которое добавляет поддержку для криптографических протоколов уровней транспортной безопасности и защищенных сокетов.</p>
+<p><strong>NAT-PMP</strong> <br />
+Сетевой протокол для автоматической установки параметров преобразования сетевых адресов и конфигураций переадресации портов без участия пользователя.</p>
+<p><strong>BACnet</strong> <br />
+Сетевой протокол, применяемый в системах автоматизации зданий и сетях управления.</p>
+<p><strong>SRTP</strong> <br />
+Определяет профиль протокола RTP и предназначен для шифрования, установления подлинности сообщения, целостности, защиты от подмены данных RTP в однонаправленных и multicast-передачах медиа и приложениях.</p>
+<p><strong>DoH_DoT</strong> <br />
+Протокол защиты DNS-трафика (запросов и ответов) от перехвата и подмены. В том числе включает в себя обычные DNS-запросы адресов DoT/DoH-серверов.</p>
+<p><strong>Outlook</strong> <br />
+Персональный информационный менеджер с функциями почтового клиента, входящий в пакет офисных программ Microsoft Office.</p>
+<p><strong>VK</strong> <br />
+Приложение для взаимодействия с социальной сетью ВКонтакте.</p>
+<p><strong>Tailscale</strong> <br />
+VPN-сервис, который работает поверх WireGuard и позволяет получить доступ к контроллеру даже, если у вас нет своего VPN-сервера.</p>
+<p><strong>Ntop</strong> <br />
+Программное обеспечение, которое исследует компьютерную сеть.</p>
+<p><strong>PPStream</strong> <br />
+Китайское программное обеспечение для одноранговой потоковой передачи видео.</p>
+<p><strong>YandexMarket</strong> <br />
+Сервис заказа товаров онлайн.</p>
+<p><strong>YandexDisk</strong> <br />
+Сервис для хранения данных в облаке.</p>
+<p><strong>Discord</strong> <br />
+Кроссплатформенная проприетарная система мгновенного обмена сообщениями с поддержкой VoIP и видеоконференций, предназначенная для использования различными сообществами по интересам.</p>
+<p><strong>YandexCloud</strong> <br />
+Публичная облачная платформа, разработанная российской интернет-компанией Яндекс.</p>
+<p><strong>Nats</strong> <br />
+Система обмена сообщениями с открытым исходным кодом.</p>
+<p><strong>AmongUs</strong> <br />
+Многопользовательская компьютерная игра.</p>
+<p><strong>DisneyPlus</strong> <br />
+Американский сервис потокового вещания типа OTT на основе подписки.</p>
+<p><strong>Steam</strong> <br />
+Онлайн-сервис цифрового распространения компьютерных игр и программ.</p>
+<p><strong>HalfLife2</strong> <br />
+Компьютерная игра, научно-фантастический шутер от первого лица.</p>
+<p><strong>WorldOfWarcraft</strong> <br />
+Массовая многопользовательская ролевая онлайн-игра.</p>
+<p><strong>YandexMetrika</strong> <br />
+Бесплатный сервис веб-аналитики, предлагаемый Яндексом, который отслеживает и сообщает о трафике веб-сайта.</p>
+<p><strong>YandexDirect</strong> <br />
+Сервис для размещения объявлений контекстной рекламы на Яндексе и на сайтах-партнерах его рекламной сети.</p>
+<p><strong>Armagetron</strong> <br />
+Свободная компьютерная игра для операционных систем Linux, Windows, MacOS, FreeBSD и AmigaOS 4.</p>
+<p><strong>Warcraft3</strong> <br />
+Компьютерная игра в жанре стратегии в реальном времени с элементами RPG.</p>
+<p><strong>Facebook</strong> <br />
+Крупнейшая социальная сеть в мире, которой владеет компания Meta Platforms.</p>
+<p><strong>Twitter</strong> <br />
+Американский сервис микроблогов и социальная сеть, в которой пользователи публикуют сообщения и взаимодействуют с ними.</p>
+<p><strong>Gmail</strong> <br />
+Бесплатная почтовая служба от компании Google. Предоставляет доступ к почтовым ящикам через веб-интерфейс и по протоколам POP3, SMTP и IMAP, а также в приложении Gmail на Android.</p>
+<p><strong>GoogleMaps</strong> <br />
+Набор приложений, построенных на основе бесплатного картографического сервиса и технологии, предоставляемых компанией Google.</p>
+<p><strong>YouTube</strong> <br />
+Видеохостинг, предоставляющий пользователям услуги хранения, доставки и показа видео.</p>
+<p><strong>Citrix</strong> <br />
+Программа, предоставляющая доступ к приложениям и рабочим столам с удаленного клиентского устройства с помощью ресурсов Citrix Virtual Apps and Desktops и Citrix DaaS.</p>
+<p><strong>Netflix</strong> <br />
+Cтриминговый сервис фильмов и сериалов.</p>
+<p><strong>LastFM</strong> <br />
+Сервис для прослушивания музыки онлайн.</p>
+<p><strong>Waze</strong> <br />
+Бесплатное социальное навигационное приложение для мобильных устройств, позволяющее отслеживать ситуацию на дорогах в режиме реального времени, прокладывать оптимальные маршруты, узнавать о расположении радаров скорости.</p>
+<p><strong>Hulu</strong> <br />
+Cтриминговый сервис по подписке, принадлежащий The Walt Disney Company.</p>
+<p><strong>WhatsApp</strong> <br />
+Американский бесплатный сервис обмена мгновенными сообщениями и голосовой связи по IP, принадлежащий компании Meta.</p>
+<p><strong>Viber</strong> <br />
+Приложение-мессенджер, которое позволяет отправлять сообщения, совершать видео- и голосовые VoIP-звонки через интернет.</p>
+<p><strong>AppleiTunes</strong> <br />
+Медиаплеер для организации и воспроизведения музыки и фильмов, разработанный компанией Apple и бесплатно распространявшийся для платформ MacOS и Windows.</p>
+<p><strong>WindowsUpdate</strong> <br />
+Сервис обновления операционной системы Windows.</p>
+<p><strong>Skype_TeamsCall</strong> <br />
+Бесплатное проприетарное программное обеспечение с закрытым кодом, обеспечивающее текстовую, голосовую и видеосвязь через интернет между компьютерами, опционально используя технологии пиринговых сетей, а также платные услуги для звонков на мобильные и стационарные телефоны.</p>
+<p><strong>Teams</strong> <br />
+Корпоративная платформа, объединяющая в рабочем пространстве чат, встречи, заметки и вложения.</p>
+<p><strong>Slack</strong> <br />
+Корпоративный мессенджер.</p>
+<p><strong>TeamViewer</strong> <br />
+Программное обеспечение для удаленного доступа, удаленного управления и удаленного обслуживания компьютеров и других конечных устройств.</p>
+<p><strong>LotusNotes</strong> <br />
+Программный продукт, платформа для автоматизации совместной деятельности рабочих групп, содержащий в себе средства электронной почты, персональных и групповых электронных календарей, службы мгновенных сообщений и среду исполнения приложений делового взаимодействия.</p>
+<p><strong>TocaBoca</strong> <br />
+Интерактивная мобильная игра.</p>
+<p><strong>Spotify</strong> <br />
+Стриминговый сервис, позволяющий легально прослушивать музыкальные композиции, аудиокниги и подкасты, не скачивая их на устройство.</p>
+<p><strong>Messenger</strong> <br />
+Приложение для обмена мгновенными сообщениями и видео, созданное Meta.</p>
+<p><strong>Telegram</strong> <br />
+Кроссплатформенная система мгновенного обмена сообщениями с функциями обмена текстовыми, голосовыми и видеосообщениями, а также стикерами, фотографиями и файлами многих форматов.</p>
+<p><strong>Vevo</strong> <br />
+Музыкальный видеосайт и видеохостинг.</p>
+<p><strong>Zoom</strong> <br />
+Проприетарная программа для организации видеоконференций, разработанная компанией Zoom Video Communications.</p>
+<p><strong>KakaoTalk</strong> <br />
+Бесплатное мобильное приложение для мгновенного обмена сообщениями для смартфонов.</p>
+<p><strong>Twitch</strong> <br />
+Видеостриминговый сервис, специализирующийся на тематике компьютерных игр, в том числе на трансляциях геймплея и киберспортивных турниров.</p>
+<p><strong>WeChat</strong> <br />
+Мобильная коммуникационная система для передачи текстовых и голосовых сообщений, разработана китайской компанией Tencent.</p>
+<p><strong>Snapchat</strong> <br />
+Мобильное приложение обмена сообщениями с прикрепленными фото и видео.</p>
+<p><strong>GitHub</strong> <br />
+Крупнейший веб-сервис для хостинга IT-проектов и их совместной разработки.</p>
+<p><strong>IFLIX</strong> <br />
+Малайзийский бесплатный видеосервис.</p>
+<p><strong>Deezer</strong> <br />
+Французский интернет-сервис потоковой передачи музыки.</p>
+<p><strong>Instagram</strong> <br />
+Американская социальная сеть для обмена фотографиями и видео.</p>
+<p><strong>StarCraft</strong> <br />
+Серия компьютерных игр в жанре стратегии в реальном времени, разработанная компанией Blizzard Entertainment.</p>
+<p><strong>HotspotShield</strong> <br />
+Условно-бесплатное программное обеспечение для организации виртуальной частной сети, обеспечивающей безопасную передачу данных по шифрованному соединению, защищенному от прослушивания.</p>
+<p><strong>IMO</strong> <br />
+Веб-сервис и кроссплатформенное приложение для мгновенного обмена сообщениями и VoIP-звонков.</p>
+<p><strong>GoogleDrive</strong> <br />
+Сервис хранения, редактирования и синхронизации файлов, разработанный компанией Google. Его функции включают хранение файлов в интернете, общий доступ к ним и совместное редактирование.</p>
+<p><strong>MS_OneDrive</strong> <br />
+Облачное хранилище компании Microsoft. Является частью спектра онлайновых услуг Windows Live.</p>
+<p><strong>Pastebin</strong> <br />
+Веб-приложение, которое позволяет загружать отрывки текста, обычно фрагменты исходного кода, для возможности просмотра окружающими.</p>
+<p><strong>Linkedin</strong> <br />
+Американская социальная сеть для поиска и установления деловых контактов.</p>
+<p><strong>ApplePush</strong> <br />
+Cервис, созданный Apple для отправки уведомлений от сторонних приложений на устройства Apple.</p>
+<p><strong>AmazonVideo</strong> <br />
+Cтриминговый сервис компании Amazon.</p>
+<p><strong>GoogleDocs</strong> <br />
+Текстовый онлайн-процессор, входящий в состав бесплатного веб-пакета редакторов GoogleDocs.</p>
+<p><strong>Zabbix</strong> <br />
+Свободная система мониторинга статусов разнообразных сервисов компьютерной сети, серверов и сетевого оборудования.</p>
+<p><strong>FortiClient</strong> <br />
+Комплексное решение безопасности, предназначенное для защиты компьютеров и ноутбуков. Также имеет версии для планшетов и мобильных устройств под управлением Android и Apple iOS.</p>
+<p><strong>GitLab</strong> <br />
+Веб-инструмент жизненного цикла DevOps с открытым исходным кодом, представляющий систему управления репозиториями кода для Git с собственной вики, системой отслеживания ошибок, CI/CD пайплайном и другими функциями.</p>
+<p><strong>AmazonAWS</strong> <br />
+Коммерческое публичное облако, поддерживаемое и развиваемое компанией Amazon.</p>
+<p><strong>Azure</strong> <br />
+Облачная платформа компании Microsoft. Предоставляет возможность разработки, выполнения приложений и хранения данных на серверах, расположенных в распределенных дата-центрах.</p>
+<p><strong>GoogleCloud</strong> <br />
+Предоставляемый компанией Google набор облачных служб, которые выполняются на той же самой инфраструктуре, которую Google использует для своих продуктов, предназначенных для конечных потребителей.</p>
+<p><strong>RakNet</strong> <br />
+Кроссплатформенный сетевой сервис, разработанный Oculus VR для использования в игровой индустрии.</p>
+<p><strong>Dazn</strong> <br />
+Спортивный стриминговый сервис.</p>
+<p><strong>Psiphon</strong> <br />
+Бесплатный инструмент для обхода цензуры в интернете с открытым исходным кодом, в котором используется сочетание технологий защищенной связи и обфускации.</p>
+<p><strong>UltraSurf</strong> <br />
+Бесплатная утилита для обхода цензурных ограничений в интернете.</p>
+<p><strong>Threema</strong> <br />
+Кроссплатформенное зашифрованное приложение для обмена мгновенными сообщениями.</p>
+<p><strong>AVAST</strong> <br />
+Семейство антивирусных программ, разработанных компанией Avast для операционных систем Windows, MacOS, Android и iOS.</p>
+<p><strong>Syncthing</strong> <br />
+Приложение, позволяющее синхронизировать файлы между несколькими устройствами.</p>
+<p><strong>Line</strong> <br />
+Приложение для смартфонов и ПК, средство моментального обмена сообщениями.</p>
+<p><strong>AppleTVPlus</strong> <br />
+Американский стриминговый сервис, принадлежащий и управляемый компанией Apple.</p>
+<p><strong>Vudu</strong> <br />
+Потоковый сервис цифрового видео.</p>
+<p><strong>Dailymotion</strong> <br />
+Французский видеохостинг.</p>
+<p><strong>TencentVideo</strong> <br />
+Китайская стриминговая платформа, принадлежащая Tencent.</p>
+<p><strong>iHeartRadio</strong> <br />
+Американская платформа бесплатного вещания, подкастов и потокового радио, принадлежащая iHeartMedia.</p>
+<p><strong>Tidal</strong> <br />
+Интернет-сервис подписки на музыку, подкасты и потоковое видео, сочетающий в себе звук без потерь и музыкальные видеоролики высокой четкости с эксклюзивным контентом и специальными функциями для музыки.</p>
+<p><strong>TuneIn</strong> <br />
+Американский аудиопотоковый сервис, транслирующий новости, эфиры радиостанций, спортивные мероприятия, музыку и подкасты.</p>
+<p><strong>Munin</strong> <br />
+Бесплатное программное приложение для мониторинга компьютерных систем, сети и инфраструктуры с открытым исходным кодом.</p>
+<p><strong>Elasticsearch</strong> <br />
+Тиражируемая программная поисковая система.</p>
+<p><strong>Heroes_of_the_Storm</strong> <br />
+Онлайн-игра, разработанная Blizzard Entertainment для Microsoft Windows и MacOS.</p>
+<p><strong>Activision</strong> <br />
+Американская компания по изданию и разработке компьютерных игр, разработчик Call of Duty.</p>
+<p><strong>TeslaServices</strong> <br />
+Портал с сервисной и диагностической информацией для компаний и частных лиц, занимающихся профессиональным обслуживанием и ремонтом автомобилей Tesla.</p>
+<p><strong>AppleStore</strong> <br />
+Онлайн-магазин техники Apple и аксесуаров к ней.</p>
+<p><strong>MapleStory</strong> <br />
+Бесплатная многопользовательская ролевая онлайн-игра, разработанная южнокорейской компанией Wizet.</p>
+<p><strong>TencentGames</strong> <br />
+Подразделение Tencent Interactive Entertainment, выпускающее видеоигры, разработчик PUPG MOBILE.</p>
+<p><strong>Kontiki</strong> <br />
+Платформа доставки видео и контента.</p>
+<p><strong>PlayStore</strong> <br />
+Онлайн-магазин приложений для Android.</p>
+<p><strong>CIP</strong> <br />
+Информационно-управляющий протокол, который обеспечивает обмен сообщениями ввода/вывода в реальном времени и прямой обмен информационными сообщениями.</p>
+<p><strong>1kxun</strong> <br />
+Китайский видеосервис. На нем представлены различные анимационные фильмы, телевидение, спорт и кино.</p>
+<p><strong>Bloomberg</strong> <br />
+Американская компания, информационное агентство, один из двух ведущих американских поставщиков финансовой информации для профессиональных участников финансовых рынков.</p>
+<p><strong>WireGuard</strong> <br />
+Высокоскоростной и безопасный VPN-протокол.</p>
+<p><strong>AccuWeather</strong> <br />
+Частная американская медиа-компания, предоставляющая коммерческие услуги по прогнозированию погоды по всему миру.</p>
+<p><strong>GeForceNow</strong> <br />
+Облачный игровой сервис компании Nvidia.</p>
+<p><strong>Radmin</strong> <br />
+Условно бесплатная программа удаленного администрирования ПК для платформы Windows, которая позволяет полноценно работать на нескольких удаленных компьютерах с помощью графического интерфейса.</p>
+<p><strong>TikTok</strong> <br />
+Сервис для создания и просмотра коротких видео, принадлежащий пекинской компании ByteDance.</p>
+<p><strong>Likee</strong> <br />
+Социальная сеть, пользователи которой могут создавать и распространять короткие музыкальные видео.</p>
+<p><strong>Dota2</strong> <br />
+Многопользовательская командная компьютерная игра в жанре MOBA, разработанная и изданная корпорацией Valve.</p>
+<p><strong>Alibaba</strong> <br />
+Китайская публичная компания, работающая в сфере интернет-коммерции, владелец веб-порталов Taobao.com, Tmall, Alibaba.com и ряда других.</p>
+<p><strong>Badoo</strong> <br />
+Приложение для онлайн-знакомств.</p>
+<p><strong>Gearman</strong> <br />
+Платформа приложений с открытым исходным кодом, предназначенная для распределения соответствующих компьютерных задач на несколько компьютеров.</p>
+<p><strong>DCERPC</strong> <br />
+Система удаленного вызова процедур, разработанная для Distributed Computing Environment.</p>
+<p><strong>GaijinEntertainment</strong> <br />
+Частная компания, разработчик и издатель компьютерных игр, в частности - War Thunder.</p>
+<p><strong>MsSQL-TDS</strong> <br />
+Протокол прикладного уровня, используемый для передачи данных между сервером базы данных и клиентом.</p>
+<p><strong>ETHEREUM</strong> <br />
+Криптовалюта и платформа для создания децентрализованных онлайн-сервисов на базе блокчейна.</p>
+<p><strong>Cachefly</strong> <br />
+Поставщик сети доставки контента.</p>
+<p><strong>eDonkey</strong> <br />
+Файлообменная сеть, построенная по принципу P2P на основе сетевого протокола прикладного уровня MFTP.</p>
+<p><strong>Raft</strong> <br />
+Компьютерная игра в жанре симулятор выживания в открытом мире, разработанная шведской компанией Redbeet Interactive и изданная Axolot Games.</p>
+<p><strong>VHUA</strong> <br />
+Протокол, который использовался для Skype-подобных сервисов в Китае.</p>
+<p><strong>GenshinImpact</strong> <br />
+Компьютерная игра в жанре action-adventure с открытым миром и элементами RPG, разработанная китайской компанией miHoYo Limited.</p>
+<p><strong>Thrift</strong> <br />
+Программный фреймворк Apache Thrift, предназначенный для масштабируемой разработки межъязыковых сервисов.</p>
+<p><strong>ElectronicArts</strong> <br />
+Американская публичная транснациональная корпорация, занимающаяся распространением и изданием компьютерных игр (FIFA, Battlefield).</p>
+<p><strong>Dropbox</strong> <br />
+Файловый хостинг компании Dropbox Inc., включающий персональное облачное хранилище, синхронизацию файлов и программу-клиент.</p>
+<p><strong>EpicGames</strong> <br />
+Американская компания, занимающаяся разработкой компьютерных игр и программного обеспечения, в частности - Fortnite.</p>
+<p><strong>TeamSpeak</strong> <br />
+Компьютерная программа, предназначенная для голосового общения в сети посредством технологии VoIP.</p>
+<p><strong>SOMEIP</strong> <br />
+Автомобильное программное обеспечение, которое может использоваться для передачи управляющих сообщений.</p>
+<p><strong>RSYNC</strong> <br />
+Утилита для удаленной синхронизации и копирования файлов.</p>
+<p><strong>OperaVPN</strong> <br />
+VPN-клиент, встроенный в браузер Opera.</p>
+<p><strong>UFTP</strong> <br />
+Протокол передачи файлов на основе UDP.</p>
+<p><strong>Source_Engine</strong> <br />
+Игровой сервис, разработанный Valve Corporation для собственного использования и лицензирования другими разработчиками.</p>
+<p><strong>Service_Location_Protocol</strong> <br />
+Протокол обнаружения сервисов, который позволяет компьютерам и иным устройствам находить сервисы в локальной сети без предварительной конфигурации.</p>
+<p><strong>PrivateInternetAccess</strong> <br />
+Персональная служба VPN.</p>
+<p><strong>AVASTSecureDNS</strong> <br />
+Сервис защищенных DNS-серверов от компании Avast.</p>
+<p><strong>RESP</strong> <br />
+Двоичный протокол, в котором используются управляющие последовательности, закодированные в стандартном ASCII.</p>
+<p><strong>iCloudPrivateRelay</strong> <br />
+Сервис для маскировки IP-адреса пользователя с целью сохранения его конфиденциальности.</p>
+<p><strong>Salesforce</strong> <br />
+Американская компания, разработчик одноименной CRM-системы, предоставляемой по модели SaaS.</p>
+<p><strong>STOMP</strong> <br />
+Simple Text Oriented Messaging Protocol, протокол обмена сообщениями.</p>
+<p><strong>MS-RPCH</strong> <br />
+Microsoft RPC-over-HTTP (RPC через HTTP) позволяет клиентам RPC подключаться через интернет к программам сервера RPC и выполнять удаленные вызовы процедур.</p>
+<p><strong>PTPv2</strong> <br />
+Протокол синхронизации для промышленных сетей.</p>
+<p><strong>RTSP</strong> <br />
+Потоковый протокол реального времени, предназначенный для использования в системах, работающих с мультимедийными данными и позволяющий удаленно управлять потоком данных с сервера.</p>
+<p><strong>ZeroMQ</strong> <br />
+Высокопроизводительная асинхронная библиотека обмена сообщениями, ориентированная на использование в распределенных и параллельных вычислениях.</p>
+<p><strong>TFTP</strong> <br />
+Простой протокол передачи файлов, как правило, используется при загрузке бездисковых систем.</p>
+<p><strong>OPC-UA</strong> <br />
+Программный интерфейс для промышленного протокола связи и модели данных. Используется для связи между конечными устройствами различных производителей по принципу клиент/сервер.</p>
+<p><strong>ANSI_C1222</strong> <br />
+Протокол прикладного уровня, предназначенный для использования в сетях электросчетчиков Smart Grid.</p>
+<p><strong>HTTP2</strong> <br />
+Вторая крупная версия сетевого протокола HTTP, используемая для доступа к World Wide Web.</p>
+<p><strong>SCTP</strong> <br />
+Протокол управления потоком передачи с установлением соединения, как TCP, но передающий данные сообщениями, как UDP.</p>
+<p><strong>Crashlytics</strong> <br />
+Инструмент отчетности о сбоях, который помогает выявлять ошибки.</p>
+<p><strong>S7CommPlus</strong> <br />
+Собственный протокол Siemens, который позволяет взаимодействовать с программируемыми логическими контроллерами (ПЛК) семейства Siemens S7-300/400. Сложнее протокола S7Comm и использует двухбайтовое поле под названием ID сессии для защиты от атак воспроизведения.</p>
+<p><strong>Fuze</strong> <br />
+Файловая система в пользовательском пространстве для Unix-подобных операционных систем, позволяющая непривилегированным пользователям создавать собственные файловые системы без редактирования кода ядра.</p>
+<p><strong>YandexMail</strong> <br />
+Почтовый сервис от компании Яндекс.</p>
+<p><strong>MerakiCloud</strong> <br />
+Сервис компании Cisco, предоставляющий доступ к облачным технологиям.</p>
+<p><strong>HAProxy</strong> <br />
+Программное обеспечение для обеспечения высокой доступности и балансировки нагрузки для TCP и HTTP-приложений посредством распределения входящих запросов на несколько обслуживающих серверов.</p>
+<p><strong>Amazon</strong> <br />
+Американская компания-разработчик платформ электронной коммерции и публично-облачных вычислений.</p>
+<p><strong>FbookReelStory</strong> <br />
+Короткие видеоролики на Facebook.</p>
+<p><strong>Microsoft</strong> <br />
+Американская корпорация-разработчик в сфере проприетарного программного обеспечения для различного рода вычислительной техники - персональных компьютеров, игровых приставок, КПК, мобильных телефонов и прочего.</p>
+<p><strong>SiriusXMRadio</strong> <br />
+Американская радиовещательная компания в сфере спутникового радио и онлайн-радио.</p>
+<p><strong>Corba</strong> <br />
+Технологический стандарт написания распределенных приложений, продвигаемый консорциумом OMG, и соответствующая ему информационная технология.</p>
+<p><strong>OCS</strong> <br />
+Спецификация программных интерфейсов класса REST для интеграции социальных интернет-коммуникаций в среды рабочего стола.</p>
+<p><strong>AnyDesk</strong> <br />
+Приложение для удаленного рабочего стола, распространяемое AnyDesk Software GmbH.</p>
+<p><strong>OICQ</strong> <br />
+Распространенный в Китае сервис мгновенного обмена сообщениями.</p>
+<p><strong>LineCall</strong> <br />
+Система звонков/видеоконференций, используемая в популярном мобильном приложении для обмена сообщениями LINE.</p>
+<p><strong>Sina</strong> <br />
+Китайская интернет-компания, владеет аналогом Twitter - сервисом Sina Weibo.</p>
+<p><strong>GoogleMeet</strong> <br />
+Сервис видео-телефонной связи и видеоконференций, разработанный компанией Google.</p>
+<p><strong>Livestream</strong> <br />
+Платная стриминговая платформа, которая позволяет клиентам загружать живое видео со своих мобильных устройств и компьютерных камер через интернет.</p>
+<p><strong>YandexMusic</strong> <br />
+Стриминговый сервис компании Яндекс, позволяющий слушать музыкальные композиции, их подборки, альбомы.</p>
+<p><strong>Pinterest</strong> <br />
+Социальный интернет-сервис, фотохостинг, позволяющий пользователям добавлять в режиме онлайн-изображения.</p>
+<p><strong>KakaoTalk_Voice</strong> <br />
+Популярный в Южной Корее мессенджер, который поддерживает мгновенную передачу сообщений, позволяет отправлять файлы, а также совершать аудио и видео-звонки.</p>
+<p><strong>OSPF</strong> <br />
+Протокол динамической маршрутизации, основанный на технологии отслеживания состояния канала.</p>
+<p><strong>Controller_Area_Network</strong> <br />
+Стандарт протокола связи, используемый для обмена данными между устройствами в автомобильной промышленности и других промышленных приложениях.</p>
+<p><strong>PROFINET_IO</strong> <br />
+Протокол для связи реального времени (RT) и изохронного реального времени (IRT) с децентрализованной периферией.</p>
+<p><strong>WebDAV</strong> <br />
+Набор расширений и дополнений к протоколу HTTP, поддерживающих совместную работу пользователей над редактированием файлов и управление файлами на удаленных веб-серверах.</p>
+<p><strong>Skype_Teams</strong> <br />
+Сервис Microsoft, предназначенный для командной работы и обмена информацией между участниками проекта или команды.</p>
+<p><strong>Crossfire</strong> <br />
+Южнокорейский тактический сетевой шутер от первого лица, разработанный компанией SmileGate.</p>
+<p><strong>WhatsAppFiles</strong> <br />
+Протокол загрузки медиафайлов мессенджера WhatsApp.</p>
+<p><strong>GoogleServices</strong> <br />
+Набор приложений и API, которые реализуют дополнительные возможности на устройствах Android. Сервисы Google для мобильных устройств включают основные приложения, такие как Google Play, Gmail, Google Map, YouTube и Chrome.</p>
+<p><strong>Vimeo</strong> <br />
+Американский сервис для публикации и просмотра видео.</p>
+<p><strong>OpenFlow</strong> <br />
+Протокол управления процессом обработки данных, передающихся по сети маршрутизаторами и коммутаторами.</p>
+<p><strong>Edgecast</strong> <br />
+Децентрализованное приложение для потоковой передачи видео, построенное на собственной технологии блокчейн THETA со смарт-контрактами.</p>
+<p><strong>TuyaLP</strong> <br />
+Протокол Tuya LAN используется для взаимодействия многих IoT-устройств, включая светодиодные лампы, лампочки, умные розетки и другое.</p>
+<p><strong>S7Comm</strong> <br />
+Собственный протокол Siemens, который позволяет взаимодействовать с программируемыми логическими контроллерами (ПЛК) семейства Siemens S7-300/400.</p>
+<p><strong>JSON-RPC</strong> <br />
+Протокол удаленного вызова процедур, использующий JSON для кодирования сообщений.</p>
+<p><strong>Webex</strong> <br />
+Американская компания, которая разрабатывает и продает приложения для веб-конференций, видеоконференцсвязи и контакт-центра как сервиса.</p>
+<p><strong>i3D</strong> <br />
+Протокол с низкой задержкой, используемый в основном игровыми серверами.</p>
+<p><strong>RiotGames</strong> <br />
+Американская компания, разработчик видеоигр, издатель и организатор киберспортивных турниров (League of Legends).</p>
+<p><strong>SignalVoip</strong> <br />
+Протокол голосовой связи в мессенджере Signal.</p>
+<p><strong>Roblox</strong> <br />
+Игровая онлайн-платформа и система создания игр, позволяющая любому пользователю создавать свои собственные и играть в созданные другими игры.</p>
+<p><strong>TPLINK_SHP</strong> <br />
+Протокол TP-Link Smart Home Protocol используется для подключения устройств «Умного дома» с помощью приложения-компаньона.</p>
+<p><strong>Apple</strong> <br />
+Компания-производитель смартфонов и компьютерной техники.</p>
+<p><strong>Cassandra</strong> <br />
+Распределенная система управления базами данных, относящаяся к классу NoSQL-систем и рассчитанная на создание масштабируемых хранилищ данных, представленных в виде хеша.</p>
+<p><strong>Cloudflare</strong> <br />
+Американская компания, предоставляющая услуги CDN, защиту от DDoS-атак, безопасный доступ к ресурсам и серверы DNS.</p>
+<p><strong>KCP</strong> <br />
+Протокол связи, который максимально использует полосу пропускания для надежной связи с низкой задержкой.</p>
+<p><strong>TruPhone</strong> <br />
+Глобальная мобильная сеть, которая занимается разработкой технологии eSim, позволяющей подключаться к разным провайдерам без замены сим-карты.</p>
+<p><strong>GoogleChat</strong> <br />
+Коммуникационный сервис, разработанный компанией Google.</p>
+<p><strong>Kafka</strong> <br />
+Распределенный программный брокер сообщений с открытым исходным кодом.</p>
+<p><strong>BJNP</strong> <br />
+Протокол обнаружения служб локальной сети, используемый принтерами и сканерами Canon. Компьютерные системы используют этот протокол для автоматического обнаружения устройств Canon в сети.</p>
+<p><strong>HTTP_Connect</strong> <br />
+Метод HTTP, который запускает двустороннюю связь с запрошенным ресурсом. Метод можно использовать для открытия туннеля.</p>
+<p><strong>UMAS</strong> <br />
+Unified Messaging Application Services - проприетарный протокол Schneider Electric, который используется для конфигурации, мониторинга сбора данных и управления промышленными контроллерами Schneider Electric.</p>
+<p><strong>IGMP</strong> <br />
+Протокол управления групповой передачей данных в сетях, основанных на протоколе IP. Используется маршрутизаторами и IP-узлами для организации сетевых устройств в группы.</p>
+<p><strong>Whois-DAS</strong> <br />
+Сетевой протокол прикладного уровня, базирующийся на протоколе TCP, применяется для получения регистрационных данных о владельцах доменных имен, IP-адресов и автономных систем.</p>
+<p><strong>Yahoo</strong> <br />
+Американская компания, специализирующаяся на проектах и услугах в интернете. Владеет поисковой системой с одноименным названием.</p>
+<p><strong>DirecTV</strong> <br />
+Компания прямого теле-радиовещания в США, сигналы цифрового спутникового телевидения и радио передаются на территорию США и Латинской Америки.</p>
+<p><strong>eBay</strong> <br />
+Американская компания, предоставляющая услуги в областях интернет-аукционов и интернет-магазинов.</p>
+<p><strong>Mullvad</strong> <br />
+Сервис по поставке услуг виртуальной частной сети (VPN) с открытым исходным кодом, работает с использованием протоколов WireGuard и OpenVPN.</p>
+<p><strong>Tencent</strong> <br />
+Китайский конгломерат, создавший китайский клон ICQ, собственную валюту, отдельную соцсеть, множество игр, торговую площадку и WeChat.</p>
+<p><strong>HBO</strong> <br />
+Американский телеканал, принадлежащий компании WarnerMedia.</p>
+<p><strong>WorldOfKungFu</strong> <br />
+3D MMORPG с боевыми искусствами, основанная на традиционной китайской культуре.</p>
+<p><strong>Oracle</strong> <br />
+Американская компания, специализируется на выпуске систем управления базами данных, связующего программного обеспечения, бизнес-приложений.</p>
+<p><strong>BITCOIN</strong> <br />
+Криптовалюта, использующая децентрализованную систему для записи транзакций в блокчейне.</p>
+<p><strong>HL7</strong> <br />
+Стандарт обмена, управления и интеграции электронной медицинской информации.</p>
+<p><strong>ICMP</strong> <br />
+Протокол третьего уровня модели OSI, который используется для диагностики проблем со связностью в сети.</p>
+<p><strong>EtherSIO</strong> <br />
+Протокол используется для передачи данных между программируемыми логическими контроллерами и удаленными устройствами ввода/вывода производства компании Saia-Burgess Controls Ltd.</p>
+<p><strong>RMCP</strong> <br />
+Протокол многоадресной передачи с ретрансляцией для предоставления услуг сквозной многоадресной передачи данных по сетям на базе IP-протокола.</p>
+<p><strong>Tuenti</strong> <br />
+Испанская закрытая социальная сеть, в которую можно попасть только по приглашению частного характера.</p>
+<p><strong>Mumble</strong> <br />
+Свободное кроссплатформенное VoIP-приложение с открытым кодом, включающее особую технологию «позиционирования звука», как основную отличительную особенность.</p>
+<p><strong>CloudflareWarp</strong> <br />
+Бесплатный VPN от CloudFlare, который проксирует все сетевые запросы в системе (включая обновления Windows и др. ПО, трафик многопользовательских игр, торренты).</p>
+<p><strong>SnapchatCall</strong> <br />
+Протокол голосовой передачи, основанный на VoIP, в мессенджере Snapchat.</p>
+<p><strong>Playstation</strong> <br />
+Игровая приставка пятого поколения, разработанная компанией Sony Computer Entertainment.</p>
+<p><strong>CPHA</strong> <br />
+Алгоритм хеширования, который может использоваться для безопасного хранения паролей в PTC.</p>
+<p><strong>Ookla</strong> <br />
+Американская компания, которая владеет сервисом по измерению скорости интернета Speedtest.</p>
+<p><strong>HTTP_Proxy</strong> <br />
+Тип прокси-сервера, который действует как сервер-посредник между клиентом и веб-сервером.</p>
+<p><strong>Megaco</strong> <br />
+Протокол для управления функциями шлюза на границе пакетной сети.</p>
+<p><strong>Reddit</strong> <br />
+Сайт, сочетающий черты социальной сети и форума, где зарегистрированные пользователи могут размещать ссылки на понравившуюся информацию в интернете и обсуждать ее.</p>
+<p><strong>Ceph</strong> <br />
+Свободная программная объектная сеть хранения, обеспечивающая как файловый, так и блочный интерфейсы доступа.</p>
+<p><strong>RTPS</strong> <br />
+Real Time Streaming Protocol - потоковый протокол реального времени - позволяет управлять вещанием: выполнять несколько команд, такие как «старт», «стоп», «переход на определенное время».</p>
+<p><strong>Roughtime</strong> <br />
+Протокол с криптографической защитой на базе UDP, который используется для синхронизации времени серверов.</p>
+<p><strong>Nvidia</strong> <br />
+Американская технологическая компания, разработчик графических процессоров и систем на чипе (SoC).</p>
+<p><strong>Nintendo</strong> <br />
+Японская компания, специализирующаяся на создании видеоигр и игровых систем.</p>
+<p><strong>FTP_DATA</strong>
+Протокол доступа, предназначенный для удаленной передачи файлов в компьютерных сетях.</p>
+<p><strong>GoogleClassroom</strong> <br />
+Облачная платформа для организации образовательного процесса.</p>
+<p><strong>RX</strong> <br />
+Клиент-серверный RPC-протокол, расширенная и объединенная версия старых протоколов R и RFTP.</p>
+<p><strong>SD-RTN</strong> <br />
+Software Defined Real-time Network - собственный протокол компании Agora, предназначен для потоковой передачи данных с низкой задержкой.</p>
+<p><strong>FINS</strong> <br />
+Открытый протокол связи поддерживаемый большинством контроллеров и сетей разработки компании Omron.</p>
+<p><strong>TelegramVoip</strong> <br />
+Голосовые и видеозвонки в мессенджере Telegram.</p>
+<p><strong>AliCloud</strong> <br />
+Компания, предоставляющая ресурсы для облачных вычислений, дочерняя компания Alibaba Group.</p>
+<p><strong>Microsoft365</strong> <br />
+Программный продукт от компании Microsoft. Набор веб-сервисов на основе платформы Microsoft Office, электронная почта, функции для общения и управления документами, которые распространяется на основе подписки по схеме «программное обеспечение как услуга».</p>
+<p><strong>Guildwars</strong> <br />
+Фэнтезийная массовая многопользовательская ролевая онлайн-игра, разработанная компанией ArenaNet и выпущенная компанией NCsoft в 2005 году.</p>
+<p><strong>FacebookVoip</strong> <br />
+Голосовые и видеозвонки в FaceBook.</p>
+<p><strong>AppleSiri</strong> <br />
+Облачный персональный помощник и вопросно-ответная система компании Apple.</p>
+<p><strong>HART-IP</strong> <br />
+Адресуемый по магистрали удаленный преобразователь по IP, в основном используется для обмена данными в качестве стандартного глобального протокола между интеллектуальными устройствами и системой управления и некоторой интеллектуальной системой.</p>
+<p><strong>Wikipedia</strong> <br />
+Самая крупная в мире онлайн-энциклопедия.</p>
+<p><strong>Softether</strong> <br />
+Бесплатное кроссплатформенное многопротокольное программное обеспечение VPN-клиента и VPN-сервера с открытым исходным кодом.</p>
+<p><strong>IEEE-C37118</strong> <br />
+Потоковый протокол для обмена и передачи данных синхрофазоров (или PMU), которые фиксируют устойчивое состояние или динамический отклик энергосистемы. Обеспечивает высокоскоростную передачу большого количества данных в режиме реального времени.</p>
+<p><strong>Google</strong> <br />
+Американская технологическая компания, которая специализируется на поисковых технологиях, искусственном интеллекте, онлайн-рекламе, программном обеспечении, бытовой электронике.</p>
+<p><strong>YouTubeUpload</strong> <br />
+Загрузка файлов на видеохостинг YouTube.</p>
+<p><strong>Unknown</strong> <br />
+Не распознанные модулем протоколы и приложения.</p>
+<p><strong>Git</strong> <br />
+Распределенная система управления версиями.</p>
+<p><strong>SinaWeibo</strong> <br />
+Китайский сервис микроблогов, запущенный компанией Sina Corp.</p>
+<p><strong>BeckhoffADS</strong> <br />
+Открытый протокол обмена данными ADS на базе TCP/IP для общения с контроллером, разработанный BECKHOFF.</p>
+<p><strong>CNN</strong> <br />
+Американский круглосуточный кабельный телеканал новостей.</p>
+<p><strong>NoMachine</strong> <br />
+Проект итальянской компании Medialogic S.p.A. для дистанционной работы.</p>
+<p><strong>Dofus</strong> <br />
+Массовая многопользовательская ролевая онлайн-игра (MMORPG), использующая Flash-графику и фэнтезийный сеттинг.</p>
+<p><strong>DataSaver</strong> <br />
+Функция для Chrome, которая позволяет значительно сократить использование мобильных данных.</p>
+<p><strong>Monero</strong> <br />
+Криптовалюта на основе протокола CryptoNote, ориентированная на повышенную конфиденциальность транзакций.</p>
+<p><strong>Xiaomi</strong> <br />
+Китайская корпорация-производитель смартфонов, компьютерной и бытовой техники.</p>
+<p><strong>VMware</strong> <br />
+Американская компания-разработчик программного обеспечения для виртуализации.</p>
+<p><strong>LISP</strong> <br />
+Протокол маршрутизации, построенный на идее разделения топологического расположения точки присоединения к сети и идентификации узла.</p>
+<p><strong>Yojimbo</strong> <br />
+Менеджер личной информации для MacOS от Bare Bones Software, позволяет хранить заметки, изображения и медиафайлы, URL-адреса, веб-страницы и пароли.</p>
+<p><strong>CryNetwork</strong> <br />
+Составной модуль для создания многопользовательских игр.</p>
+<p><strong>AppleiCloud</strong> <br />
+Облачное хранилище от компании Apple, которое предоставляет пользователям доступ к их музыке, фотографиям, документам и другим файлам с любого устройства.</p>
+<p><strong>HiSLIP</strong> <br />
+Коммуникационный протокол для измерительного и тестового оборудования с использованием технологии VISA.</p>
+<p><strong>SoundCloud</strong> <br />
+Онлайн-платформа и сайт для распространения оцифрованной звуковой информации (например, музыкальных произведений).</p>
+<p><strong>UbuntuONE</strong> <br />
+Онлайн-хранилище, разрабатываемое компанией Canonical, предназначавшееся для обмена файлами и синхронизации между компьютерами и мобильными устройствами.</p>
+<p><strong>Ether-S-Bus</strong> <br />
+Промышленный протокол управления, используемый компанией SAIA Burgess.</p>
+<p><strong>Pluralsight</strong> <br />
+Платформа для онлайн-обучения.</p>
+<p><strong>GoTo</strong> <br />
+Американская компания, предоставляющая услуги телефонных систем для бизнеса, контакт-центров и продукты для ИТ-поддержки.</p>
+<p><strong>SteamDatagramRelay</strong> <br />
+Закрытая виртуальная игровая сеть Valve. Используя функции API, позволяет перенести игровой трафик на сетевые магистрали Valve.</p>
+<p><strong>TunnelBear</strong> <br />
+Кроссплатформенный VPN-клиент.</p>
+<p><strong>collectd</strong> <br />
+Демон Unix, который собирает, передает и хранит данные о производительности компьютеров и сетевого оборудования.</p>
+<p><strong>CiscoSkinny</strong> <br />
+Корпоративный (проприетарный) VoIP-протокол для управления взаимодействием между оконечными телефонными устройствами и сервером телефонной системы (IP-АТС).</p>
+<p><strong>ProtonVPN</strong> <br />
+Сервис по поставке услуг виртуальной частной сети (VPN), управляемый швейцарской компанией Proton AG.</p>
+<p><strong>Protobuf</strong> <br />
+Протокол сериализации (передачи) структурированных данных, предложенный Google как эффективная бинарная альтернатива текстовому формату XML.</p>
+<p><strong>Kismet</strong> <br />
+Сетевой детектор, анализатор пакетов и система обнаружения вторжений для беспроводных локальных сетей стандарта 802.11.</p>
+<p><strong>Showtime</strong> <br />
+Американский кабельный телевизионный канал.</p>
+<p><strong>IEC62056</strong> <br />
+Набор стандартов Международной электротехнической комиссии для обмена данными учета электроэнергии.</p>
+<p><strong>Xbox</strong> <br />
+Домашняя игровая консоль, разработанная и выпущенная американской корпорацией Microsoft.</p>
+<p><strong>Yandex</strong> <br />
+Российская транснациональная компания в отрасли информационных технологий, владеющая одноименной системой поиска в интернете, интернет-порталом и веб-службами.</p>
+<p><strong>AmazonAlexa</strong> <br />
+Облачная голосовая служба Amazon.</p>
+<p><strong>RSH</strong> <br />
+Протокол, позволяющий подключаться удаленно к устройству и выполнять на нем команды.</p>
+<p><strong>NOE</strong> <br />
+New Office Environment - протокол VoIP, используемый совместимыми телефонными системами Alcatel-Lucent.</p>
+<p><strong>Pandora</strong> <br />
+Тип цифровой криптовалюты.</p>
+<p><strong>HP_VIRTGRP</strong> <br />
+Протокол HP Virtual Machine Group Management - часть пакета виртуализации, используемого в серверных средах HP.</p>
+<p><strong>ISO9506-1-MMS</strong> <br />
+Протокол передачи данных реального времени и команд диспетчерского управления между сетевыми устройствами и/или программными приложениями.</p>
+<p><strong>TiVoConnect</strong> <br />
+Протокол TivoConnect обеспечивает автоматическое обнаружение оборудования для двух или более систем медиаплееров Tivo, работающих в одной сети.</p>
+<p><strong>EAQ</strong> <br />
+Entitade Aferidora da Qualidade de Banda Larga - эксцентричный протокол VoIP/конференц-связи, который редко встречается в реальной жизни.</p>
+<p><strong>NestLogSink</strong> <br />
+Система логирования для домашней системы пожарной безопасности от Google.</p>
+<p><strong>Cybersec</strong> <br />
+Компании сферы кибербезопасности: checkpoint.com norton.com, kaspersky.com, fortinet.com.</p>
+<p><strong>ADS_Analytic_Track</strong> <br />
+Отслеживание и аналитика рекламы (mobile marketing analytics and attribution platform).</p>
+<p><strong>TargusDataspeed</strong> <br />
+проприетарный протокол, используемый для тестирования пропускной способности. Был разработан компанией TARGUSinfo.</p>
+<p><strong>UBNTAC2</strong> <br />
+Утилита управления оборудованием Ubiquiti airControl, версия 2.</p>
+</details>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="logging.html"
+       title="предыдущая страница">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">назад</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Логирование</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="content-filter/README.html"
+       title="следующая страница">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">вперёд</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Контент-фильтр</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1. Создание правил</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+По Ideco
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Копирайт 2024, Ideco.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

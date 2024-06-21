@@ -1,0 +1,1534 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ru" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Подключение Ideco NGFW и MikroTik &#8212; Ideco NGFW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../../../../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../../../../_static/translations.js?v=29b1f277"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'repo/docsUTM/settings/services/ipsec/site-to-site/site-to-site-ideco-mikrotik';</script>
+    <link rel="index" title="Алфавитный указатель" href="../../../../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../../../../search.html" />
+    <link rel="next" title="1. Подключение MikroTik и Ideco NGFW по L2TP/IPsec и IKev2/IPsec" href="utm-to-mikrotik-vpn.html" />
+    <link rel="prev" title="1. Подключение между двумя Ideco NGFW в транспортном режиме работы" href="ipsec-utm-to-utm-transport.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ru"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Перейти к основному содержанию</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="../../../../../../index.html">Оглавление</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">1. Об Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/license.html">1. Лицензирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/data-update-source-ideco-utm.html">1. Cистемные требования и источники обновления данных Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../general/technical-support.html">1. Техническая поддержка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/tips-for-initial-setup.html">1. Рекомендации при первоначальной настройке</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/initial-action-my-ideco.html">1. Личный кабинет my.ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/preparation-install.html">1. Подготовка к установке на устройство</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/specifics-of-hypervisor-settings.html">1. Настройка гипервизора</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/usb.html">1. Создание загрузочного USB flash-диска</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/installation-process.html">1. Установка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/initial-setup.html">1. Первоначальная настройка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/server-registration.html">1. Регистрация сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../monitor-panel.html">1. Панель мониторинга</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/README.html">1. Пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/user-tree/README.html">1. Учетные записи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/user-tree/user-management.html">1. Управление пользователями</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/user-tree/customization-of-users.html">1. Настройка пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/README.html">1. Авторизация пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/web-authorization.html">1. Веб-аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/ip-and-mac-authorization/README.html">1. IP и MAC авторизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/ip-and-mac-authorization/ip-authorization.html">1. Авторизация по IP-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/ip-and-mac-authorization/mac-authorization.html">1. Авторизация по MAC-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/authorization-by-subnet.html">1. Авторизация по подсетям</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/terminal-server.html">1. Авторизация пользователей терминальных серверов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/user-personal-account.html">1. Личный кабинет пользователя</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/vpn-connection/README.html">1. VPN-подключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/two-factor-authentication.html">1. Двухфакторная аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/vpn-connection/pptp.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/vpn-connection/pppoe.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/vpn-connection/ipsec-ikev2.html">1. Подключение по IKEv2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/vpn-connection/sstp.html">1. Подключение по SSTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/vpn-connection/l2tp-ipsec.html">1. Подключение по L2TP/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/vpn-connection/features.html">1. Особенности маршрутизации и организации доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/authorization/vpn-connection/running-powershell-scripts.html">1. Инструкция по запуску PowerShell скриптов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/ideco-client/README.html">1. Ideco Client</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/ideco-client/ideco-client-windows.html">1. Установка и настройка Ideco Client на Windows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/ideco-client/ideco-client-macos.html">1. Установка и настройка Ideco Client на MacOS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/hip-profiles.html">1. Профили устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/active-directory/README.html">1. Интеграция с Microsoft Active Directory/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/active-directory/entering-the-server-into-the-domain.html">1. Ввод сервера в домен</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/active-directory/active-directory-user-authorization.html">1. Аутентификация пользователей AD/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/active-directory/auto-de-authorization-script.html">1. Скрипты автоматической разавторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/active-directory/user-import.html">1. Импорт пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/radius.html">1. Интеграция с RADIUS-сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/ald-pro.html">1. ALD Pro</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/device-discovery.html">1. Обнаружение устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../users/wifi-network.html">1. Wi-Fi-сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../monitor/README.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../monitor/authorized-users.html">1. Авторизованные пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../monitor/workload-schedule.html">1. График загруженности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../monitor/traffic.html">1. Монитор трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../monitor/telegram-bot.html">1. Telegram-бот</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../monitor/snmp.html">1. SNMP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../monitor/zabbix.html">1. Интеграция с Zabbix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/README.html">1. Правила трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/firewall.html">1. Файрвол</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/firewall-tables.html">1. Таблицы файрвола (FORWARD, DNAT, INPUT и SNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/logging.html">1. Логирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/application-control.html">1. Контроль приложений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/content-filter/README.html">1. Контент-фильтр</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/content-filter/custom-categories.html">1. Описание категорий контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/content-filter/filtering-https-traffic.html">1. Настройка фильтрации HTTPS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/content-filter/block-page.html">1. Изменение страницы блокировки Контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/shaper.html">1. Ограничение скорости</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/antivirus.html">1. Антивирусы веб-трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/ips/README.html">1. Предотвращение вторжений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/ips/log.html">1. Журнал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/ips/rules.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/ips/exceptions-rules.html">1. Исключения из правил</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/ips/settings.html">1. Настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/ips/user-ip-exceptions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/aliases.html">1. Объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../access-rules/quotas.html">1. Квоты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../connection-to-provider/README.html">1. Сетевые интерфейсы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../connection-to-provider/local-ethernet.html">1. Настройка Локального Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../connection-to-provider/ethernet-connection.html">1. Настройка Внешнего Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../connection-to-provider/pptp-connection.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../connection-to-provider/l2tp-connection.html">1. Настройка подключения по L2TP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../connection-to-provider/pppoe-connection.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../connection-to-provider/3g-4g-connection.html">1. Подключение по 3G и 4G</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../multiple-simultaneous-connections.html">1. Балансировка и резервирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../routing.html">1. Маршрутизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bgp.html">1. BGP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ospf.html">1. OSPF</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../igmp.html">1. IGMP Proxy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../proxy/README.html">1. Прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../proxy/exclusions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../proxy/direct-connection-proxy.html">1. Настройка прямого подключения к прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../proxy/proxy-single-interface.html">1. Настройка прокси с одним интерфейсом</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reverse-proxy.html">1. Обратный прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dns/README.html">1. DNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dns/dns-external.html">1. Внешние DNS-серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dns/master-zon.html">1. Master-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dns/forward-zon.html">1. Forward-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dns/ddns.html">1. DDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dhcp.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ntp.html">1. NTP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">1. IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ipsec-utm-to-utm-tunnel.html">1. Подключение между двумя Ideco NGFW в туннельном режиме работы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ipsec-utm-to-utm-transport.html">1. Подключение между двумя Ideco NGFW в транспортном режиме работы</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Подключение Ideco NGFW и MikroTik</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.1. Подключение в Туннельном режиме</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.1.1. Подключение от Ideco NGFW к MikroTik</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#psk">1.1.1.1. Тип аутентификации PSK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1.1.1.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mikrotik-ideco-ngfw">1.1.2. Подключение от MikroTik к Ideco NGFW</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">1.1.2.1. Тип аутентификации PSK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">1.1.2.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gre-over-ipsec">1.2. Подключение в Транспортном режиме (GRE over IPsec)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.2.1. Подключение от Ideco NGFW к MikroTik</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">1.2.1.1. Тип аутентификации PSK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">1.2.1.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">1.2.2. Подключение от MikroTik к Ideco NGFW</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">1.2.2.1. Тип аутентификации PSK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">1.2.2.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ideco-ngfw">1.2.3. Проблемы при повторной активации входящего подключения к Ideco NGFW</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utm-to-mikrotik-vpn.html">1. Подключение MikroTik и Ideco NGFW по L2TP/IPsec и IKev2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="connect-utm-to-cisco-via-ipsec.html">1. Подключение Cisco IOS и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ipsec-connection-pfsense-to-utm.html">1. Подключение pfSense к Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ipsec-connection-kerio-control-to-utm.html">1. Подключение Kerio Control и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="keenetic-connection.html">1. Подключение Keenetic по SSTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keenetic-connection.html#keenetic-ipsec">2. Подключение Keenetic по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../certificates/README.html">1. Сертификаты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../certificates/upload-ssl-certificate-to-server.html">1. Загрузка SSL-сертификата на сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../certificates/creating-ssl-sert-powershell.html">1. Создание самоподписанного сертификата c помощью PowerShell</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../certificates/creating-openssl-cert.html">1. Создание самоподписанного сертификата c помощью openssl</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/README.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/traffic.html">1. Трафик</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/logs.html">1. Журнал событий</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/web-logs.html">1. Журнал веб-доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/antivirus-logs.html">1. Журнал антивируса</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/security-events.html">1. События безопасности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/administrator-actions.html">1. Действия администраторов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/authorization-log.html">1. Журнал авторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/report-designer.html">1. Конструктор отчетов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reports/syslog.html">1. Syslog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/README.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/admins.html">1. Администраторы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/central-console.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/vce.html">1. VCE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/cluster.html">1. Кластеризация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/server-update.html">1. Автоматическое обновление</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/server-update.html#id2">2. Процесс выхода релизов в каналы обновлений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/server-update.html#ngfw">3. Особенности обновления NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/backup.html">1. Бекапы на удаленное файловое хранилище по протоколу FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/backup.html#netbios-cifs">2. Бекапы на сетевое файловое хранилище по протоколу NetBIOS (CIFS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/backup.html#id1">3. Бекапы на локальный жесткий диск</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/backup.html#id2">4. Восстановление конфигурации из бекапа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/terminal.html">1. Терминал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/license-management.html">1. Лицензия</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server-management/additionally.html">1. Дополнительно</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/README.html">1. Почтовый релей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/mail-server-settings/README.html">1. Основные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/mail-server-settings/web-mail.html">1. Web-почта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/mail-server-settings/mail-relay-settings.html">1. Настройка почтового релея</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/mail-server-settings/mail-server-settings.html">1. Настройка почтового сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/advanced-settings/README.html">1. Расширенные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/advanced-settings/domain-settings-at-zone-holder.html">1. Настройка домена у регистратора/держателя зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/antispam.html">1. Антиспам</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/regulations/README.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/regulations/mail-forwarding.html">1. Переадресация почты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/mail-queue.html">1. Почтовая очередь</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/configuring-email-clients.html">1. Настройка почтовых клиентов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../mail/filtering-scheme-for-mail-traffic.html">1. Схема фильтрации почтового трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../publishing-resources/README.html">1. Публикация ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../publishing-resources/access-from-external-network-without-nat.html">1. Доступ из внешней сети без NAT</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../publishing-resources/publishing-web-applications.html">1. Публикация веб-приложений (обратный прокси-сервер)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../publishing-resources/configure-public-ip-on-computer-on-the-local-net.html">1. Настройка публичного IP-адреса на компьютере в локальной сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../publishing-resources/portmapping.html">1. Портмаппинг (проброс портов, DNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../skydns.html">1. Интеграция NGFW и SkyDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-my/README.html">1. О личном кабинете MY.IDECO</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-my/ngfw.html">1. NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-my/bot-security.html">1. Monitoring Bot и Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-my/personal-details-and-companies.html">1. Личные данные и Компании</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-cc/README.html">1. Об Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-cc/setup.html">1. Установка Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-cc/servers.html">1. Серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-cc/monitor.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-cc/policies-and-objects.html">1. Политики и объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-cc/services.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-cc/reports.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../settings-cc/server-management.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/README.html">1. FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/remote-assistant.html">1. Режим удаленного помощника</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/allow-internet-all.html">1. Разрешить интернет всем: диагностика неполадок</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/remote-access-for-server-management.html">1. Удаленный доступ к серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/memory-testing.html">1. Тестирование оперативной памяти сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/README.html">1. Инструкции по созданию VPN-подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/connection-for-ubuntu.html">1. Создание VPN-подключения в Ubuntu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/connection-for-fedora.html">1. Инструкция по созданию подключения в Fedora</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/connection-for-astra-linux.html">1. Инструкция по созданию подключения в Astra Linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/auto-connect.html">1. Автоматическое создание подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/connection-for-windows10.html">1. Инструкция по созданию подключения в Windows 10</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/connection-for-windows7.html">1. Создание подключения в Windows 7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/connection-for-mobile-devices.html">1. Инструкция по созданию VPN-подключения на мобильных устройствах</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/connection-for-high-sierra-macos.html">1. Инструкция по созданию подключения в Mac OS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vpn/sstp-connecting-keenetic-wi-fi-routers.html">1. Подключение по SSTP Wi-Fi-роутеров Keenetic</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/access-to-remote-networks.html">1. Как избавиться от асимметричной маршрутизации трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/dnsbl-list.html">1. Что делать если IP попал в черные списки DNSBL</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/restore-access-to-ideco-utm.html">1. Как восстановить доступ к Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/go-back.html">1. Как восстановиться на прошлую версию после обновления Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/security-ideco.html">1. Проверка настроек фильтрации с помощью security ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/choosing-hardware-platform.html">1. Выбор аппаратной платформы для Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/legacy-encryption-support.html">1. Поддержка устаревших алгоритмов шифрования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/configuring-proxifier.html">1. Настройка программы Proxifier для прямых подключений к прокси серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/blocking-popular-resources.html">1. Блокировка популярных ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/authorization-astra-linux.html">1. Настройка прозрачной авторизации на Astra linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/auto-authorization-linux.html">1. Инструкция по настройке автоматической веб-аутентификации на Ideco NGFW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/auto-authorization-linux.html#id1">2. Настройка автозагрузки скрипта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/transferring-data-to-another-server.html">1. Перенос данных и настроек на другой сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/processing-order.html">1. Порядок обработки веб-трафика в Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/integrity.html">1. Интеграция Ideco NGFW и брокера сетевых пакетов DS Integrity NG</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/vipnet-coordinator.html">1. Рекомендации по настройке NGFW для работы совместно с ViPNet-координатором</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/block-chat-bot.html">1. Блокировка чат-ботов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/open-ports.html">1. Доступные из внешней сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/open-ports.html#id2">2. Доступные из локальной сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/popular-recipes/open-ports.html#id3">3. Как проверить, открыт ли порт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/problem-diagnosis/README.html">1. Диагностика проблем</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/problem-diagnosis/site-does-not-open.html">1. Ошибка при открытии сайта ERR_CONNECTION_TIMED_OUT или Не открывается сайт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/problem-diagnosis/what-to-do-if-the-internet-does-not-work.html">1. Что делать, если не работает интернет</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/problem-diagnosis/old-browser.html">1. Ошибка при авторизации «The browser is outdated»</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recipes/problem-diagnosis/ipsec.html">1. Если соединение по IPsec не устанавливается</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/description-of-handlers.html">1. Описание основных хендлеров</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/active-directory-api.html">1. Управление интеграцией с Active Directory</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/user-management-api.html">1. Управление пользователями и группами</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/access-rules-api.html">1. Управление правилами трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/dhcp-api.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/dns-api.html">1. DNS-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/logs-api.html">1. Настройка удаленной передачи системных логов (Syslog)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/cc-api.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/backup-api.html">1. Бекапы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/examples/README.html">1. Примеры использования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/examples/editing-a-custom-category.html">1. Редактирование пользовательской категории контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/examples/creating-a-forward-rule.html">1. Создание правила Forward</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog/ideco-utm/README.html">1. Ideco NGFW 17.X</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog/cc/README.html">1. Ideco Center 17.Х</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../../../_sources/repo/docsUTM/settings/services/ipsec/site-to-site/site-to-site-ideco-mikrotik.md">
+      <i class="fa-solid fa-file-lines"></i> Исходный текст
+    </a>
+  </div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Загрузите эту страницу">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../../../_sources/repo/docsUTM/settings/services/ipsec/site-to-site/site-to-site-ideco-mikrotik.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Скачать исходный файл"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Распечатать в PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Полноэкранный режим"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="светлая/темная" aria-label="светлая/темная" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Подключение Ideco NGFW и MikroTik</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1. Подключение в Туннельном режиме</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1.1. Подключение от Ideco NGFW к MikroTik</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#psk">1.1.1.1. Тип аутентификации PSK</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.1.1.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikrotik-ideco-ngfw">1.1.2. Подключение от MikroTik к Ideco NGFW</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1.1.2.1. Тип аутентификации PSK</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">1.1.2.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gre-over-ipsec">1.2. Подключение в Транспортном режиме (GRE over IPsec)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1.2.1. Подключение от Ideco NGFW к MikroTik</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1.2.1.1. Тип аутентификации PSK</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.2.1.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1.2.2. Подключение от MikroTik к Ideco NGFW</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1.2.2.1. Тип аутентификации PSK</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.2.2.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ideco-ngfw">1.2.3. Проблемы при повторной активации входящего подключения к Ideco NGFW</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ideco-ngfw-mikrotik">
+<h1><span class="section-number">1. </span>Подключение Ideco NGFW и MikroTik<a class="headerlink" href="#ideco-ngfw-mikrotik" title="Link to this heading">#</a></h1>
+<p>При объединении сетей с помощью VPN локальные сети в разных офисах не должны пересекаться.</p>
+<p>Для корректной работы подключений по сертификатам синхронизируйте время на MikroTik по NTP (например, предоставьте доступ в интернет).</p>
+<p>Исходящие IPsec-подключения по сертификатам к MikroTik ниже версии 6.45 не работают из-за невозможности использования современных криптоалгоритмов.</p>
+<section id="id1">
+<h2><span class="section-number">1.1. </span>Подключение в Туннельном режиме<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p><strong>При использовании</strong> <a class="reference external" href="https://mikrotik.ideco.ru"><strong>нашего конфигуратора скриптов настроек MikroTik</strong></a> <strong>есть несколько особенностей:</strong></p>
+<ul class="simple">
+<li><p>При подключении нескольких устройств MikroTik к одному Ideco NGFW по PSK нужно указывать разные <strong>Идентификаторы ключа (Key id)</strong> для каждого устройства;</p></li>
+<li><p>При подключении нескольких устройств MikroTik к одному Ideco NGFW по сертификатам нужно указывать разные <strong>Имена сервера</strong> (Common Name) для каждого устройства:</p></li>
+</ul>
+<p><img alt="" src=".gitbook/assets/site-to-site-ideco-mikrotik.png" /></p>
+<section id="id2">
+<h3><span class="section-number">1.1.1. </span>Подключение от Ideco NGFW к MikroTik<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="psk">
+<h4><span class="section-number">1.1.1.1. </span>Тип аутентификации PSK<a class="headerlink" href="#psk" title="Link to this heading">#</a></h4>
+<details>
+<summary>Настройка Ideco NGFW</summary>
+<p>1. Откройте вкладку <strong>Сервисы -&gt; IPsec -&gt; Исходящие подключения</strong>, нажмите <strong>Добавить</strong> и заполните поля:</p>
+<ul class="simple">
+<li><p><strong>Название подключения</strong> - укажите произвольное имя для подключения. Значение не должно быть длиннее 42 символов;</p></li>
+<li><p><strong>Зона</strong> - укажите зону для добавления IPSec-подключения;</p></li>
+<li><p><strong>Адрес удаленного устройства</strong> - укажите внешний IP-адрес устройства MikroTik;</p></li>
+<li><p><strong>IP-адрес интерфейса туннеля</strong> - укажите IP-адрес интерфейса туннеля. Поле необязательное, заполняется при настройке BGP-соседства для динамической маршрутизации и для получения статистики обмена пакетами;</p></li>
+<li><p><strong>Удаленный IP-адрес туннеля</strong> - укажите IP-адрес интерфейса туннеля удаленной стороны. Поле необязательное. Для получения статистики о потере пакетов, средней задержке и джиттере заполните поля <strong>IP-адрес интрефейса туннеля</strong> и <strong>Удаленный IP-адрес туннеля</strong>. Они должны находиться в одной подсети.</p></li>
+<li><p><strong>PSK</strong> - будет сгенерирован случайный PSK-ключ. Он потребуется для настройки подключения в MikroTik;</p></li>
+<li><p><strong>NGFW идентификатор</strong> - введенный ключ будет использоваться для идентификации исходящего подключения;</p></li>
+<li><p><strong>Домашние локальные сети</strong> - перечислите все <strong>локальные сети NGFW</strong>, которые будут видны противоположной стороне;</p></li>
+<li><p><strong>Удаленные локальные сети</strong> - перечислите все <strong>локальные сети MikroTik</strong>, которые будут видны противоположной стороне:</p></li>
+</ul>
+<p><img alt="" src=".gitbook/assets/ipsec14.png" /></p>
+<p>2. После заполнения всех полей нажмите <strong>Добавить подключение</strong>. В списке подключений появится созданное подключение:</p>
+<p><img alt="" src=".gitbook/assets/ipsec15.png" /></p>
+</details>
+<details>
+<summary>Настройка Mikrotik</summary>
+<p>Настройку устройства MikroTik можно осуществить несколькими способами:</p>
+<ul class="simple">
+<li><p>GUI;</p></li>
+<li><p>Консоль устройства;</p></li>
+<li><p>Конфигурационными скриптами (<a class="reference external" href="https://mikrotik.ideco.ru">https://mikrotik.ideco.ru/</a>).</p></li>
+</ul>
+<p>После генерации скрипта необходимо открыть раздел <strong>System -&gt; Scripts</strong>, создать скрипт, вставить в него код, сгенерированный конфигуратором, и запустить.</p>
+</details>
+</section>
+<section id="id3">
+<h4><span class="section-number">1.1.1.2. </span>Тип аутентификации Сертификат<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>Подключение по сертификатам является более безопасным по сравнению с PSK.</p>
+<details>
+<summary>Настройка Ideco NGFW</summary>
+<p>Сгенерируйте запрос на подпись сертификата:</p>
+<p>1. В Ideco NGFW откройте вкладку <strong>Сервисы -&gt; IPsec -&gt; Исходящие подключения</strong>, нажмите <strong>Добавить</strong> и заполните поля:</p>
+<ul class="simple">
+<li><p><strong>Название подключения</strong> - укажите произвольное имя для подключения. Значение не должно быть длиннее 42 символов;</p></li>
+<li><p><strong>Зона</strong> - укажите зону для добавления IPsec-подключения;</p></li>
+<li><p><strong>Адрес удаленного устройства</strong> - укажите внешний IP-адрес MikroTik;</p></li>
+<li><p><strong>IP-адрес интерфейса туннеля</strong> - укажите IP-адрес интерфейса туннеля. Поле необязательное, заполняется при настройке BGP-соседства для динамической маршрутизации и для получения статистики обмена пакетами;</p></li>
+<li><p><strong>Удаленный IP-адрес туннеля</strong> - укажите IP-адрес интерфейса туннеля удаленной стороны. Поле необязательное. Для получения статистики о потере пакетов, средней задержке и джиттере заполните поля <strong>IP-адрес интрефейса туннеля</strong> и <strong>Удаленный IP-адрес туннеля</strong>. Они должны находиться в одной подсети.</p></li>
+<li><p><strong>Домашние локальные сети</strong> - перечислите все <strong>локальные сети NGFW</strong>, которые будут видны противоположной стороне;</p></li>
+<li><p><strong>Удаленные локальные сети</strong> - перечислите все <strong>локальные сети MikroTik</strong>, которые будут видны противоположной стороне;</p></li>
+<li><p><strong>Запрос на подпись сертификата</strong> - будет сгенерирован <strong>запрос, который необходимо выслать для подписи на MikroTik</strong>:</p></li>
+</ul>
+<p><img alt="" src=".gitbook/assets/ipsec16.png" /></p>
+<p>2. После подписания запроса необходимо продолжить настройку подключения в Ideco NGFW.</p>
+<p><strong>Не закрывайте вкладку с настройками!</strong> При закрытии вкладки с настройками <em>Запрос на подпись сертификата</em> изменит значение и процесс подписания файла NGFW.csr потребуется повторить.</p>
+</details>
+<details>
+<summary>Настройка MikroTik</summary>
+<p>На этом этапе следует настроить MikroTik, чтобы продолжить настройку NGFW.</p>
+<p>Файл <strong>UTM.csr</strong>, полученный из Ideco NGFW, необходимо загрузить в файловое хранилище MikroTik:</p>
+<p>1. Откройте раздел <strong>File</strong>.</p>
+<p>2. Нажмите кнопку <strong>Browse</strong>.</p>
+<p>3. Выберите файл и загрузите его.</p>
+<p>Настроить MikroTik можно:</p>
+<ul class="simple">
+<li><p>Через GUI;</p></li>
+<li><p>Через консоль устройства;</p></li>
+<li><p>Через конфигурационные скрипты, сгенерированные по адресу <a class="reference external" href="https://mikrotik.ideco.ru">https://mikrotik.ideco.ru/</a>.</p></li>
+</ul>
+<p>После генерации скрипта откройте раздел <strong>System -&gt; Scripts</strong>, создайте скрипт и вставьте в него код, сгенерированный конфигуратором, затем запустите.</p>
+<p>В файловой системе MikroTik появятся два файла, которые необходимо скачать, чтобы впоследствии загрузить на NGFW:</p>
+<p><img alt="" src=".gitbook/assets/site-to-site-ideco-mikrotik3.png" /></p>
+<p>Файл вида <code class="docutils literal notranslate"><span class="pre">cert_export_device_&lt;случайный</span> <span class="pre">набор</span> <span class="pre">символов&gt;.ipsec.crt</span></code> - <strong>это подписанный сертификат NGFW</strong>.<br />
+Файл вида <code class="docutils literal notranslate"><span class="pre">cert_export_mk_ca.crt</span></code> - <strong>это корневой сертификат MikroTik.</strong></p>
+</details>
+<details>
+<summary>Завершение настройки Ideco NGFW</summary>
+<p>1. Перейдите обратно на Ideco NGFW во вкладку с настройками подключения устройства и продолжите заполнять поля:</p>
+<ul class="simple">
+<li><p><strong>Подписанный сертификат NGFW</strong> - загрузите подписанный в MikroTik сертификат NGFW;</p></li>
+<li><p><strong>Корневой сертификат удаленного устройства</strong> - загрузите корневой сертификат MikroTik:</p></li>
+</ul>
+<p><img alt="" src=".gitbook/assets/ipsec17.png" /></p>
+<p>2. Нажмите кнопку <strong>Добавить подключение</strong>.</p>
+</details>
+</section>
+</section>
+<section id="mikrotik-ideco-ngfw">
+<h3><span class="section-number">1.1.2. </span>Подключение от MikroTik к Ideco NGFW<a class="headerlink" href="#mikrotik-ideco-ngfw" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h4><span class="section-number">1.1.2.1. </span>Тип аутентификации PSK<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<details>
+<summary>Настройка MikroTik</summary>
+<p>Настроить устройство MikroTik можно:</p>
+<ul class="simple">
+<li><p>Через GUI;</p></li>
+<li><p>Через консоль устройства;</p></li>
+<li><p>Через конфигурационные скрипты, сгенерированные по адресу <a class="reference external" href="https://mikrotik.ideco.ru">https://mikrotik.ideco.ru/</a>.</p></li>
+</ul>
+<p>После генерации скрипта необходимо открыть раздел <strong>System -&gt; Scripts</strong>, создать скрипт, вставить в него код, сгенерированный конфигуратором, и запустить.</p>
+</details>
+<details>
+<summary>Настройка Ideco NGFW</summary>
+<p>1. В Ideco NGFW откройте вкладку <strong>Сервисы -&gt; IPsec -&gt; Входящие подключения</strong>, нажмите <strong>Добавить</strong> и заполните поля:</p>
+<ul class="simple">
+<li><p><strong>Название подключения</strong> - укажите произвольное имя для подключения. Значение не должно быть длиннее 42 символов;</p></li>
+<li><p><strong>Зона</strong> - укажите зону для добавления IPsec-подключения;</p></li>
+<li><p><strong>IP-адрес интерфейса туннеля</strong> - укажите IP-адрес интерфейса туннеля. Поле необязательное, заполняется при настройке BGP-соседства для динамической маршрутизации и для получения статистики обмена пакетами;</p></li>
+<li><p><strong>Удаленный IP-адрес туннеля</strong> - укажите IP-адрес интерфейса туннеля удаленной стороны. Поле необязательное. Для получения статистики о потере пакетов, средней задержке и джиттере заполните поля <strong>IP-адрес интрефейса туннеля</strong> и <strong>Удаленный IP-адрес туннеля</strong>. Они должны находиться в одной подсети.</p></li>
+<li><p><strong>PSK</strong> - вставьте PSK-ключ, полученный от MikroTik;</p></li>
+<li><p><strong>Идентификатор удаленной стороны</strong> - вставьте идентификатор MikroTik (параметр Key ID в <code class="docutils literal notranslate"><span class="pre">/ip</span> <span class="pre">ipsec</span> <span class="pre">peers</span></code>);</p></li>
+<li><p><strong>Домашние локальные сети</strong> - перечислите все <strong>локальные сети NGFW</strong>, которые будут видны противоположной стороне;</p></li>
+<li><p><strong>Удаленные локальные сети</strong> - перечислите все локальные сети MikroTik, которые будут видны противоположной стороне:</p></li>
+</ul>
+<p><img alt="" src=".gitbook/assets/ipsec18.png" /></p>
+<p>2. Нажмите кнопку <strong>Добавить подключение</strong>.</p>
+</details>
+</section>
+<section id="id5">
+<h4><span class="section-number">1.1.2.2. </span>Тип аутентификации Сертификат<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>Подключение по сертификатам является более безопасным, чем подключение по PSK.</p>
+<details>
+<summary>Настройка MikroTik</summary>
+<p>Настроить MikroTik можно:</p>
+<ul class="simple">
+<li><p>Через GUI;</p></li>
+<li><p>Через консоль устройства;</p></li>
+<li><p>Через конфигурационные скрипты, сгенерированные по адресу <a class="reference external" href="https://mikrotik.ideco.ru">https://mikrotik.ideco.ru/</a>.</p></li>
+</ul>
+<p>После генерации скрипта необходимо открыть раздел <strong>System -&gt; Scripts</strong>, создать скрипт, вставить в него код, сгенерированный конфигуратором, и запустить его.</p>
+<p>Конфигуратором генерируется два скрипта, потому в MikroTik также нужно создать два скрипта.</p>
+<p>Перед настройкой необходимо запустить первый скрипт. В файловом хранилище MikroTik появятся два файла, которые необходимо скачать, они требуются для дальнейшей настройки:</p>
+<p><img alt="" src=".gitbook/assets/site-to-site-ideco-mikrotik4.png" /></p>
+<ul class="simple">
+<li><p>Файл <code class="docutils literal notranslate"><span class="pre">certificate-request.pem</span></code> - <strong>запрос на подпись сертификата</strong>;</p></li>
+<li><p>Файл <code class="docutils literal notranslate"><span class="pre">certificate-request_key.pem</span></code> - <strong>приватный ключ</strong>.</p></li>
+</ul>
+<p>Далее переходим к настройке Ideco NGFW.</p>
+</details>
+<details>
+<summary>Настройка Ideco NGFW</summary>
+<p>1. В Ideco NGFW откройте вкладку <strong>Сервисы -&gt; IPsec -&gt; Входящие подключения</strong>, нажмите <strong>Добавить</strong> и заполните поля:</p>
+<ul class="simple">
+<li><p><strong>Название подключения</strong> - укажите произвольное имя для подключения. Значение не должно быть длиннее 42 символов;</p></li>
+<li><p><strong>Зона</strong> - укажите зону, в которую требуется добавить IPsec-подключение;</p></li>
+<li><p><strong>IP-адрес интерфейса туннеля</strong> - укажите IP-адрес интерфейса туннеля. Поле необязательное, заполняется при настройке BGP-соседства для динамической маршрутизации и для получения статистики обмена пакетами;</p></li>
+<li><p><strong>Удаленный IP-адрес туннеля</strong> - укажите IP-адрес интерфейса туннеля удаленной стороны. Поле необязательное. Для получения статистики о потере пакетов, средней задержке и джиттере заполните поля <strong>IP-адрес интрефейса туннеля</strong> и <strong>Удаленный IP-адрес туннеля</strong>. Они должны находиться в одной подсети.</p></li>
+<li><p><strong>Запрос на подпись сертификата</strong> - загрузите запрос на подпись, <strong>полученный от MikroTik</strong>;</p></li>
+<li><p><strong>Домашние локальные сети</strong> - необходимо перечислить все локальные сети NGFW, которые будут доступны в IPsec-подключении, т. е. будут видны противоположной стороне:</p></li>
+</ul>
+<p><img alt="" src=".gitbook/assets/ipsec19.png" /></p>
+<p>2. Нажмите кнопку <strong>Добавить подключение</strong>. Нажмите на кнопку редактирования соединения, чтобы продолжить настройку:</p>
+<p><img alt="" src=".gitbook/assets/ipsec20.png" /></p>
+<p>3. Скачайте файлы, которые находятся в полях <strong>Корневой сертификат NGFW</strong> и <strong>Подписанный сертификат устройства</strong>, для их последующего использования в MikroTik:</p>
+<p><img alt="" src=".gitbook/assets/ipsec21.png" /></p>
+</details>
+</section>
+</section>
+</section>
+<section id="gre-over-ipsec">
+<h2><span class="section-number">1.2. </span>Подключение в Транспортном режиме (GRE over IPsec)<a class="headerlink" href="#gre-over-ipsec" title="Link to this heading">#</a></h2>
+<p>GRE over IPsec поддерживает мультикаст-трафик, что позволяет использовать более сложные механизмы маршрутизации, включая динамическую маршрутизацию через OSPF.</p>
+<p>Также в GRE over IPsec не требуется задавать <strong>Домашние локальные сети</strong> и <strong>Удаленные локальные сети</strong>. Транспортный режим IPsec шифрует только то, что выше уровня IP, а заголовок IP оставляет без изменений.</p>
+<p>Рассмотрим настройку подключения по схеме:</p>
+<p><img alt="" src=".gitbook/assets/site-to-site-ideco-mikrotik5.png" /></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">172.16.50.3/24</span></code> - внешний IP-адрес NGFW;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.2/24</span></code> - локальный IP-адрес NGFW;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">10.100.0.1/16</span></code> - IP-адрес GRE-тунеля NGFW;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">172.16.50.4/24</span></code> - внешний IP-адрес MikroTik;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.50.2/24</span></code> - локальный IP-адрес MikroTik;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">10.100.0.2/16</span></code> - IP-адрес GRE-тунеля MikroTik.</p></li>
+</ul>
+<p>Для настройки подключения MikroTik и Ideco NGFW нужно следовать инструкции в каждом из пунктов.</p>
+<section id="id6">
+<h3><span class="section-number">1.2.1. </span>Подключение от Ideco NGFW к MikroTik<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<details>
+<summary>Предварительная настройка MikroTik</summary>
+<p>1. Настройте на MikroTik IP-адреса:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ip</span> <span class="n">address</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span><span class="o">/</span><span class="mi">24</span> <span class="n">interface</span><span class="o">=</span><span class="n">ether1</span> <span class="n">network</span><span class="o">=</span><span class="mf">172.16.50.0</span>
+<span class="o">/</span><span class="n">ip</span> <span class="n">address</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">192.168.50.2</span><span class="o">/</span><span class="mi">24</span> <span class="n">interface</span><span class="o">=</span><span class="n">ether2</span> <span class="n">network</span><span class="o">=</span><span class="mf">192.168.50.0</span>
+</pre></div>
+</div>
+<p>2. Создайте GRE-интерфейс и назначьте ему IP-адрес:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">interface</span> <span class="n">gre</span> <span class="n">add</span> <span class="n">allow</span><span class="o">-</span><span class="n">fast</span><span class="o">-</span><span class="n">path</span><span class="o">=</span><span class="n">no</span> <span class="n">local</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span> <span class="n">name</span><span class="o">=</span><span class="n">gre</span><span class="o">-</span><span class="n">tunnel1</span> <span class="n">remote</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span>
+<span class="o">/</span><span class="n">ip</span> <span class="n">address</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">10.100.0.2</span><span class="o">/</span><span class="mi">16</span> <span class="n">interface</span><span class="o">=</span><span class="n">gre</span><span class="o">-</span><span class="n">tunnel1</span> <span class="n">network</span><span class="o">=</span><span class="mf">10.100.0.0</span>
+</pre></div>
+</div>
+</details>
+<section id="id7">
+<h4><span class="section-number">1.2.1.1. </span>Тип аутентификации PSK<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<details>
+<summary>Настройка исходящего подключения на Ideco NGFW</summary>
+<p>Заполните поля:</p>
+<p><img alt="" src=".gitbook/assets/ipsec.png" /></p>
+<ul class="simple">
+<li><p><strong>Название подключения</strong> - укажите произвольное имя для подключения. Значение не должно быть длиннее 42 символов;</p></li>
+<li><p><strong>Зона</strong> - укажите зону для добавления IPSec-подключения;</p></li>
+<li><p><strong>Режим работы</strong> - выберите <strong>Транспортный</strong> режим;</p></li>
+<li><p><strong>Адрес удаленного устройства</strong> - укажите внешний IP-адрес устройства MikroTik;</p></li>
+<li><p><strong>IP-адрес интерфейса туннеля</strong> - укажите IP-адрес интерфейса GRE-туннеля NGFW;</p></li>
+<li><p><strong>Удаленный IP-адрес туннеля</strong> - укажите IP-адрес интерфейса GRE-туннеля MikroTik. Поле необязательное и заполняется для получения статистики о потере пакетов, средней задержке и джиттере. <strong>IP-адрес интрефейса туннеля</strong> и <strong>Удаленный IP-адрес туннеля</strong> должны находиться в одной подсети;</p></li>
+<li><p><strong>Интерфейс</strong> - выберите внешний интерфейс NGFW;</p></li>
+<li><p><strong>Тип аутентификации</strong> - выберите <strong>PSK</strong>;</p></li>
+<li><p><strong>PSK-ключ</strong> - будет сгенерирован случайный PSK-ключ. Он потребуется для настройки подключения в MikroTik;</p></li>
+<li><p><strong>Тип идентификатора</strong> - выберите <strong>keyid</strong>;</p></li>
+<li><p><strong>NGFW идентификатор</strong> - введенный ключ будет использоваться для идентификации исходящего подключения.</p></li>
+</ul>
+</details>
+<details>
+<summary>Настройка входящего подключения на MikroTik</summary>
+<p>Настройте IPsec-подключение со стороны MikroTik:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">profile</span> <span class="n">add</span> <span class="n">dh</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">modp4096</span> <span class="n">enc</span><span class="o">-</span><span class="n">algorithm</span><span class="o">=</span><span class="n">aes</span><span class="o">-</span><span class="mi">256</span> <span class="nb">hash</span><span class="o">-</span><span class="n">algorithm</span><span class="o">=</span><span class="n">sha256</span> <span class="n">name</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">proposal</span> <span class="n">add</span> <span class="n">auth</span><span class="o">-</span><span class="n">algorithms</span><span class="o">=</span><span class="n">sha256</span> <span class="n">comment</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">enc</span><span class="o">-</span><span class="n">algorithms</span><span class="o">=</span><span class="n">aes</span><span class="o">-</span><span class="mi">256</span><span class="o">-</span><span class="n">cbc</span> <span class="n">name</span><span class="o">=</span><span class="mf">172.16.50.3</span> <span class="n">pfs</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">modp4096</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">peer</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span><span class="o">/</span><span class="mi">32</span> <span class="n">comment</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">exchange</span><span class="o">-</span><span class="n">mode</span><span class="o">=</span><span class="n">ike2</span> <span class="n">name</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">passive</span><span class="o">=</span><span class="n">yes</span> <span class="n">profile</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">identity</span> <span class="n">add</span> <span class="n">comment</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">peer</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;&lt;Сгенерированный NGFW PSK-ключ&gt;&quot;</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">policy</span> <span class="n">add</span> <span class="n">dst</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span><span class="o">/</span><span class="mi">32</span> <span class="n">peer</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">proposal</span><span class="o">=</span><span class="mf">172.16.50.3</span> <span class="n">protocol</span><span class="o">=</span><span class="n">gre</span> <span class="n">src</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span><span class="o">/</span><span class="mi">32</span>
+</pre></div>
+</div>
+</details>
+</section>
+<section id="id8">
+<h4><span class="section-number">1.2.1.2. </span>Тип аутентификации Сертификат<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<details>
+<summary>Настройка исходящего IPsec-подключения на Ideco NGFW</summary>
+<p>1. Перейдите в раздел <strong>IPsec -&gt; Исходящие подключения</strong> и нажмите <strong>Добавить</strong>.</p>
+<p>2. Заполните поля:</p>
+<p><img alt="" src=".gitbook/assets/ipsec3.png" /></p>
+<ul class="simple">
+<li><p><strong>Название подключения</strong> - укажите произвольное имя для подключения. Значение не должно быть длиннее 42 символов;</p></li>
+<li><p><strong>Зона</strong> - укажите зону для добавления IPSec-подключения;</p></li>
+<li><p><strong>Режим работы</strong> - выберите <strong>Транспортный</strong> режим;</p></li>
+<li><p><strong>Адрес удаленного устройства</strong> - укажите внешний IP-адрес устройства MikroTik;</p></li>
+<li><p><strong>IP-адрес интерфейса туннеля</strong> - укажите IP-адрес интерфейса GRE-туннеля NGFW;</p></li>
+<li><p><strong>Удаленный IP-адрес туннеля</strong> - укажите IP-адрес интерфейса GRE-туннеля MikroTik. Поле необязательное и заполняется для получения статистики о потере пакетов, средней задержке и джиттере. <strong>IP-адрес интрефейса туннеля</strong> и <strong>Удаленный IP-адрес туннеля</strong> должны находиться в одной подсети;</p></li>
+<li><p><strong>Интерфейс</strong> - выберите интерфейс NGFW;</p></li>
+<li><p><strong>Режим работы</strong> - выберите <strong>Транспортный</strong> режим;</p></li>
+<li><p><strong>Тип аутентификации</strong> - выберите <strong>Сертификат</strong>.</p></li>
+</ul>
+<p>3. Загрузите <strong>Запрос на подпись сертификата</strong>.</p>
+<p>4. Не закрывая форму создания исходящего подключения NGFW, перейдите к настройке Mikrotik.</p>
+</details>
+<details>
+<summary>Настройка входящего подключения на MikroTik</summary>
+<p>1. Загрузите скачанный ранее файл с <strong>Запросом на подпись сертификата</strong> (<code class="docutils literal notranslate"><span class="pre">NGFW.crt</span></code>) на MikroTik через WinBox или по ssh.</p>
+<p>2. Создайте корневой сертификат MikroTik:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">certificate</span> <span class="n">add</span> <span class="n">common</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">mk_ca</span> <span class="n">name</span><span class="o">=</span><span class="n">mk_ca_template</span> <span class="n">key</span><span class="o">-</span><span class="n">usage</span><span class="o">=</span><span class="n">key</span><span class="o">-</span><span class="n">cert</span><span class="o">-</span><span class="n">sign</span><span class="p">,</span><span class="n">crl</span><span class="o">-</span><span class="n">sign</span><span class="p">,</span><span class="n">digital</span><span class="o">-</span><span class="n">signature</span><span class="p">,</span><span class="n">content</span><span class="o">-</span><span class="n">commitment</span>
+<span class="o">/</span><span class="n">certificate</span> <span class="n">sign</span> <span class="n">mk_ca_template</span> <span class="n">ca</span><span class="o">-</span><span class="n">crl</span><span class="o">-</span><span class="n">host</span><span class="o">=</span><span class="mf">172.16.50.4</span> <span class="n">name</span><span class="o">=</span><span class="n">mk_ca</span>
+</pre></div>
+</div>
+<p>3. Подпишите сертификат Ideco NGFW и сделайте его доверенным:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">certificate</span> <span class="n">sign</span><span class="o">-</span><span class="n">certificate</span><span class="o">-</span><span class="n">request</span> <span class="n">file</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">UTM</span><span class="o">.</span><span class="n">csr</span> <span class="n">ca</span><span class="o">=</span><span class="n">mk_ca</span>
+<span class="o">/</span><span class="n">certificate</span> <span class="nb">set</span> <span class="p">[</span><span class="n">find</span> <span class="n">name</span><span class="o">~</span><span class="s2">&quot;^device_.+</span><span class="se">\\</span><span class="s2">.ipsec\$&quot;</span><span class="p">]</span> <span class="n">trusted</span><span class="o">=</span><span class="n">yes</span>
+</pre></div>
+</div>
+<p>4. Экспортируйте корневой сертификат MikroTik и подписанный сертификат NGFW в формат <code class="docutils literal notranslate"><span class="pre">.pem</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">certificate</span> <span class="n">export</span><span class="o">-</span><span class="n">certificate</span> <span class="n">mk_ca</span> <span class="nb">type</span><span class="o">=</span><span class="n">pem</span>
+<span class="o">/</span><span class="n">certificate</span> <span class="n">export</span><span class="o">-</span><span class="n">certificate</span> <span class="p">[</span><span class="n">find</span> <span class="n">name</span><span class="o">~</span><span class="s2">&quot;^device_.+</span><span class="se">\\</span><span class="s2">.ipsec\$&quot;</span><span class="p">]</span> <span class="nb">type</span><span class="o">=</span><span class="n">pem</span>
+</pre></div>
+</div>
+<p>5. Загрузите с MikroTik корневой сертификат MikroTik и подписанный сертификат NGFW через WinBox или по ssh. Названия файлов содержат <code class="docutils literal notranslate"><span class="pre">cert_export</span></code>.</p>
+<p>6. Настройте входящее IPsec-соединение на MikroTik:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">profile</span> <span class="n">add</span> <span class="n">name</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="nb">hash</span><span class="o">-</span><span class="n">algorithm</span><span class="o">=</span><span class="n">sha256</span> <span class="n">enc</span><span class="o">-</span><span class="n">algorithm</span><span class="o">=</span><span class="n">aes</span><span class="o">-</span><span class="mi">256</span> <span class="n">dh</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">modp4096</span> <span class="n">dpd</span><span class="o">-</span><span class="n">interval</span><span class="o">=</span><span class="mi">120</span><span class="n">s</span> <span class="n">dpd</span><span class="o">-</span><span class="n">maximum</span><span class="o">-</span><span class="n">failures</span><span class="o">=</span><span class="mi">5</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">peer</span> <span class="n">add</span> <span class="n">name</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span><span class="o">/</span><span class="mi">32</span> <span class="n">profile</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">exchange</span><span class="o">-</span><span class="n">mode</span><span class="o">=</span><span class="n">ike2</span> <span class="n">passive</span><span class="o">=</span><span class="n">yes</span> <span class="n">comment</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">identity</span> <span class="n">add</span> <span class="n">peer</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">auth</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="n">digital</span><span class="o">-</span><span class="n">signature</span> <span class="n">certificate</span><span class="o">=</span><span class="n">mk_ca</span> <span class="n">remote</span><span class="o">-</span><span class="n">certificate</span><span class="o">=</span><span class="p">[:</span> <span class="n">put</span> <span class="p">[</span><span class="o">/</span><span class="n">certificate</span> <span class="n">get</span> <span class="p">[</span><span class="o">/</span><span class="n">certificate</span> <span class="n">find</span> <span class="n">name</span><span class="o">~</span><span class="s2">&quot;^device_.+</span><span class="se">\\</span><span class="s2">.ipsec\$&quot;</span><span class="p">]</span> <span class="n">name</span><span class="p">]]</span> <span class="n">comment</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">proposal</span> <span class="n">add</span> <span class="n">name</span><span class="o">=</span><span class="mf">172.16.50.3</span> <span class="n">enc</span><span class="o">-</span><span class="n">algorithms</span><span class="o">=</span><span class="n">aes</span><span class="o">-</span><span class="mi">256</span><span class="o">-</span><span class="n">cbc</span> <span class="n">auth</span><span class="o">-</span><span class="n">algorithms</span><span class="o">=</span><span class="n">sha256</span> <span class="n">pfs</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">modp4096</span> <span class="n">comment</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">policy</span> <span class="n">add</span> <span class="n">dst</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span><span class="o">/</span><span class="mi">32</span> <span class="n">peer</span><span class="o">=</span><span class="n">from_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">proposal</span><span class="o">=</span><span class="mf">172.16.50.3</span> <span class="n">protocol</span><span class="o">=</span><span class="n">gre</span> <span class="n">src</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span><span class="o">/</span><span class="mi">32</span>
+</pre></div>
+</div>
+</details>
+<details>
+<summary>Донастройка исходящего IPsec-подключение на Ideco NGFW</summary>
+<p>Вернитесь к форме создания исходящего IPsec-соединения на Ideco NGFW.</p>
+<p>1. Загрузите скачанные ранее файлы <strong>Корневого сертификата MikroTik</strong> (<code class="docutils literal notranslate"><span class="pre">cert_export_mk_ca.crt</span></code>) и <strong>Подписанный сертификат NGFW</strong> (<code class="docutils literal notranslate"><span class="pre">cert_export_device_53c34ddc6d584d938f2098eae838e6ff.ipsec.crt</span></code>) в поля <strong>Корневой сертификат удаленного устройства</strong> и <strong>Подписанный сертификат NGFW</strong> соответственно.</p>
+<p>2. Нажмите <strong>Сохранить</strong>.</p>
+</details>
+</section>
+</section>
+<section id="id9">
+<h3><span class="section-number">1.2.2. </span>Подключение от MikroTik к Ideco NGFW<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h4><span class="section-number">1.2.2.1. </span>Тип аутентификации PSK<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<details>
+<summary>Настройка исходящего подключения на MikroTik</summary>
+<p>1. Настройте на MikroTik IP-адреса:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ip</span> <span class="n">address</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span><span class="o">/</span><span class="mi">24</span> <span class="n">interface</span><span class="o">=</span><span class="n">ether1</span> <span class="n">network</span><span class="o">=</span><span class="mf">172.16.50.0</span>
+<span class="o">/</span><span class="n">ip</span> <span class="n">address</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">192.168.50.2</span><span class="o">/</span><span class="mi">24</span> <span class="n">interface</span><span class="o">=</span><span class="n">ether2</span> <span class="n">network</span><span class="o">=</span><span class="mf">192.168.50.0</span>
+</pre></div>
+</div>
+<p>2. Создайте GRE-интерфейс и назначьте ему IP-адрес:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">interface</span> <span class="n">gre</span> <span class="n">add</span> <span class="n">allow</span><span class="o">-</span><span class="n">fast</span><span class="o">-</span><span class="n">path</span><span class="o">=</span><span class="n">no</span> <span class="n">local</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span> <span class="n">name</span><span class="o">=</span><span class="n">gre</span><span class="o">-</span><span class="n">tunnel1</span> <span class="n">remote</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span>
+<span class="o">/</span><span class="n">ip</span> <span class="n">address</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">10.100.0.2</span><span class="o">/</span><span class="mi">16</span> <span class="n">interface</span><span class="o">=</span><span class="n">gre</span><span class="o">-</span><span class="n">tunnel1</span> <span class="n">network</span><span class="o">=</span><span class="mf">10.100.0.0</span>
+</pre></div>
+</div>
+<p>3. Настройте IPsec-подключение со стороны MikroTik:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">profile</span> <span class="n">add</span> <span class="n">dh</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">modp4096</span> <span class="n">enc</span><span class="o">-</span><span class="n">algorithm</span><span class="o">=</span><span class="n">aes</span><span class="o">-</span><span class="mi">256</span> <span class="nb">hash</span><span class="o">-</span><span class="n">algorithm</span><span class="o">=</span><span class="n">sha256</span> <span class="n">name</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">proposal</span> <span class="n">add</span> <span class="n">auth</span><span class="o">-</span><span class="n">algorithms</span><span class="o">=</span><span class="n">sha256</span> <span class="n">comment</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">enc</span><span class="o">-</span><span class="n">algorithms</span><span class="o">=</span><span class="n">aes</span><span class="o">-</span><span class="mi">256</span><span class="o">-</span><span class="n">cbc</span> <span class="n">name</span><span class="o">=</span><span class="mf">172.16.50.3</span> <span class="n">pfs</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">modp4096</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">peer</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span><span class="o">/</span><span class="mi">32</span> <span class="n">comment</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">exchange</span><span class="o">-</span><span class="n">mode</span><span class="o">=</span><span class="n">ike2</span> <span class="n">name</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">profile</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">identity</span> <span class="n">add</span> <span class="n">comment</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">peer</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">my</span><span class="o">-</span><span class="nb">id</span><span class="o">=</span><span class="n">key</span><span class="o">-</span><span class="nb">id</span><span class="p">:</span><span class="s2">&quot;test_psk&quot;</span> <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;&lt;PSK-ключ&gt;&quot;</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">policy</span> <span class="n">add</span> <span class="n">dst</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span><span class="o">/</span><span class="mi">32</span> <span class="n">peer</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">proposal</span><span class="o">=</span><span class="mf">172.16.50.3</span> <span class="n">protocol</span><span class="o">=</span><span class="n">gre</span> <span class="n">src</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span><span class="o">/</span><span class="mi">32</span>
+</pre></div>
+</div>
+</details>
+<details>
+<summary>Настройка входящего подключения на Ideco NGFW</summary>
+<p>Заполните поля:</p>
+<p><img alt="" src=".gitbook/assets/ipsec1.png" /></p>
+<ul class="simple">
+<li><p><strong>Название подключения</strong> - укажите произвольное имя для подключения. Значение не должно быть длиннее 42 символов;</p></li>
+<li><p><strong>Зона</strong> - укажите зону для добавления IPSec-подключения;</p></li>
+<li><p><strong>Режим работы</strong> - выберите <strong>Транспортный</strong> режим;</p></li>
+<li><p><strong>IP-адрес интерфейса туннеля</strong> - укажите IP-адрес интерфейса GRE-туннеля NGFW;</p></li>
+<li><p><strong>Удаленный IP-адрес туннеля</strong> - укажите IP-адрес интерфейса GRE-туннеля MikroTik. Поле необязательное и заполняется для получения статистики о потере пакетов, средней задержке и джиттере. <strong>IP-адрес интрефейса туннеля</strong> и <strong>Удаленный IP-адрес туннеля</strong> должны находиться в одной подсети;</p></li>
+<li><p><strong>Тип аутентификации</strong> - выберите <strong>PSK</strong>;</p></li>
+<li><p><strong>PSK-ключ</strong> - введите PSK-ключ, указанный при настройке исходящего подключения в MikroTik;</p></li>
+<li><p><strong>Тип идентификатора</strong> - выберите <strong>keyid</strong>;</p></li>
+<li><p><strong>NGFW идентификатор</strong> - введите <strong>key-id</strong>, использованный при настройке исходящего подключения в MikroTik.</p></li>
+</ul>
+</details>
+</section>
+<section id="id11">
+<h4><span class="section-number">1.2.2.2. </span>Тип аутентификации Сертификат<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<details>
+<summary>Предварительная настройка MikroTik</summary>
+<p>1. Настройте на MikroTik IP-адреса:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ip</span> <span class="n">address</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span><span class="o">/</span><span class="mi">24</span> <span class="n">interface</span><span class="o">=</span><span class="n">ether1</span> <span class="n">network</span><span class="o">=</span><span class="mf">172.16.50.0</span>
+<span class="o">/</span><span class="n">ip</span> <span class="n">address</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">192.168.50.2</span><span class="o">/</span><span class="mi">24</span> <span class="n">interface</span><span class="o">=</span><span class="n">ether2</span> <span class="n">network</span><span class="o">=</span><span class="mf">192.168.50.0</span>
+</pre></div>
+</div>
+<p>2. Создайте GRE-интерфейс и назначьте ему IP-адрес:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">interface</span> <span class="n">gre</span> <span class="n">add</span> <span class="n">allow</span><span class="o">-</span><span class="n">fast</span><span class="o">-</span><span class="n">path</span><span class="o">=</span><span class="n">no</span> <span class="n">local</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span> <span class="n">name</span><span class="o">=</span><span class="n">gre</span><span class="o">-</span><span class="n">tunnel1</span> <span class="n">remote</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span>
+<span class="o">/</span><span class="n">ip</span> <span class="n">address</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">10.100.0.2</span><span class="o">/</span><span class="mi">16</span> <span class="n">interface</span><span class="o">=</span><span class="n">gre</span><span class="o">-</span><span class="n">tunnel1</span> <span class="n">network</span><span class="o">=</span><span class="mf">10.100.0.0</span>
+</pre></div>
+</div>
+<p>3. Сгенерируйте запрос на подпись сертификата:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">certificate</span> <span class="n">add</span> <span class="n">name</span><span class="o">=</span><span class="n">mk_ca</span> <span class="n">common</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">mk_ca</span> <span class="n">key</span><span class="o">-</span><span class="n">usage</span><span class="o">=</span><span class="n">digital</span><span class="o">-</span><span class="n">signature</span><span class="p">,</span><span class="n">content</span><span class="o">-</span><span class="n">commitment</span>
+<span class="o">/</span><span class="n">certificate</span> <span class="n">create</span><span class="o">-</span><span class="n">certificate</span><span class="o">-</span><span class="n">request</span> <span class="n">key</span><span class="o">-</span><span class="n">passphrase</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="n">template</span><span class="o">=</span><span class="n">mk_ca</span>
+</pre></div>
+</div>
+<p>4. Загрузите файл <code class="docutils literal notranslate"><span class="pre">certificate-request.pem</span></code> c MikroTik через WinBox или по ssh.</p>
+</details>
+<details>
+<summary>Настройка входящего IPsec-подключения на Ideco NGFW</summary>
+<p>1. Перейдите в раздел <strong>IPsec -&gt; Входящие подключения</strong> и нажмите <strong>Добавить</strong>.</p>
+<p>2. Заполните поля:</p>
+<p><img alt="" src=".gitbook/assets/ipsec2.png" /></p>
+<ul class="simple">
+<li><p><strong>Название подключения</strong> - укажите произвольное имя для подключения. Значение не должно быть длиннее 42 символов;</p></li>
+<li><p><strong>Зона</strong> - укажите зону для добавления IPSec-подключения;</p></li>
+<li><p><strong>Режим работы</strong> - выберите <strong>Транспортный</strong> режим;</p></li>
+<li><p><strong>IP-адрес интерфейса туннеля</strong> - укажите IP-адрес интерфейса GRE-туннеля NGFW;</p></li>
+<li><p><strong>Удаленный IP-адрес туннеля</strong> - укажите IP-адрес интерфейса GRE-туннеля MikroTik. Поле необязательное и заполняется для получения статистики о потере пакетов, средней задержке и джиттере. <strong>IP-адрес интрефейса туннеля</strong> и <strong>Удаленный IP-адрес туннеля</strong> должны находиться в одной подсети;</p></li>
+<li><p><strong>Тип аутентификации</strong> - выберите <strong>Сертификат</strong>.</p></li>
+</ul>
+<p>3. Загрузите скачанный ранее с MikroTik файл <code class="docutils literal notranslate"><span class="pre">certificate-request.pem</span></code> в поле <strong>Запрос на подпись сертификата</strong>.</p>
+<p>4. Нажмите <strong>Сохранить</strong>.</p>
+<p>5. Откройте созданное IPsec-соединение, нажав на <img alt="" src=".gitbook/assets/icon-edit.png" /> и загрузите файлы <strong>Корневого сертификата NGFW</strong> (<code class="docutils literal notranslate"><span class="pre">NGFW.crt</span></code>) и <strong>Подписанный сертификат устройства</strong> (<code class="docutils literal notranslate"><span class="pre">device.crt</span></code>).</p>
+</details>
+<details>
+<summary>Настройка исходящего IPsec-подключение на MikroTik</summary>
+<p>1. Загрузите на MikroTik скачанные ранее файлы <strong>Корневого сертификата NGFW</strong> (<code class="docutils literal notranslate"><span class="pre">NGFW.crt</span></code>) и <strong>Подписанный сертификат устройства</strong> (<code class="docutils literal notranslate"><span class="pre">device.crt</span></code>) через WinBox или по ssh.</p>
+<p>2. Импортируйте сертификаты:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">certificate</span> <span class="kn">import</span> <span class="nn">file</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">NGFW</span><span class="o">.</span><span class="n">crt</span> <span class="n">passphrase</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="o">/</span><span class="n">certificate</span> <span class="kn">import</span> <span class="nn">file</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">device</span><span class="o">.</span><span class="n">crt</span> <span class="n">passphrase</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="o">/</span><span class="n">certificate</span> <span class="kn">import</span> <span class="nn">file</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="n">certificate</span><span class="o">-</span><span class="n">request_key</span><span class="o">.</span><span class="n">pem</span> <span class="n">passphrase</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>3. Настройте IPsec-соединение:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">profile</span> <span class="n">add</span> <span class="n">dh</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">modp4096</span> <span class="n">enc</span><span class="o">-</span><span class="n">algorithm</span><span class="o">=</span><span class="n">aes</span><span class="o">-</span><span class="mi">256</span> <span class="nb">hash</span><span class="o">-</span><span class="n">algorithm</span><span class="o">=</span><span class="n">sha256</span> <span class="n">name</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">dpd</span><span class="o">-</span><span class="n">interval</span><span class="o">=</span><span class="mi">120</span><span class="n">s</span> <span class="n">dpd</span><span class="o">-</span><span class="n">maximum</span><span class="o">-</span><span class="n">failures</span><span class="o">=</span><span class="mi">5</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">peer</span> <span class="n">add</span> <span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span><span class="o">/</span><span class="mi">32</span> <span class="n">comment</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">exchange</span><span class="o">-</span><span class="n">mode</span><span class="o">=</span><span class="n">ike2</span> <span class="n">name</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">profile</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">identity</span> <span class="n">add</span> <span class="n">comment</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">peer</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">auth</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="n">digital</span><span class="o">-</span><span class="n">signature</span> <span class="n">certificate</span><span class="o">=</span><span class="n">device</span><span class="o">.</span><span class="n">crt_0</span> <span class="n">remote</span><span class="o">-</span><span class="n">certificate</span><span class="o">=</span><span class="n">NGFW</span><span class="o">.</span><span class="n">crt_0</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">proposal</span> <span class="n">add</span> <span class="n">auth</span><span class="o">-</span><span class="n">algorithms</span><span class="o">=</span><span class="n">sha256</span> <span class="n">comment</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">enc</span><span class="o">-</span><span class="n">algorithms</span><span class="o">=</span><span class="n">aes</span><span class="o">-</span><span class="mi">256</span><span class="o">-</span><span class="n">cbc</span> <span class="n">name</span><span class="o">=</span><span class="mf">172.16.50.3</span> <span class="n">pfs</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">modp4096</span>
+
+<span class="o">/</span><span class="n">ip</span> <span class="n">ipsec</span> <span class="n">policy</span> <span class="n">add</span> <span class="n">dst</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.3</span><span class="o">/</span><span class="mi">32</span> <span class="n">peer</span><span class="o">=</span><span class="n">to_192</span><span class="mf">.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">proposal</span><span class="o">=</span><span class="mf">172.16.50.3</span> <span class="n">protocol</span><span class="o">=</span><span class="n">gre</span> <span class="n">src</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="mf">172.16.50.4</span><span class="o">/</span><span class="mi">32</span>
+</pre></div>
+</div>
+</details>
+</section>
+</section>
+<section id="ideco-ngfw">
+<h3><span class="section-number">1.2.3. </span>Проблемы при повторной активации входящего подключения к Ideco NGFW<a class="headerlink" href="#ideco-ngfw" title="Link to this heading">#</a></h3>
+<p>Если подключение было отключено и при попытке включения соединение не установилось, удаленное устройство попало в fail2ban. Для установки соединения сбросьте блокировки по IP на Ideco NGFW. О сбросе блокировки читайте в статье <a class="reference internal" href="#/settings/reports/logs.md#%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0-%D0%BE%D1%82-brute-force-%D0%B0%D1%82%D0%B0%D0%BA"><span class="xref myst">Защита от brute-force атак</span></a>.</p>
+<p>Fail2ban отслеживает в log-файлах попытки обратиться к сервисам, и, если находит повторяющиеся неудачные попытки авторизации с одного и того же IP-адреса или хоста, блокирует IP-адрес.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ipsec-utm-to-utm-transport.html"
+       title="предыдущая страница">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">назад</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Подключение между двумя Ideco NGFW в транспортном режиме работы</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="utm-to-mikrotik-vpn.html"
+       title="следующая страница">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">вперёд</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Подключение MikroTik и Ideco NGFW по L2TP/IPsec и IKev2/IPsec</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1. Подключение в Туннельном режиме</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1.1. Подключение от Ideco NGFW к MikroTik</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#psk">1.1.1.1. Тип аутентификации PSK</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.1.1.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikrotik-ideco-ngfw">1.1.2. Подключение от MikroTik к Ideco NGFW</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1.1.2.1. Тип аутентификации PSK</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">1.1.2.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gre-over-ipsec">1.2. Подключение в Транспортном режиме (GRE over IPsec)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1.2.1. Подключение от Ideco NGFW к MikroTik</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1.2.1.1. Тип аутентификации PSK</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.2.1.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1.2.2. Подключение от MikroTik к Ideco NGFW</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1.2.2.1. Тип аутентификации PSK</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.2.2.2. Тип аутентификации Сертификат</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ideco-ngfw">1.2.3. Проблемы при повторной активации входящего подключения к Ideco NGFW</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+По Ideco
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Копирайт 2024, Ideco.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

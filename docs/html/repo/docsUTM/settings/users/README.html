@@ -1,0 +1,1029 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ru" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Пользователи &#8212; Ideco NGFW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../../_static/translations.js?v=29b1f277"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'repo/docsUTM/settings/users/README';</script>
+    <link rel="index" title="Алфавитный указатель" href="../../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../../search.html" />
+    <link rel="next" title="1. Учетные записи" href="user-tree/README.html" />
+    <link rel="prev" title="1. Панель мониторинга" href="../monitor-panel.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ru"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Перейти к основному содержанию</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="../../../../index.html">Оглавление</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">1. Об Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../general/license.html">1. Лицензирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../general/data-update-source-ideco-utm.html">1. Cистемные требования и источники обновления данных Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../general/technical-support.html">1. Техническая поддержка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/tips-for-initial-setup.html">1. Рекомендации при первоначальной настройке</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/initial-action-my-ideco.html">1. Личный кабинет my.ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/preparation-install.html">1. Подготовка к установке на устройство</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/specifics-of-hypervisor-settings.html">1. Настройка гипервизора</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/usb.html">1. Создание загрузочного USB flash-диска</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation-process.html">1. Установка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/initial-setup.html">1. Первоначальная настройка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/server-registration.html">1. Регистрация сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor-panel.html">1. Панель мониторинга</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user-tree/README.html">1. Учетные записи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user-tree/user-management.html">1. Управление пользователями</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user-tree/customization-of-users.html">1. Настройка пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/README.html">1. Авторизация пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/web-authorization.html">1. Веб-аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/ip-and-mac-authorization/README.html">1. IP и MAC авторизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/ip-and-mac-authorization/ip-authorization.html">1. Авторизация по IP-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/ip-and-mac-authorization/mac-authorization.html">1. Авторизация по MAC-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/authorization-by-subnet.html">1. Авторизация по подсетям</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/terminal-server.html">1. Авторизация пользователей терминальных серверов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user-personal-account.html">1. Личный кабинет пользователя</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/vpn-connection/README.html">1. VPN-подключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="two-factor-authentication.html">1. Двухфакторная аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/vpn-connection/pptp.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/vpn-connection/pppoe.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/vpn-connection/ipsec-ikev2.html">1. Подключение по IKEv2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/vpn-connection/sstp.html">1. Подключение по SSTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/vpn-connection/l2tp-ipsec.html">1. Подключение по L2TP/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/vpn-connection/features.html">1. Особенности маршрутизации и организации доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization/vpn-connection/running-powershell-scripts.html">1. Инструкция по запуску PowerShell скриптов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ideco-client/README.html">1. Ideco Client</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ideco-client/ideco-client-windows.html">1. Установка и настройка Ideco Client на Windows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ideco-client/ideco-client-macos.html">1. Установка и настройка Ideco Client на MacOS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hip-profiles.html">1. Профили устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="active-directory/README.html">1. Интеграция с Microsoft Active Directory/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="active-directory/entering-the-server-into-the-domain.html">1. Ввод сервера в домен</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="active-directory/active-directory-user-authorization.html">1. Аутентификация пользователей AD/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="active-directory/auto-de-authorization-script.html">1. Скрипты автоматической разавторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="active-directory/user-import.html">1. Импорт пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="radius.html">1. Интеграция с RADIUS-сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ald-pro.html">1. ALD Pro</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="device-discovery.html">1. Обнаружение устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="wifi-network.html">1. Wi-Fi-сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/README.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/authorized-users.html">1. Авторизованные пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/workload-schedule.html">1. График загруженности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/traffic.html">1. Монитор трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/telegram-bot.html">1. Telegram-бот</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/snmp.html">1. SNMP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/zabbix.html">1. Интеграция с Zabbix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/README.html">1. Правила трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/firewall.html">1. Файрвол</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/firewall-tables.html">1. Таблицы файрвола (FORWARD, DNAT, INPUT и SNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/logging.html">1. Логирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/application-control.html">1. Контроль приложений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/content-filter/README.html">1. Контент-фильтр</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/content-filter/custom-categories.html">1. Описание категорий контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/content-filter/filtering-https-traffic.html">1. Настройка фильтрации HTTPS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/content-filter/block-page.html">1. Изменение страницы блокировки Контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/shaper.html">1. Ограничение скорости</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/antivirus.html">1. Антивирусы веб-трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/README.html">1. Предотвращение вторжений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/log.html">1. Журнал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/rules.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/exceptions-rules.html">1. Исключения из правил</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/settings.html">1. Настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/user-ip-exceptions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/aliases.html">1. Объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/quotas.html">1. Квоты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/README.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/README.html">1. Сетевые интерфейсы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/local-ethernet.html">1. Настройка Локального Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/ethernet-connection.html">1. Настройка Внешнего Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/pptp-connection.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/l2tp-connection.html">1. Настройка подключения по L2TP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/pppoe-connection.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/3g-4g-connection.html">1. Подключение по 3G и 4G</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/multiple-simultaneous-connections.html">1. Балансировка и резервирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/routing.html">1. Маршрутизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/bgp.html">1. BGP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ospf.html">1. OSPF</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/igmp.html">1. IGMP Proxy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/README.html">1. Прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/exclusions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/direct-connection-proxy.html">1. Настройка прямого подключения к прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/proxy-single-interface.html">1. Настройка прокси с одним интерфейсом</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/reverse-proxy.html">1. Обратный прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/README.html">1. DNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/dns-external.html">1. Внешние DNS-серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/master-zon.html">1. Master-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/forward-zon.html">1. Forward-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/ddns.html">1. DDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dhcp.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ntp.html">1. NTP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/README.html">1. IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-utm-to-utm-tunnel.html">1. Подключение между двумя Ideco NGFW в туннельном режиме работы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-utm-to-utm-transport.html">1. Подключение между двумя Ideco NGFW в транспортном режиме работы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/site-to-site-ideco-mikrotik.html">1. Подключение Ideco NGFW и MikroTik</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/utm-to-mikrotik-vpn.html">1. Подключение MikroTik и Ideco NGFW по L2TP/IPsec и IKev2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/connect-utm-to-cisco-via-ipsec.html">1. Подключение Cisco IOS и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-connection-pfsense-to-utm.html">1. Подключение pfSense к Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-connection-kerio-control-to-utm.html">1. Подключение Kerio Control и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/keenetic-connection.html">1. Подключение Keenetic по SSTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/keenetic-connection.html#keenetic-ipsec">2. Подключение Keenetic по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/README.html">1. Сертификаты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/upload-ssl-certificate-to-server.html">1. Загрузка SSL-сертификата на сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/creating-ssl-sert-powershell.html">1. Создание самоподписанного сертификата c помощью PowerShell</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/creating-openssl-cert.html">1. Создание самоподписанного сертификата c помощью openssl</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/README.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/traffic.html">1. Трафик</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/logs.html">1. Журнал событий</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/web-logs.html">1. Журнал веб-доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/antivirus-logs.html">1. Журнал антивируса</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/security-events.html">1. События безопасности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/administrator-actions.html">1. Действия администраторов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/authorization-log.html">1. Журнал авторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/report-designer.html">1. Конструктор отчетов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reports/syslog.html">1. Syslog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/README.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/admins.html">1. Администраторы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/central-console.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/vce.html">1. VCE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/cluster.html">1. Кластеризация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/server-update.html">1. Автоматическое обновление</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/server-update.html#id2">2. Процесс выхода релизов в каналы обновлений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/server-update.html#ngfw">3. Особенности обновления NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html">1. Бекапы на удаленное файловое хранилище по протоколу FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html#netbios-cifs">2. Бекапы на сетевое файловое хранилище по протоколу NetBIOS (CIFS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html#id1">3. Бекапы на локальный жесткий диск</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html#id2">4. Восстановление конфигурации из бекапа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/terminal.html">1. Терминал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/license-management.html">1. Лицензия</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/additionally.html">1. Дополнительно</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/README.html">1. Почтовый релей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/README.html">1. Основные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/web-mail.html">1. Web-почта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/mail-relay-settings.html">1. Настройка почтового релея</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/mail-server-settings.html">1. Настройка почтового сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/advanced-settings/README.html">1. Расширенные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/advanced-settings/domain-settings-at-zone-holder.html">1. Настройка домена у регистратора/держателя зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/antispam.html">1. Антиспам</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/regulations/README.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/regulations/mail-forwarding.html">1. Переадресация почты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-queue.html">1. Почтовая очередь</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/configuring-email-clients.html">1. Настройка почтовых клиентов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/filtering-scheme-for-mail-traffic.html">1. Схема фильтрации почтового трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/README.html">1. Публикация ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/access-from-external-network-without-nat.html">1. Доступ из внешней сети без NAT</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/publishing-web-applications.html">1. Публикация веб-приложений (обратный прокси-сервер)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/configure-public-ip-on-computer-on-the-local-net.html">1. Настройка публичного IP-адреса на компьютере в локальной сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/portmapping.html">1. Портмаппинг (проброс портов, DNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../skydns.html">1. Интеграция NGFW и SkyDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/README.html">1. О личном кабинете MY.IDECO</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/ngfw.html">1. NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/bot-security.html">1. Monitoring Bot и Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/personal-details-and-companies.html">1. Личные данные и Компании</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/README.html">1. Об Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/setup.html">1. Установка Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/servers.html">1. Серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/monitor.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/policies-and-objects.html">1. Политики и объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/services.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/reports.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/server-management.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/README.html">1. FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/remote-assistant.html">1. Режим удаленного помощника</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/allow-internet-all.html">1. Разрешить интернет всем: диагностика неполадок</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/remote-access-for-server-management.html">1. Удаленный доступ к серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/memory-testing.html">1. Тестирование оперативной памяти сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/README.html">1. Инструкции по созданию VPN-подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-ubuntu.html">1. Создание VPN-подключения в Ubuntu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-fedora.html">1. Инструкция по созданию подключения в Fedora</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-astra-linux.html">1. Инструкция по созданию подключения в Astra Linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/auto-connect.html">1. Автоматическое создание подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-windows10.html">1. Инструкция по созданию подключения в Windows 10</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-windows7.html">1. Создание подключения в Windows 7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-mobile-devices.html">1. Инструкция по созданию VPN-подключения на мобильных устройствах</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-high-sierra-macos.html">1. Инструкция по созданию подключения в Mac OS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/sstp-connecting-keenetic-wi-fi-routers.html">1. Подключение по SSTP Wi-Fi-роутеров Keenetic</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/access-to-remote-networks.html">1. Как избавиться от асимметричной маршрутизации трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/dnsbl-list.html">1. Что делать если IP попал в черные списки DNSBL</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/restore-access-to-ideco-utm.html">1. Как восстановить доступ к Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/go-back.html">1. Как восстановиться на прошлую версию после обновления Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/security-ideco.html">1. Проверка настроек фильтрации с помощью security ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/choosing-hardware-platform.html">1. Выбор аппаратной платформы для Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/legacy-encryption-support.html">1. Поддержка устаревших алгоритмов шифрования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/configuring-proxifier.html">1. Настройка программы Proxifier для прямых подключений к прокси серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/blocking-popular-resources.html">1. Блокировка популярных ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/authorization-astra-linux.html">1. Настройка прозрачной авторизации на Astra linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/auto-authorization-linux.html">1. Инструкция по настройке автоматической веб-аутентификации на Ideco NGFW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/auto-authorization-linux.html#id1">2. Настройка автозагрузки скрипта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/transferring-data-to-another-server.html">1. Перенос данных и настроек на другой сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/processing-order.html">1. Порядок обработки веб-трафика в Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/integrity.html">1. Интеграция Ideco NGFW и брокера сетевых пакетов DS Integrity NG</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vipnet-coordinator.html">1. Рекомендации по настройке NGFW для работы совместно с ViPNet-координатором</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/block-chat-bot.html">1. Блокировка чат-ботов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/open-ports.html">1. Доступные из внешней сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/open-ports.html#id2">2. Доступные из локальной сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/open-ports.html#id3">3. Как проверить, открыт ли порт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/README.html">1. Диагностика проблем</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/site-does-not-open.html">1. Ошибка при открытии сайта ERR_CONNECTION_TIMED_OUT или Не открывается сайт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/what-to-do-if-the-internet-does-not-work.html">1. Что делать, если не работает интернет</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/old-browser.html">1. Ошибка при авторизации «The browser is outdated»</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/ipsec.html">1. Если соединение по IPsec не устанавливается</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/description-of-handlers.html">1. Описание основных хендлеров</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/active-directory-api.html">1. Управление интеграцией с Active Directory</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/user-management-api.html">1. Управление пользователями и группами</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/access-rules-api.html">1. Управление правилами трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/dhcp-api.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/dns-api.html">1. DNS-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/logs-api.html">1. Настройка удаленной передачи системных логов (Syslog)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/cc-api.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/backup-api.html">1. Бекапы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/examples/README.html">1. Примеры использования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/examples/editing-a-custom-category.html">1. Редактирование пользовательской категории контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/examples/creating-a-forward-rule.html">1. Создание правила Forward</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/ideco-utm/README.html">1. Ideco NGFW 17.X</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/cc/README.html">1. Ideco Center 17.Х</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../_sources/repo/docsUTM/settings/users/README.md">
+      <i class="fa-solid fa-file-lines"></i> Исходный текст
+    </a>
+  </div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Загрузите эту страницу">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/repo/docsUTM/settings/users/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Скачать исходный файл"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Распечатать в PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Полноэкранный режим"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="светлая/темная" aria-label="светлая/темная" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Пользователи</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="id1">
+<h1><span class="section-number">1. </span>Пользователи<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p><a class="reference internal" href="user-tree/README.html"><span class="std std-doc">user-tree/README.md</span></a></p>
+<p><a class="reference internal" href="authorization/README.html"><span class="std std-doc">authorization/README.md</span></a></p>
+<p><a class="reference internal" href="user-personal-account.html"><span class="std std-doc">user-personal-account.md</span></a></p>
+<p><a class="reference internal" href="authorization/vpn-connection/README.html"><span class="std std-doc">authorization/vpn-connection/README.md</span></a></p>
+<p><a class="reference internal" href="ideco-client/README.html"><span class="std std-doc">ideco-client/README.md</span></a></p>
+<p><a class="reference internal" href="hip-profiles.html"><span class="std std-doc">hip-profiles.md</span></a></p>
+<p><a class="reference internal" href="active-directory/README.html"><span class="std std-doc">active-directory/README.md</span></a></p>
+<p><a class="reference internal" href="ald-pro.html"><span class="std std-doc">ald-pro.md</span></a></p>
+<p><a class="reference internal" href="device-discovery.html"><span class="std std-doc">device-discovery.md</span></a></p>
+<p><a class="reference internal" href="wifi-network.html"><span class="std std-doc">wifi-network.md</span></a></p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../monitor-panel.html"
+       title="предыдущая страница">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">назад</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Панель мониторинга</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="user-tree/README.html"
+       title="следующая страница">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">вперёд</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Учетные записи</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+По Ideco
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Копирайт 2024, Ideco.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

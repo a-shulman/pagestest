@@ -1,0 +1,1521 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ru" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Syslog &#8212; Ideco NGFW</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../../_static/translations.js?v=29b1f277"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'repo/docsUTM/settings/reports/syslog';</script>
+    <link rel="index" title="Алфавитный указатель" href="../../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../../search.html" />
+    <link rel="next" title="1. Управление сервером" href="../server-management/README.html" />
+    <link rel="prev" title="1. Конструктор отчетов" href="report-designer.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ru"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Перейти к основному содержанию</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="../../../../index.html">Оглавление</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">1. Об Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../general/license.html">1. Лицензирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../general/data-update-source-ideco-utm.html">1. Cистемные требования и источники обновления данных Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../general/technical-support.html">1. Техническая поддержка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/tips-for-initial-setup.html">1. Рекомендации при первоначальной настройке</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/initial-action-my-ideco.html">1. Личный кабинет my.ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/preparation-install.html">1. Подготовка к установке на устройство</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/specifics-of-hypervisor-settings.html">1. Настройка гипервизора</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/usb.html">1. Создание загрузочного USB flash-диска</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation-process.html">1. Установка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/initial-setup.html">1. Первоначальная настройка</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/server-registration.html">1. Регистрация сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor-panel.html">1. Панель мониторинга</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/README.html">1. Пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/user-tree/README.html">1. Учетные записи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/user-tree/user-management.html">1. Управление пользователями</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/user-tree/customization-of-users.html">1. Настройка пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/README.html">1. Авторизация пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/web-authorization.html">1. Веб-аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/ip-and-mac-authorization/README.html">1. IP и MAC авторизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/ip-and-mac-authorization/ip-authorization.html">1. Авторизация по IP-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/ip-and-mac-authorization/mac-authorization.html">1. Авторизация по MAC-адресу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/authorization-by-subnet.html">1. Авторизация по подсетям</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/terminal-server.html">1. Авторизация пользователей терминальных серверов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/user-personal-account.html">1. Личный кабинет пользователя</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/README.html">1. VPN-подключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/two-factor-authentication.html">1. Двухфакторная аутентификация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/pptp.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/pppoe.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/ipsec-ikev2.html">1. Подключение по IKEv2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/sstp.html">1. Подключение по SSTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/l2tp-ipsec.html">1. Подключение по L2TP/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/features.html">1. Особенности маршрутизации и организации доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/authorization/vpn-connection/running-powershell-scripts.html">1. Инструкция по запуску PowerShell скриптов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/ideco-client/README.html">1. Ideco Client</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/ideco-client/ideco-client-windows.html">1. Установка и настройка Ideco Client на Windows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/ideco-client/ideco-client-macos.html">1. Установка и настройка Ideco Client на MacOS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/hip-profiles.html">1. Профили устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/README.html">1. Интеграция с Microsoft Active Directory/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/entering-the-server-into-the-domain.html">1. Ввод сервера в домен</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/active-directory-user-authorization.html">1. Аутентификация пользователей AD/Samba DC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/auto-de-authorization-script.html">1. Скрипты автоматической разавторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/active-directory/user-import.html">1. Импорт пользователей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/radius.html">1. Интеграция с RADIUS-сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/ald-pro.html">1. ALD Pro</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/device-discovery.html">1. Обнаружение устройств</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/wifi-network.html">1. Wi-Fi-сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/README.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/authorized-users.html">1. Авторизованные пользователи</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/workload-schedule.html">1. График загруженности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/traffic.html">1. Монитор трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/telegram-bot.html">1. Telegram-бот</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/snmp.html">1. SNMP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitor/zabbix.html">1. Интеграция с Zabbix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/README.html">1. Правила трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/firewall.html">1. Файрвол</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/firewall-tables.html">1. Таблицы файрвола (FORWARD, DNAT, INPUT и SNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/logging.html">1. Логирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/application-control.html">1. Контроль приложений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/content-filter/README.html">1. Контент-фильтр</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/content-filter/custom-categories.html">1. Описание категорий контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/content-filter/filtering-https-traffic.html">1. Настройка фильтрации HTTPS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/content-filter/block-page.html">1. Изменение страницы блокировки Контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/shaper.html">1. Ограничение скорости</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/antivirus.html">1. Антивирусы веб-трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/README.html">1. Предотвращение вторжений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/log.html">1. Журнал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/rules.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/exceptions-rules.html">1. Исключения из правил</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/settings.html">1. Настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/ips/user-ip-exceptions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/aliases.html">1. Объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access-rules/quotas.html">1. Квоты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/README.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/README.html">1. Сетевые интерфейсы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/local-ethernet.html">1. Настройка Локального Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/ethernet-connection.html">1. Настройка Внешнего Ethernet</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/pptp-connection.html">1. Подключение по PPTP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/l2tp-connection.html">1. Настройка подключения по L2TP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/pppoe-connection.html">1. Подключение по PPPoE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/connection-to-provider/3g-4g-connection.html">1. Подключение по 3G и 4G</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/multiple-simultaneous-connections.html">1. Балансировка и резервирование</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/routing.html">1. Маршрутизация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/bgp.html">1. BGP</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ospf.html">1. OSPF</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/igmp.html">1. IGMP Proxy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/README.html">1. Прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/exclusions.html">1. Исключения</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/direct-connection-proxy.html">1. Настройка прямого подключения к прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/proxy/proxy-single-interface.html">1. Настройка прокси с одним интерфейсом</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/reverse-proxy.html">1. Обратный прокси</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/README.html">1. DNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/dns-external.html">1. Внешние DNS-серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/master-zon.html">1. Master-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/forward-zon.html">1. Forward-зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dns/ddns.html">1. DDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/dhcp.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ntp.html">1. NTP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/README.html">1. IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-utm-to-utm-tunnel.html">1. Подключение между двумя Ideco NGFW в туннельном режиме работы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-utm-to-utm-transport.html">1. Подключение между двумя Ideco NGFW в транспортном режиме работы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/site-to-site-ideco-mikrotik.html">1. Подключение Ideco NGFW и MikroTik</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/utm-to-mikrotik-vpn.html">1. Подключение MikroTik и Ideco NGFW по L2TP/IPsec и IKev2/IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/connect-utm-to-cisco-via-ipsec.html">1. Подключение Cisco IOS и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-connection-pfsense-to-utm.html">1. Подключение pfSense к Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/ipsec-connection-kerio-control-to-utm.html">1. Подключение Kerio Control и Ideco NGFW по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/keenetic-connection.html">1. Подключение Keenetic по SSTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/ipsec/site-to-site/keenetic-connection.html#keenetic-ipsec">2. Подключение Keenetic по IPsec</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/README.html">1. Сертификаты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/upload-ssl-certificate-to-server.html">1. Загрузка SSL-сертификата на сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/creating-ssl-sert-powershell.html">1. Создание самоподписанного сертификата c помощью PowerShell</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/certificates/creating-openssl-cert.html">1. Создание самоподписанного сертификата c помощью openssl</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="traffic.html">1. Трафик</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logs.html">1. Журнал событий</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web-logs.html">1. Журнал веб-доступа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="antivirus-logs.html">1. Журнал антивируса</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security-events.html">1. События безопасности</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="administrator-actions.html">1. Действия администраторов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authorization-log.html">1. Журнал авторизации</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="report-designer.html">1. Конструктор отчетов</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Syslog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.1. Пересылка системных сообщений</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.2. Расшифровка передаваемых логов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cef">1.2.1. Формат CEF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.2.2. Формат Syslog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/README.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/admins.html">1. Администраторы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/central-console.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/vce.html">1. VCE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/cluster.html">1. Кластеризация</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/server-update.html">1. Автоматическое обновление</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/server-update.html#id2">2. Процесс выхода релизов в каналы обновлений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/server-update.html#ngfw">3. Особенности обновления NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html">1. Бекапы на удаленное файловое хранилище по протоколу FTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html#netbios-cifs">2. Бекапы на сетевое файловое хранилище по протоколу NetBIOS (CIFS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html#id1">3. Бекапы на локальный жесткий диск</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/backup.html#id2">4. Восстановление конфигурации из бекапа</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/terminal.html">1. Терминал</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/license-management.html">1. Лицензия</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../server-management/additionally.html">1. Дополнительно</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/README.html">1. Почтовый релей</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/README.html">1. Основные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/web-mail.html">1. Web-почта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/mail-relay-settings.html">1. Настройка почтового релея</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-server-settings/mail-server-settings.html">1. Настройка почтового сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/advanced-settings/README.html">1. Расширенные настройки</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/advanced-settings/domain-settings-at-zone-holder.html">1. Настройка домена у регистратора/держателя зоны</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/antispam.html">1. Антиспам</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/regulations/README.html">1. Правила</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/regulations/mail-forwarding.html">1. Переадресация почты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/mail-queue.html">1. Почтовая очередь</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/configuring-email-clients.html">1. Настройка почтовых клиентов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mail/filtering-scheme-for-mail-traffic.html">1. Схема фильтрации почтового трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/README.html">1. Публикация ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/access-from-external-network-without-nat.html">1. Доступ из внешней сети без NAT</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/publishing-web-applications.html">1. Публикация веб-приложений (обратный прокси-сервер)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/configure-public-ip-on-computer-on-the-local-net.html">1. Настройка публичного IP-адреса на компьютере в локальной сети</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../publishing-resources/portmapping.html">1. Портмаппинг (проброс портов, DNAT)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../skydns.html">1. Интеграция NGFW и SkyDNS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/README.html">1. О личном кабинете MY.IDECO</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/ngfw.html">1. NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/bot-security.html">1. Monitoring Bot и Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-my/personal-details-and-companies.html">1. Личные данные и Компании</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/README.html">1. Об Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/setup.html">1. Установка Ideco Center</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/servers.html">1. Серверы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/monitor.html">1. Мониторинг</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/policies-and-objects.html">1. Политики и объекты</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/services.html">1. Сервисы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/reports.html">1. Отчеты и журналы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../settings-cc/server-management.html">1. Управление сервером</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/README.html">1. FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/remote-assistant.html">1. Режим удаленного помощника</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/allow-internet-all.html">1. Разрешить интернет всем: диагностика неполадок</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/remote-access-for-server-management.html">1. Удаленный доступ к серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/memory-testing.html">1. Тестирование оперативной памяти сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/README.html">1. Инструкции по созданию VPN-подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-ubuntu.html">1. Создание VPN-подключения в Ubuntu</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-fedora.html">1. Инструкция по созданию подключения в Fedora</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-astra-linux.html">1. Инструкция по созданию подключения в Astra Linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/auto-connect.html">1. Автоматическое создание подключений</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-windows10.html">1. Инструкция по созданию подключения в Windows 10</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-windows7.html">1. Создание подключения в Windows 7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-mobile-devices.html">1. Инструкция по созданию VPN-подключения на мобильных устройствах</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/connection-for-high-sierra-macos.html">1. Инструкция по созданию подключения в Mac OS</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vpn/sstp-connecting-keenetic-wi-fi-routers.html">1. Подключение по SSTP Wi-Fi-роутеров Keenetic</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/access-to-remote-networks.html">1. Как избавиться от асимметричной маршрутизации трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/dnsbl-list.html">1. Что делать если IP попал в черные списки DNSBL</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/restore-access-to-ideco-utm.html">1. Как восстановить доступ к Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/go-back.html">1. Как восстановиться на прошлую версию после обновления Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/security-ideco.html">1. Проверка настроек фильтрации с помощью security ideco</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/choosing-hardware-platform.html">1. Выбор аппаратной платформы для Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/legacy-encryption-support.html">1. Поддержка устаревших алгоритмов шифрования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/configuring-proxifier.html">1. Настройка программы Proxifier для прямых подключений к прокси серверу</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/blocking-popular-resources.html">1. Блокировка популярных ресурсов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/authorization-astra-linux.html">1. Настройка прозрачной авторизации на Astra linux</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/auto-authorization-linux.html">1. Инструкция по настройке автоматической веб-аутентификации на Ideco NGFW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/auto-authorization-linux.html#id1">2. Настройка автозагрузки скрипта</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/transferring-data-to-another-server.html">1. Перенос данных и настроек на другой сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/processing-order.html">1. Порядок обработки веб-трафика в Ideco NGFW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/integrity.html">1. Интеграция Ideco NGFW и брокера сетевых пакетов DS Integrity NG</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/vipnet-coordinator.html">1. Рекомендации по настройке NGFW для работы совместно с ViPNet-координатором</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/block-chat-bot.html">1. Блокировка чат-ботов</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/open-ports.html">1. Доступные из внешней сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/open-ports.html#id2">2. Доступные из локальной сети</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/popular-recipes/open-ports.html#id3">3. Как проверить, открыт ли порт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/README.html">1. Диагностика проблем</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/site-does-not-open.html">1. Ошибка при открытии сайта ERR_CONNECTION_TIMED_OUT или Не открывается сайт</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/what-to-do-if-the-internet-does-not-work.html">1. Что делать, если не работает интернет</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/old-browser.html">1. Ошибка при авторизации «The browser is outdated»</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/problem-diagnosis/ipsec.html">1. Если соединение по IPsec не устанавливается</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/description-of-handlers.html">1. Описание основных хендлеров</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/active-directory-api.html">1. Управление интеграцией с Active Directory</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/user-management-api.html">1. Управление пользователями и группами</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/access-rules-api.html">1. Управление правилами трафика</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/dhcp-api.html">1. DHCP-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/dns-api.html">1. DNS-сервер</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/logs-api.html">1. Настройка удаленной передачи системных логов (Syslog)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/cc-api.html">1. Центральная консоль</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/backup-api.html">1. Бекапы</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/examples/README.html">1. Примеры использования</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/examples/editing-a-custom-category.html">1. Редактирование пользовательской категории контент-фильтра</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/examples/creating-a-forward-rule.html">1. Создание правила Forward</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/ideco-utm/README.html">1. Ideco NGFW 17.X</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/cc/README.html">1. Ideco Center 17.Х</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../_sources/repo/docsUTM/settings/reports/syslog.md">
+      <i class="fa-solid fa-file-lines"></i> Исходный текст
+    </a>
+  </div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Загрузите эту страницу">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/repo/docsUTM/settings/reports/syslog.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Скачать исходный файл"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Распечатать в PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Полноэкранный режим"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="светлая/темная" aria-label="светлая/темная" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Syslog</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1. Пересылка системных сообщений</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2. Расшифровка передаваемых логов</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cef">1.2.1. Формат CEF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.2.2. Формат Syslog</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="syslog">
+<h1><span class="section-number">1. </span>Syslog<a class="headerlink" href="#syslog" title="Link to this heading">#</a></h1>
+<p>Название службы раздела <strong>Syslog</strong>: <code class="docutils literal notranslate"><span class="pre">ideco-monitor-backend</span></code>. <br />
+Список служб для других разделов доступен по <a class="reference internal" href="#/settings/server-management/terminal.md"><span class="xref myst">ссылке</span></a>.</p>
+<section id="id1">
+<h2><span class="section-number">1.1. </span>Пересылка системных сообщений<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Чтобы настроить пересылку системных сообщений, перейдите в раздел <strong>Отчеты и журналы -&gt; Syslog</strong> и выполните действия:</p>
+<p>1. Укажите IP-адрес сервера-коллектора (любой локальный «серый» или публичный «белый» IP-адрес).</p>
+<p>2. В поле <strong>Порт</strong> укажите любой порт из диапазона от 1 до 65535.</p>
+<p>3. Выберите формат передаваемых системных сообщений (Syslog или CEF).</p>
+<p>4. Выберите протокол передачи системных логов - TCP или UDP.</p>
+<p>5. Нажмите <strong>Сохранить</strong> и переведите опцию в верхней части страницы в положение включен:</p>
+<p><img alt="" src=".gitbook/assets/remote-syslog.png" /></p>
+<p>Рекомендуется передавать логи по протоколу TCP, так как он гарантирует доставку и соблюдает последовательность сообщений.</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">1.2. </span>Расшифровка передаваемых логов<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="cef">
+<h3><span class="section-number">1.2.1. </span>Формат CEF<a class="headerlink" href="#cef" title="Link to this heading">#</a></h3>
+<p>Логи в CEF-формате всегда начинаются со строки вида:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span><span class="n">T14</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">01</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">CEF</span><span class="p">:</span><span class="mi">0</span><span class="o">|</span><span class="n">Ideco</span><span class="o">|</span><span class="n">NGFW</span><span class="o">|</span><span class="mf">17.0</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">syslog</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span>
+</pre></div>
+</div>
+<p>где:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">2024-04-02T14:16:22+05:00</span></code> - время события в Ideco NGFW;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ideco-ngfw</span></code> - hostname сервера NGFW, заданный в левом верхнем углу веб-интерфейса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CEF:0</span></code> - версия формата CEF;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ideco</span></code> - вендор;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NGFW</span></code> - название продукта (может меняться в зависимости от продукта);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">17.0</span></code> - версия продукта (может меняться в зависимости от версии);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0|syslog|0</span></code> - три поля - уникальный идентификатор типа события, описание события, важность события. Идентификатор лога, постоянный для NGFW.</p></li>
+</ul>
+<details>
+<summary>Предотвращение вторжений</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span><span class="n">T14</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">22</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">CEF</span><span class="p">:</span><span class="mi">0</span><span class="o">|</span><span class="n">Ideco</span><span class="o">|</span><span class="n">NGFW</span><span class="o">|</span><span class="mf">17.0</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">syslog</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">deviceReceiptTime</span><span class="o">=</span><span class="mi">1712049382</span> <span class="n">Severity</span><span class="o">=</span><span class="ne">Warning</span> <span class="n">DeviceProcessName</span><span class="o">=</span><span class="n">web</span><span class="o">-</span><span class="n">proxy</span> <span class="n">DeviceCustomString1</span><span class="o">=</span><span class="mi">1831848834213181</span> <span class="n">DeviceInboundInterface</span><span class="o">=</span><span class="n">seq</span><span class="p">:</span><span class="n">Leth8</span><span class="p">{</span><span class="mi">3</span> <span class="n">DeviceProcessName</span><span class="o">=</span><span class="n">suricata_debug</span> <span class="n">DeviceCustomString5</span><span class="o">=</span><span class="n">alert</span> <span class="n">SourceAddress</span><span class="o">=</span><span class="mf">192.168.100.17</span> <span class="n">DeviceCustomString1</span><span class="o">=</span><span class="n">local</span> <span class="n">DeviceCustomString1Label</span><span class="o">=</span><span class="n">Src</span> <span class="n">IP</span> <span class="n">Type</span> <span class="n">SourcePort</span><span class="o">=</span><span class="mi">49777</span> <span class="n">SourceCountry</span><span class="o">=</span> <span class="n">DeviceCustomString2</span><span class="o">=</span> <span class="n">DeviceCustomString2Label</span><span class="o">=</span><span class="n">Src</span> <span class="n">Country</span> <span class="n">Code</span> <span class="n">DeviceCustomString3</span><span class="o">=</span><span class="mi">70977265</span><span class="o">-</span><span class="mi">245</span><span class="n">b</span><span class="o">-</span><span class="mi">44</span><span class="n">f7</span><span class="o">-</span><span class="mi">8281</span><span class="o">-</span><span class="n">b0e26cae1c46</span> <span class="n">DeviceCustomString3Label</span><span class="o">=</span><span class="n">Src</span> <span class="n">session</span> <span class="n">UUID</span> <span class="n">SourceUserID</span><span class="o">=</span><span class="mi">59</span> <span class="n">SourceUserName</span><span class="o">=</span><span class="mf">192.168.100.17</span> <span class="n">DestinationAddress</span><span class="o">=</span><span class="mf">52.185.211.133</span> <span class="n">DeviceCustomString4</span><span class="o">=</span><span class="n">external</span> <span class="n">DeviceCustomString4Label</span><span class="o">=</span><span class="n">Dst</span> <span class="n">IP</span> <span class="n">Type</span> <span class="n">DestinationPort</span><span class="o">=</span><span class="mi">443</span> <span class="n">DestinationCountry</span><span class="o">=</span><span class="n">США</span> <span class="n">DeviceCustomString5</span><span class="o">=</span><span class="n">US</span> <span class="n">DeviceCustomString5Label</span><span class="o">=</span><span class="n">Dst</span> <span class="n">Country</span> <span class="n">Code</span> <span class="n">DeviceCustomString6</span><span class="o">=</span> <span class="n">DeviceCustomString6Label</span><span class="o">=</span><span class="n">Dst</span> <span class="n">session</span> <span class="n">UUID</span> <span class="n">DestinationUserID</span><span class="o">=-</span><span class="mi">1</span> <span class="n">DestinationUserName</span><span class="o">=</span> <span class="n">TransportProtocol</span><span class="o">=</span><span class="n">TCP</span> <span class="n">DeviceEventClassID</span><span class="o">=</span><span class="mi">1006202</span> <span class="n">Message</span><span class="o">=</span><span class="n">Windows</span> <span class="n">Telemetry</span> <span class="n">DeviceEventCategory</span><span class="o">=</span><span class="n">Телеметрия</span> <span class="n">Windows</span> <span class="n">Severity</span><span class="o">=</span><span class="mi">3</span> <span class="n">DeviceCustomString8</span><span class="o">=</span><span class="mi">1</span> <span class="n">DeviceCustomString8Label</span><span class="o">=</span><span class="n">Alert</span> <span class="n">GID</span> <span class="n">DeviceCustomString9</span><span class="o">=</span><span class="n">blocked</span> <span class="n">DeviceCustomString9Label</span><span class="o">=</span><span class="n">Alert</span> <span class="n">action</span> <span class="n">DestinationHostName</span><span class="o">=</span> <span class="n">RequestUrl</span><span class="o">=</span> <span class="n">RequestClientApplication</span><span class="o">=</span> <span class="n">FlexNumber1</span><span class="o">=</span><span class="mi">3</span> <span class="n">FlexNumber1Label</span><span class="o">=</span><span class="n">Flow</span> <span class="n">packets</span> <span class="n">to</span> <span class="n">server</span> <span class="n">FlexNumber2</span><span class="o">=</span><span class="mi">1</span> <span class="n">FlexNumber2Label</span><span class="o">=</span><span class="n">Flow</span> <span class="n">packets</span> <span class="n">to</span> <span class="n">client</span> <span class="n">BytesIn</span><span class="o">=</span><span class="mi">390</span> <span class="n">BytesOut</span><span class="o">=</span><span class="mi">66</span> <span class="n">StartTime</span><span class="o">=</span><span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="mi">09</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mf">22.885262</span> <span class="n">EndTime</span><span class="o">=</span><span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="mi">09</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mf">22.887440</span> <span class="n">FlexNumber3</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber3Label</span><span class="o">=</span><span class="n">flow</span> <span class="n">DeviceCustomString11</span><span class="o">=</span> <span class="n">DeviceCustomString11Label</span><span class="o">=</span><span class="n">flow</span><span class="o">.</span><span class="n">state</span> <span class="n">DeviceCustomString12</span><span class="o">=</span> <span class="n">DeviceCustomString12Label</span><span class="o">=</span><span class="n">flow</span><span class="o">.</span><span class="n">reason</span> <span class="n">FlexNumber4</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber4Label</span><span class="o">=</span><span class="n">flow</span><span class="o">.</span><span class="n">alerted</span> <span class="n">DeviceCustomString14</span><span class="o">=</span> <span class="n">DeviceCustomString14Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">tcp_flags</span> <span class="n">DeviceCustomString15</span><span class="o">=</span> <span class="n">DeviceCustomString15Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">tcp_flags_ts</span> <span class="n">DeviceCustomString16</span><span class="o">=</span> <span class="n">DeviceCustomString16Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">tcp_flags_tc</span> <span class="n">FlexNumber5</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber5Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">cwr</span> <span class="n">FlexNumber6</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber6Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">ecn</span> <span class="n">FlexNumber7</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber7Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">urg</span> <span class="n">FlexNumber8</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber8Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">ack</span> <span class="n">FlexNumber9</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber9Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">psh</span> <span class="n">FlexNumber10</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber10Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">rst</span> <span class="n">FlexNumber11</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber11Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">syn</span> <span class="n">FlexNumber12</span><span class="o">=</span><span class="mi">0</span> <span class="n">FlexNumber12Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">fin</span> <span class="n">DeviceCustomString17</span><span class="o">=</span> <span class="n">DeviceCustomString17Label</span><span class="o">=</span><span class="n">tcp</span><span class="o">.</span><span class="n">state</span>
+</pre></div>
+</div>
+<p>где:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceReceiptTime</span></code> - время события в системе NGFW, может не совпадать с временем получения события по Syslog;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Severity</span></code> — важность события (Emergency, Alert, Critical, Error, Warning, Notice, Informational, Debug);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceProcessName</span></code> - название службы NGFW (unit);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString1=1831848834213181</span></code> - внутренний идентификатор системы предотвращения вторжений flow (сессии);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceInboundInterface=seq:Leth8{3</span></code> - содержит идентификатор входящего интерфейса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceProcessName=suricata_debug</span></code> - имя экземпляра системы предотвращения вторжений;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString5=alert</span></code> - тип события;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SourceAddress=192.168.100.17</span></code> - IP-адрес источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString1=local</span> <span class="pre">DeviceCustomString1Label=Src</span> <span class="pre">IP</span> <span class="pre">Type</span></code> - тип IP-адреса источника (<code class="docutils literal notranslate"><span class="pre">local</span></code> - локальный, <code class="docutils literal notranslate"><span class="pre">external</span></code> - внешний);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SourcePort=49777</span></code> - порт источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SourceCountry=</span></code> - название местоположения источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString2=</span> <span class="pre">DeviceCustomString2Label=Src</span> <span class="pre">Country</span> <span class="pre">Code</span></code> - ISO-код страны источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString3=70977265-245b-44f7-8281-b0e26cae1c46</span> <span class="pre">DeviceCustomString3Label=Src</span> <span class="pre">session</span> <span class="pre">UUID</span></code> - внутренний идентификатор сессии Ideco NGFW источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SourceUserID=59</span></code> - идентификатор пользователя источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SourceUserName=192.168.100.17</span></code> - имя пользователя источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DestinationAddress=52.185.211.133</span></code> - IP-адрес назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString4=external</span> <span class="pre">DeviceCustomString4Label=Dst</span> <span class="pre">IP</span> <span class="pre">Type</span></code> - тип IP-адреса назначения (local - локальный, external - внешний);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DestinationPort=443</span></code> - порт назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DestinationCountry=США</span></code> - название местоположения назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString5=US</span> <span class="pre">DeviceCustomString5Label=Dst</span> <span class="pre">Country</span> <span class="pre">Code</span></code> - ISO-код страны назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString6=</span> <span class="pre">DeviceCustomString6Label=Dst</span> <span class="pre">session</span> <span class="pre">UUID</span></code> - внутренний идентификатор сессии Ideco NGFW назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DestinationUserID=-1</span></code> - идентификатор пользователя назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DestinationUserName=</span></code> - имя пользователя назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TransportProtocol=TCP</span></code> - протокол;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceEventClassID=1006202</span></code> - ID правила системы предотвращения вторжений;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Message=Windows</span> <span class="pre">Telemetry</span></code> - сообщение из сработавшего правила;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceEventCategory=Телеметрия</span> <span class="pre">Windows</span></code> - описание колонки в веб-интерфейсе События безопасности;<br />
+Соответствие <em>alert.category:</em> -&gt; <em>alert.signature</em> описаны в <a class="reference external" href="https://static.ideco.ru/static/alert.category%20-%20alert.signature.pdf">файле</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Severity=3</span></code> - уровень угрозы, может принимать значения 1, 2, 3 и 256, где 1 - самый высокий уровень угрозы.</p></li>
+</ul>
+<p>Служебные поля результата анализа HTTP-трафика. Заполняются, если в процессе анализа трафика был определен HTTP-протокол:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DestinationHostName=</span></code> - идентификатор хоста;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RequestUrl=</span> <span class="pre">-</span> <span class="pre">url</span></code>, на который велось обращение;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RequestClientApplication=</span></code> - информация, идентифицирующая HTTP-клиента.</p></li>
+</ul>
+<p>Служебные поля flow (сессии):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber1=3</span> <span class="pre">FlexNumber1Label=Flow</span> <span class="pre">packets</span> <span class="pre">to</span> <span class="pre">server</span></code> - количество пакетов, переданное от клиента к серверу;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber2=1</span> <span class="pre">FlexNumber2Label=Flow</span> <span class="pre">packets</span> <span class="pre">to</span> <span class="pre">client</span></code> - количество пакетов, переданное от сервера к клиенту;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BytesIn=390</span></code> - количество байт, переданное от клиента к серверу;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BytesOut=66</span></code> - количество байт, переданное от сервера к клиенту;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StartTime=2024-04-02</span> <span class="pre">09:16:22.885262</span></code> - начало;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EndTime=2024-04-02</span> <span class="pre">09:16:22.887440</span></code> - окончание;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber3=0</span> <span class="pre">FlexNumber3Label=flow</span></code> - возраст;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString11=</span> <span class="pre">DeviceCustomString11Label=flow.state</span></code> - текущее состояние;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString12=</span> <span class="pre">DeviceCustomString12Label=flow.reason</span></code> - запущена ли IPsec в режиме отладки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber4=0</span> <span class="pre">FlexNumber4Label=flow.alerted</span></code> - сгенерировался ли поток alert.</p></li>
+</ul>
+<p>Состояние флага <a class="reference external" href="https://ru.wikipedia.org/wiki/Transmission_Control_Protocol#%D0%A4%D0%BB%D0%B0%D0%B3%D0%B8_(%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E%D1%89%D0%B8%D0%B5_%D0%B1%D0%B8%D1%82%D1%8B)">TCP flow(сессии)</a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString14=</span> <span class="pre">DeviceCustomString14Label=tcp.tcp_flags</span></code> - значение поля flags в заголовке TCP;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString15=</span> <span class="pre">DeviceCustomString15Label=tcp.tcp_flags_ts</span></code> -  <a class="reference external" href="https://www.atraining.ru/windows-network-tuning/#:~:text=TCP%20Timestamps%20%E2%80%93%20%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BD%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%B0%D1%8F,%D0%BD%D0%B5%20%D0%BC%D0%BE%D0%B6%D0%B5%D1%82%20%D0%B2%D1%8B%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F">timestamp флаги</a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString16=</span> <span class="pre">DeviceCustomString16Label=tcp.tcp_flags_tc</span></code> - <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc5966">флаг Truncated response</a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber5=0</span> <span class="pre">FlexNumber5Label=tcp.cwr</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber6=0</span> <span class="pre">FlexNumber6Label=tcp.ecn</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber7=0</span> <span class="pre">FlexNumber7Label=tcp.urg</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber8=0</span> <span class="pre">FlexNumber8Label=tcp.ack</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber9=0</span> <span class="pre">FlexNumber9Label=tcp.psh</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber10=0</span> <span class="pre">FlexNumber10Label=tcp.rst</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber11=0</span> <span class="pre">FlexNumber11Label=tcp.syn</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlexNumber12=0</span> <span class="pre">FlexNumber12Label=tcp.fin</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceCustomString17=</span> <span class="pre">DeviceCustomString17Label=tcp.state</span></code> - <a class="reference external" href="https://ru.wikipedia.org/wiki/Transmission_Control_Protocol#%D0%A1%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_%D1%81%D0%B5%D0%B0%D0%BD%D1%81%D0%B0_TCP">состояния сеанса TCP</a>.</p></li>
+</ul>
+</details>
+<details>
+<summary>Файрвол</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span><span class="n">T14</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">01</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">CEF</span><span class="p">:</span><span class="mi">0</span><span class="o">|</span><span class="n">Ideco</span><span class="o">|</span><span class="n">NGFW</span><span class="o">|</span><span class="mf">17.0</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">syslog</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">deviceReceiptTime</span><span class="o">=</span><span class="mi">1712049601</span> <span class="n">Severity</span><span class="o">=</span><span class="ne">Warning</span> <span class="n">DeviceProcessName</span><span class="o">=</span><span class="n">ideco</span><span class="o">-</span><span class="n">nflog</span> <span class="n">msg</span><span class="o">=</span><span class="n">TCP</span>      <span class="n">src</span> <span class="mf">192.168.100.17</span>   <span class="n">sport</span> <span class="mi">48300</span> <span class="n">dst</span> <span class="mf">1.1.1.1</span>          <span class="n">dport</span> <span class="mi">443</span>   <span class="n">table</span> <span class="n">FWD</span>  <span class="n">rule</span>  <span class="mi">2</span>    <span class="n">action</span> <span class="n">drop</span>
+</pre></div>
+</div>
+<p>где:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceReceiptTime</span></code> - время события в системе NGFW, может не совпадать с временем получения события по Syslog;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Severity</span></code> — важность события (Emergency, Alert“, Critical, Error, Warning, Notice, Informational, Debug);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceProcessName</span></code> - название службы NGFW (unit);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TCP</span></code> - протокол, принимает значения UDP, TCP, ICMP, GRE, ESP и AH;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src</span></code> - IP-адрес источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dst</span></code> - IP-адрес назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sport</span></code> - порт источника для UDP и TCP;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dport</span></code> - порт назначения для UDP и TCP;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code> - таблица правил, в которой произошло логирование;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rule</span></code> - ID правила из таблицы;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">action</span></code> - действие, которое произошло.</p></li>
+</ul>
+</details>
+<details>
+<summary>Контроль приложений</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span><span class="n">T14</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mi">57</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">CEF</span><span class="p">:</span><span class="mi">0</span><span class="o">|</span><span class="n">Ideco</span><span class="o">|</span><span class="n">NGFW</span><span class="o">|</span><span class="mf">17.0</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">syslog</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">deviceReceiptTime</span><span class="o">=</span><span class="mi">1712050077</span> <span class="n">Severity</span><span class="o">=</span><span class="n">Notice</span> <span class="n">DeviceProcessName</span><span class="o">=</span><span class="n">ideco</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">control</span> <span class="n">msg</span><span class="o">=</span><span class="p">(</span><span class="n">flow_info_rules_was_checked</span><span class="p">)</span> <span class="mf">192.168.100.17</span><span class="p">:</span><span class="mi">49873</span> <span class="o">-&gt;</span> <span class="mf">162.159.138.232</span><span class="p">:</span><span class="mi">443</span> <span class="p">[</span><span class="n">Discord</span><span class="p">]</span> \<span class="o">=</span> <span class="s1">&#39;DROP&#39;</span><span class="o">.</span> 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceReceiptTime</span></code> - время события в системе NGFW, может не совпадать с временем получения события по Syslog;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Severity</span></code> — важность события (Emergency, Alert“, Critical, Error, Warning, Notice, Informational, Debug);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceProcessName</span></code> - название службы NGFW (unit);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow_info_rules_was_checked</span></code> - идентификатор процесса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.17:49873</span></code> - ip-адрес источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">162.159.138.232:443</span> <span class="pre">[Discord]</span> <span class="pre">\=</span> <span class="pre">'DROP'</span></code> - результат анализа трафика, где  <code class="docutils literal notranslate"><span class="pre">[Discord]</span></code> - название приложения, к которому был применен результат. <a class="reference external" href="https://static.ideco.ru/static/app_control.pdf">Список всех приложений</a>.</p></li>
+</ul>
+</details>
+<details>
+<summary>Контент-фильтр</summary>
+<p>Просмотр логов доступен в веб-интерфейсе в разделе <strong>Мониторинг -&gt; Журналы</strong>. Название служб для фильтрации: ideco-content-filter-backend и squid ().</p>
+<p>Пример блокировки ресурса:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">03</span><span class="n">T13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">38</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">CEF</span><span class="p">:</span><span class="mi">0</span><span class="o">|</span><span class="n">Ideco</span><span class="o">|</span><span class="n">NGFW</span><span class="o">|</span><span class="mf">17.0</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">syslog</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">deviceReceiptTime</span><span class="o">=</span><span class="mi">1712131238</span> <span class="n">Severity</span><span class="o">=</span><span class="n">Notice</span> <span class="n">DeviceProcessName</span><span class="o">=</span><span class="n">squid</span> <span class="n">msg</span><span class="o">=</span><span class="mf">192.168.100.17</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">03</span><span class="o">/</span><span class="n">Apr</span><span class="o">/</span><span class="mi">2024</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">38</span> <span class="o">+</span><span class="mi">0500</span><span class="p">]</span> <span class="s2">&quot;GET https://love.ru/znakomstva/ekaterinburg/ HTTP/1.1&quot;</span> <span class="mi">403</span> <span class="mi">7519</span> <span class="s2">&quot;https://www.google.com/&quot;</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36&quot;</span> <span class="n">TCP_DENIED</span><span class="p">:</span><span class="n">HIER_NONE</span> <span class="s2">&quot;Custom deny 8 znakomstva extended.id.23 user.id.3 &quot;</span> <span class="s2">&quot;av_name&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;av_object_infected&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;av_object_size&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;av_virus_name&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span> 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceReceiptTime</span></code> - время события в системе NGFW, может не совпадать с временем получения события по Syslog;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Severity</span></code> — важность события (Emergency, Alert“, Critical, Error, Warning, Notice, Informational, Debug);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceProcessName</span></code> - название службы NGFW (unit);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.17</span></code> - IP-адрес пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[03/Apr/2024:13:00:38</span> <span class="pre">+0500]</span> <span class="pre">&quot;GET</span> <span class="pre">https://love.ru/znakomstva/ekaterinburg/</span> <span class="pre">HTTP/1.1&quot;</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">[03/Apr/2024:13:00:38</span> <span class="pre">+0500]</span></code> - дата/время события блокировки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span></code> - метод;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://love.ru/znakomstva/ekaterinburg/</span></code> - URL заблокированного ресурса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HTTP/1.1</span></code> - протокол.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">403</span></code> - код состояния HTTP;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">7519</span></code> - передано байт (в ответ, включая HTTP заголовок);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;https://www.google.com/&quot;</span></code> - <a class="reference external" href="https://ru.wikipedia.org/wiki/HTTP_referer">HTTP referer</a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Mozilla/5.0</span> <span class="pre">(Windows</span> <span class="pre">NT</span> <span class="pre">10.0;</span> <span class="pre">Win64;</span> <span class="pre">x64)</span> <span class="pre">AppleWebKit/537.36</span> <span class="pre">(KHTML,</span> <span class="pre">like</span> <span class="pre">Gecko)</span> <span class="pre">Chrome/123.0.0.0</span> <span class="pre">Safari/537.36&quot;</span></code> - цифровой отпечаток браузера;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TCP_DENIED:HIER_NONE</span></code> - техническое сообщение от <a class="reference external" href="http://wiki.squid-cache.org/SquidFaq/SquidLogs#Squid_result_codes">squid</a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Custom</span> <span class="pre">deny</span> <span class="pre">8</span> <span class="pre">znakomstva</span> <span class="pre">extended.id.23</span> <span class="pre">user.id.3</span> <span class="pre">&quot;</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Custom</span> <span class="pre">deny</span> <span class="pre">8</span> <span class="pre">znakomstva</span></code> - описание и номер правила блокировки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extended.id.23</span></code> - категория сайта;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user.id.3</span></code> - значение поля <strong>Применяется для</strong> в сработавшем правиле.</p></li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>Аутентификация через веб-интерфейс</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span><span class="n">T14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">36</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">CEF</span><span class="p">:</span><span class="mi">0</span><span class="o">|</span><span class="n">Ideco</span><span class="o">|</span><span class="n">NGFW</span><span class="o">|</span><span class="mf">17.0</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">syslog</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">deviceReceiptTime</span><span class="o">=</span><span class="mi">1712051496</span> <span class="n">Severity</span><span class="o">=</span><span class="n">Notice</span> <span class="n">DeviceProcessName</span><span class="o">=</span><span class="n">fail2ban</span> <span class="n">msg</span><span class="o">=</span><span class="n">INFO</span> <span class="p">[</span><span class="n">utm</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="n">interface</span><span class="p">]</span> <span class="n">Found</span> <span class="mf">192.168.100.17</span> <span class="o">-</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="mi">14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">36</span>
+<span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span><span class="n">T14</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">36</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">CEF</span><span class="p">:</span><span class="mi">0</span><span class="o">|</span><span class="n">Ideco</span><span class="o">|</span><span class="n">NGFW</span><span class="o">|</span><span class="mf">17.0</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">syslog</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">deviceReceiptTime</span><span class="o">=</span><span class="mi">1712051496</span> <span class="n">Severity</span><span class="o">=</span><span class="ne">Warning</span> <span class="n">DeviceProcessName</span><span class="o">=</span><span class="n">fail2ban</span> <span class="n">msg</span><span class="o">=</span><span class="n">NOTICE</span> <span class="p">[</span><span class="n">utm</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="n">interface</span><span class="p">]</span> <span class="n">Ban</span> <span class="mf">192.168.100.17</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceReceiptTime</span></code> - время события в системе NGFW, может не совпадать с временем получения события по Syslog;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Severity</span></code> — важность события (Emergency, Alert“, Critical, Error, Warning, Notice, Informational, Debug);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceProcessName</span></code> - название службы NGFW (unit);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INFO</span></code> или <code class="docutils literal notranslate"><span class="pre">NOTICE</span></code> - приоритет сообщения в логах в виде информационного сообщения или уведомления;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INFO</span> <span class="pre">[utm-web-interface]</span> <span class="pre">Found</span> <span class="pre">192.168.100.17</span> <span class="pre">-</span> <span class="pre">2024-04-02</span> <span class="pre">14:51:36</span></code> - факт обнаружения правил безопасности с указанием группы правил ([utm-web-interface]), ip-адреса и даты/времени. Список групп правил:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-dovecot</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-postfix-connrate.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-postscreen-prgrt.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-reverse-proxy.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-roundcube.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-smtp.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-ssh.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-two-factor-codes.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-vpn-authd.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-vpn-pppoe-authd.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-web-interface.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-wireguard-backend.conf</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NOTICE</span> <span class="pre">[utm-web-interface]</span> <span class="pre">Ban</span> <span class="pre">192.168.100.17</span></code> - факт блокировки или разблокировки ip-адреса, где:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ban</span></code> - факт блокировки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Unban</span></code> - факт разблокировки.</p></li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>Подключение по VPN</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span><span class="n">T14</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">34</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">CEF</span><span class="p">:</span><span class="mi">0</span><span class="o">|</span><span class="n">Ideco</span><span class="o">|</span><span class="n">NGFW</span><span class="o">|</span><span class="mf">17.0</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">syslog</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">deviceReceiptTime</span><span class="o">=</span><span class="mi">1712051374</span> <span class="n">Severity</span><span class="o">=</span><span class="n">Notice</span> <span class="n">DeviceProcessName</span><span class="o">=</span><span class="n">ideco</span><span class="o">-</span><span class="n">vpn</span><span class="o">-</span><span class="n">authd</span> <span class="n">msg</span><span class="o">=</span><span class="n">Start</span> <span class="n">vpn</span> <span class="n">authorization</span> <span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span>  <span class="s1">&#39;192.168.100.17&#39;</span><span class="p">,</span>  <span class="s1">&#39;pptp&#39;</span><span class="p">)</span><span class="o">.</span>
+<span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span><span class="n">T14</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">34</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">CEF</span><span class="p">:</span><span class="mi">0</span><span class="o">|</span><span class="n">Ideco</span><span class="o">|</span><span class="n">NGFW</span><span class="o">|</span><span class="mf">17.0</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">syslog</span><span class="o">|</span><span class="mi">0</span><span class="o">|</span><span class="n">deviceReceiptTime</span><span class="o">=</span><span class="mi">1712051374</span> <span class="n">Severity</span><span class="o">=</span><span class="n">Notice</span> <span class="n">DeviceProcessName</span><span class="o">=</span><span class="n">ideco</span><span class="o">-</span><span class="n">vpn</span><span class="o">-</span><span class="n">authd</span> <span class="n">msg</span><span class="o">=</span><span class="n">Subnet</span> <span class="mf">10.128.240.8</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">authorized</span> <span class="k">as</span> <span class="n">user</span> <span class="s1">&#39;user&#39;</span><span class="o">.</span> <span class="n">Connection</span> <span class="n">made</span> <span class="kn">from</span> <span class="s1">&#39;192.168.100.17&#39;</span><span class="p">,</span>  <span class="nb">type</span> <span class="s1">&#39;pptp&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceReceiptTime</span></code> - время события в системе NGFW, может не совпадать с временем получения события по Syslog;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Severity</span></code> — важность события (Emergency, Alert“, Critical, Error, Warning, Notice, Informational, Debug);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceProcessName</span></code> - название службы NGFW (unit);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">vpn</span> <span class="pre">authorization</span> <span class="pre">('user',</span>&#160; <span class="pre">'192.168.100.17',</span>&#160; <span class="pre">'pptp')</span></code> - факт запроса на авторизацию с информацией о запрашиваемом подключении, где:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code> - логин пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.17</span></code> - IP-адрес, откуда установлено подключение;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pptp</span></code> - протокол.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Subnet</span> <span class="pre">10.128.240.8/32</span> <span class="pre">is</span> <span class="pre">authorized</span> <span class="pre">as</span> <span class="pre">user</span> <span class="pre">'user'</span></code> - факт успешной авторизации с локальным IP-адресом.</p></li>
+</ul>
+</details>
+</section>
+<section id="id3">
+<h3><span class="section-number">1.2.2. </span>Формат Syslog<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<details>
+<summary>Предотвращение вторжений</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.100.2</span>	<span class="n">Dec</span> <span class="mi">14</span> <span class="mi">15</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mi">38</span>		<span class="n">daemon</span>	<span class="n">warning</span>		<span class="n">timestamp</span><span class="p">:</span><span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">14</span> <span class="mi">10</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mf">34.808465</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">flow_id</span><span class="p">:</span><span class="mi">1189034483406353</span><span class="p">,</span><span class="n">in_iface</span><span class="p">:</span><span class="n">seq</span><span class="p">:</span><span class="n">Leth1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">sensor_name</span><span class="p">:</span><span class="n">suricata_debug</span><span class="p">,</span><span class="n">event_type</span><span class="p">:</span><span class="n">alert</span><span class="p">,</span><span class="n">src_ip</span><span class="p">:</span><span class="mf">192.168.100.11</span><span class="p">,</span><span class="n">src_port</span><span class="p">:</span><span class="mi">61790</span><span class="p">,</span><span class="n">src_country</span><span class="p">:,</span><span class="n">src_country_code</span><span class="p">:,</span><span class="n">src_session_uuid</span><span class="p">:</span><span class="mi">7100</span><span class="n">d1c8</span><span class="o">-</span><span class="mi">017</span><span class="n">f</span><span class="o">-</span><span class="mi">4</span><span class="n">cbf</span><span class="o">-</span><span class="mi">8</span><span class="n">b78</span><span class="o">-</span><span class="mi">482839300211</span><span class="p">,</span><span class="n">src_user_id</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="n">src_user_name</span><span class="p">:</span><span class="n">a</span><span class="o">.</span><span class="n">istomina</span><span class="p">,</span><span class="n">dest_ip</span><span class="p">:</span><span class="mf">192.168.100.2</span><span class="p">,</span><span class="n">dest_port</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span><span class="n">dest_country</span><span class="p">:,</span><span class="n">dest_country_code</span><span class="p">:,</span><span class="n">dest_session_uuid</span><span class="p">:,</span><span class="n">dest_user_id</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">dest_user_name</span><span class="p">:,</span><span class="n">proto</span><span class="p">:</span><span class="n">UDP</span><span class="p">,</span><span class="n">alert</span><span class="o">.</span><span class="n">signature_id</span><span class="p">:</span><span class="mi">1003892</span><span class="p">,</span><span class="n">alert</span><span class="o">.</span><span class="n">signature</span><span class="p">:</span><span class="n">Windows</span> <span class="n">Telemetry</span><span class="p">,</span><span class="n">alert</span><span class="o">.</span><span class="n">category</span><span class="p">:</span><span class="n">Telemetry</span> <span class="n">Windows</span><span class="p">,</span><span class="n">alert</span><span class="o">.</span><span class="n">severity</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="n">alert</span><span class="o">.</span><span class="n">gid</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">alert</span><span class="o">.</span><span class="n">action</span><span class="p">:</span><span class="n">blocked</span><span class="p">,</span><span class="n">http</span><span class="o">.</span><span class="n">hostname</span><span class="p">:,</span><span class="n">http</span><span class="o">.</span><span class="n">url</span><span class="p">:,</span><span class="n">http</span><span class="o">.</span><span class="n">http_user_agent</span><span class="p">:,</span><span class="n">flow</span><span class="o">.</span><span class="n">pkts_toserver</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">flow</span><span class="o">.</span><span class="n">pkts_toclient</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">flow</span><span class="o">.</span><span class="n">bytes_toserver</span><span class="p">:</span><span class="mi">73</span><span class="p">,</span><span class="n">flow</span><span class="o">.</span><span class="n">bytes_toclient</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">flow</span><span class="o">.</span><span class="n">start</span><span class="p">:</span><span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">14</span> <span class="mi">10</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mf">34.808465</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">flow</span><span class="o">.</span><span class="n">end</span><span class="p">:</span><span class="mi">2022</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">14</span> <span class="mi">10</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mf">35.580143</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="n">flow</span><span class="o">.</span><span class="n">age</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">flow</span><span class="o">.</span><span class="n">state</span><span class="p">:,</span><span class="n">flow</span><span class="o">.</span><span class="n">reason</span><span class="p">:,</span><span class="n">flow</span><span class="o">.</span><span class="n">alerted</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">tcp</span><span class="o">.</span><span class="n">tcp_flags</span><span class="p">:,</span><span class="n">tcp</span><span class="o">.</span><span class="n">tcp_flags_ts</span><span class="p">:,</span><span class="n">tcp</span><span class="o">.</span><span class="n">tcp_flags_tc</span><span class="p">:,</span><span class="n">tcp</span><span class="o">.</span><span class="n">cwr</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">tcp</span><span class="o">.</span><span class="n">ecn</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">tcp</span><span class="o">.</span><span class="n">urg</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">tcp</span><span class="o">.</span><span class="n">ack</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">tcp</span><span class="o">.</span><span class="n">psh</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">tcp</span><span class="o">.</span><span class="n">rst</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">tcp</span><span class="o">.</span><span class="n">syn</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">tcp</span><span class="o">.</span><span class="n">fin</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">tcp</span><span class="o">.</span><span class="n">state</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>где:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.2</span></code> - ip-адрес NGFW отправителя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dec</span> <span class="pre">14</span> <span class="pre">15:48:38</span></code> - время получения события по Syslog;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timestamp:</span> <span class="pre">2022-12-14</span> <span class="pre">10:48:34.808465+00:00</span></code> - время события в системе предотвращения вторжений, может не совпадать с временем получения события по Syslog;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow_id:</span> <span class="pre">1189034483406353</span></code> - внутренний идентификатор системы предотвращения вторжений flow (сессии);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in_iface:</span> <span class="pre">seq:Leth1:3:m</span></code> - содержит идентификатор входящего интерфейса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sensor_name:</span> <span class="pre">suricata_debug</span></code> - имя экземпляра системы предотвращения вторжений;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">event_type:</span> <span class="pre">alert</span></code> - тип события;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src_ip:</span> <span class="pre">192.168.100.11</span></code> - IP-адрес источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src_port:</span> <span class="pre">61790</span></code> - порт источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src_country:</span></code> - название местоположения источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src_country_code:</span></code> - ISO-код страны источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src_session_uuid:</span> <span class="pre">7100d1c8-017f-4cbf-8b78-482839300211</span></code> - внутренний идентификатор сессии Ideco NGFW источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src_user_id:</span> <span class="pre">2</span></code> - идентификатор пользователя источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src_user_name:</span> <span class="pre">a.istomina</span></code>- имя пользователя источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_ip:</span> <span class="pre">192.168.100.2</span></code> - IP-адрес назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_port:</span> <span class="pre">53</span></code> - порт назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_country:</span></code> - название местоположения назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_country_code:</span></code> - ISO-код страны назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_session_uuid:</span></code> - внутренний идентификатор сессии Ideco NGFW назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_user_id:</span> <span class="pre">-1</span></code> - идентификатор пользователя назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_user_name:</span></code> - имя пользователя назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proto:</span> <span class="pre">UDP</span></code> - протокол;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alert.signature_id:</span> <span class="pre">1003892</span></code> - ID правила системы предотвращения вторжений;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alert.signature:</span> <span class="pre">Windows</span> <span class="pre">Telemetry</span></code> - сообщение из сработавшего правила;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alert.category:</span> <span class="pre">Telemetry</span> <span class="pre">Windows</span></code> - описание колонки в веб-интерфейсе События безопасности; <br />
+Соответствие <em>alert.category:</em> -&gt; <em>alert.signature</em> описаны в <a class="reference external" href="https://static.ideco.ru/static/alert.category%20-%20alert.signature.pdf">файле</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alert.severity:</span> <span class="pre">3</span></code> - уровень угрозы, может принимать значения 1, 2, 3 и 256, где 1 - самый высокий уровень угрозы.</p></li>
+</ul>
+<p>Служебные поля результата анализа HTTP-трафика. Заполняются, если в процессе анализа трафика был определен HTTP-протокол:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">http.hostname:</span></code> - идентификатор хоста;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http.url:</span></code> - url, на который велось обращение;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http.http_user_agent:</span></code> - информация, идентифицирующая HTTP-клиента.</p></li>
+</ul>
+<p>Служебные поля flow (сессии):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.pkts_toserver</span> <span class="pre">:1</span></code> - количество пакетов, переданное от клиента к серверу;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.pkts_toclient:</span> <span class="pre">0</span></code> - количество пакетов, переданное от сервера к клиенту;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.bytes_toserver:</span> <span class="pre">73</span></code> - количество байт, переданное от клиента к серверу;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.bytes_toclient:</span> <span class="pre">0</span></code> - количество байт, переданное от сервера к клиенту;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.start:</span> <span class="pre">2022-12-14</span> <span class="pre">10:48:34.808465+00:00</span></code> - начало;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.end:</span> <span class="pre">2022-12-14</span> <span class="pre">10:48:35.580143+00:00</span></code> - окончание;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.age:</span> <span class="pre">0</span></code> - возраст;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.state:</span></code> - текущее состояние;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.reason:</span></code> - запущена ли IPsec в режиме отладки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flow.alerted:</span></code> 0 - сгенерировался ли поток alert.</p></li>
+</ul>
+<p>Состояние флага <a class="reference external" href="https://ru.wikipedia.org/wiki/Transmission_Control_Protocol#%D0%A4%D0%BB%D0%B0%D0%B3%D0%B8_(%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E%D1%89%D0%B8%D0%B5_%D0%B1%D0%B8%D1%82%D1%8B)">TCP flow(сессии)</a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.tcp_flags:</span></code> - значение поля flags в заголовке TCP;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.tcp_flags_ts:</span></code> -  <a class="reference external" href="https://www.atraining.ru/windows-network-tuning/#:~:text=TCP%20Timestamps%20%E2%80%93%20%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BD%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%B0%D1%8F,%D0%BD%D0%B5%20%D0%BC%D0%BE%D0%B6%D0%B5%D1%82%20%D0%B2%D1%8B%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F">timestamp флаги</a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.tcp_flags_tc:</span></code> - <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc5966">флаг Truncated response</a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.cwr:</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.ecn:</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.urg:</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.ack:</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.psh:</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.rst:</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.syn:</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.fin:</span> <span class="pre">0</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.state:</span></code> - <a class="reference external" href="https://ru.wikipedia.org/wiki/Transmission_Control_Protocol#%D0%A1%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_%D1%81%D0%B5%D0%B0%D0%BD%D1%81%D0%B0_TCP">состояния сеанса TCP</a>.</p></li>
+</ul>
+</details>
+<details>
+<summary>Файрвол</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ноя</span> <span class="mi">24</span> <span class="mi">09</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">27</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">ideco</span><span class="o">-</span><span class="n">nflog</span><span class="p">[</span><span class="mi">691</span><span class="p">]:</span> <span class="n">UDP</span>      <span class="n">src</span> <span class="mf">192.168.100.12</span>   <span class="n">sport</span> <span class="mi">137</span>   <span class="n">dst</span> <span class="mf">40.125.122.151</span>   <span class="n">dport</span> <span class="mi">137</span>   <span class="n">table</span> <span class="n">FWD</span>  <span class="n">rule</span>  <span class="mi">1</span>    <span class="n">action</span> <span class="n">accept</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UDP</span></code> - протокол, принимает значения UDP, TCP, ICMP, GRE, ESP и AH;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src</span></code> - IP-адрес источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dst</span></code> - IP-адрес назначения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sport</span></code> - порт источника для UDP и TCP;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dport</span></code> - порт назначения для UDP и TCP;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code> - таблица правил, в которой произошло логирование;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rule</span></code> - ID правила из таблицы <em>rule</em>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">action</span></code> - действие, которое произошло.</p></li>
+</ul>
+</details>
+<details>
+<summary>Контроль приложений</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.100.2</span>	<span class="n">Jan</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">15</span>	<span class="mi">1</span>	<span class="n">user</span>	<span class="n">err</span>		<span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span><span class="n">T11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">14</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">app</span><span class="o">-</span><span class="n">control</span> <span class="mi">2027</span> <span class="o">-</span> <span class="o">-</span> <span class="p">(</span><span class="n">flow_info_rules_was_checked</span><span class="p">)</span> <span class="mf">192.168.100.11</span><span class="p">:</span><span class="mi">52514</span> <span class="o">-&gt;</span> <span class="mf">192.168.100.2</span><span class="p">:</span><span class="mi">53</span> <span class="p">[</span><span class="n">Amazon</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;DROP&#39;</span><span class="o">.</span> 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">2027</span></code> - идентификатор процесса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.11:52514</span></code> - ip-адрес источника;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.2:53</span> <span class="pre">[Amazon]</span> <span class="pre">=</span> <span class="pre">'DROP'</span></code> - результат анализа трафика, где  <code class="docutils literal notranslate"><span class="pre">[Amazon]</span></code> - название приложения, к которому был применен результат. <a class="reference external" href="https://static.ideco.ru/static/app_control.pdf">Список всех приложений</a>.</p></li>
+</ul>
+</details>
+<details>
+<summary>Контент-фильтр</summary>
+<p>Просмотр логов доступен в веб-интерфейсе в разделе <strong>Мониторинг -&gt; Журналы</strong>. Название служб для фильтрации: ideco-content-filter-backend и squid.</p>
+<p>Пример блокировки ресурса:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.101.130</span>    <span class="n">Mar</span> <span class="mi">31</span> <span class="mi">14</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">57</span>    <span class="mi">1</span>    <span class="n">daemon</span>    <span class="n">info</span>        <span class="mi">2023</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">31</span><span class="n">T14</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">56</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">squid</span> <span class="mi">5950</span> <span class="o">-</span> <span class="o">-</span> <span class="mf">192.168.101.131</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">31</span><span class="o">/</span><span class="n">Mar</span><span class="o">/</span><span class="mi">2023</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">56</span> <span class="o">+</span><span class="mi">0500</span><span class="p">]</span> <span class="s2">&quot;GET https://www.igromania.ru/? HTTP/1.1&quot;</span> <span class="mi">403</span> <span class="mi">7455</span> <span class="s2">&quot;https://yandex.ru/&quot;</span> <span class="s2">&quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/111.0&quot;</span> <span class="n">TCP_DENIED</span><span class="p">:</span><span class="n">HIER_NONE</span> <span class="s2">&quot;Custom deny 8 Игры extended.id.21 group.id.1 &quot;</span> 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">5950</span></code> - идентификатор процесса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.101.131</span></code> - IP-адрес пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[31/Mar/2023:14:56:56</span> <span class="pre">+0500]</span> <span class="pre">&quot;GET</span> <span class="pre">https://www.igromania.ru/?</span> <span class="pre">HTTP/1.1</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">[31/Mar/2023:14:56:56</span> <span class="pre">+0500]</span></code> - дата/время события блокировки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span></code> - метод;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://www.igromania.ru/?</span></code> - URL заблокированного ресурса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HTTP/1.1</span></code> - протокол.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">403</span></code> - код состояния HTTP;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">7455</span></code> - передано байт (в ответ, включая HTTP заголовок);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://yandex.ru/</span></code> - <a class="reference external" href="https://ru.wikipedia.org/wiki/HTTP_referer">HTTP referer</a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mozilla/5.0</span> <span class="pre">(X11;</span> <span class="pre">Ubuntu;</span> <span class="pre">Linux</span> <span class="pre">x86_64;</span> <span class="pre">rv:109.0)</span> <span class="pre">Gecko/20100101</span> <span class="pre">Firefox/111.0</span></code> - цифровой отпечаток браузера;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TCP_DENIED:HIER_NONE</span></code> - техническое сообщение от <a class="reference external" href="http://wiki.squid-cache.org/SquidFaq/SquidLogs#Squid_result_codes">squid</a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Custom</span> <span class="pre">deny</span> <span class="pre">8</span> <span class="pre">Игры</span> <span class="pre">extended.id.21</span> <span class="pre">group.id.1</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Custom</span> <span class="pre">deny</span> <span class="pre">8</span> <span class="pre">Игры</span></code> - описание и номер правила блокировки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extended.id.21</span></code> - категория сайта;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group.id.1</span></code> - значение поля <strong>Применяется для</strong> в сработавшем правиле.</p></li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>Аутентификация через веб-интерфейс</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.100.2</span>	<span class="n">Jan</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">15</span>	<span class="mi">1</span>	<span class="n">daemon</span>	<span class="n">info</span>		<span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span><span class="n">T11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">14</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">fail2ban</span><span class="o">.</span><span class="n">filter</span> <span class="mi">779</span> <span class="o">-</span> <span class="o">-</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">utm</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="n">interface</span><span class="p">]</span> <span class="n">Found</span> <span class="mf">192.168.100.1</span> <span class="o">-</span> <span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">14</span> 
+<span class="mf">192.168.100.2</span>	<span class="n">Jan</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">36</span>	<span class="mi">1</span>	<span class="n">daemon</span>	<span class="n">notice</span>		<span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span><span class="n">T11</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">35</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">fail2ban</span><span class="o">.</span><span class="n">actions</span> <span class="mi">779</span> <span class="o">-</span> <span class="o">-</span> <span class="n">NOTICE</span> <span class="p">[</span><span class="n">utm</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="n">interface</span><span class="p">]</span> <span class="n">Ban</span> <span class="mf">192.168.100.1</span> 
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">info</span></code> или <code class="docutils literal notranslate"><span class="pre">notice</span></code> - приоритет сообщения в логах в виде информационного сообщения или уведомления;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">779</span></code> - идентификатор процесса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INFO</span> <span class="pre">[utm-web-interface]</span> <span class="pre">Found</span> <span class="pre">192.168.100.1</span> <span class="pre">-</span> <span class="pre">2023-01-12</span> <span class="pre">11:02:14</span></code> - факт обнаружения правил безопасности с указанием группы правил (<code class="docutils literal notranslate"><span class="pre">[utm-web-interface]</span></code>), ip-адреса и даты/времени. Список групп правил:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-dovecot</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-postfix-connrate.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-postscreen-prgrt.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-reverse-proxy.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-roundcube.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-smtp.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-ssh.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-two-factor-codes.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-vpn-authd.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-vpn-pppoe-authd.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-web-interface.conf</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utm-wireguard-backend.conf</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NOTICE</span> <span class="pre">[utm-web-interface]</span> <span class="pre">Ban</span> <span class="pre">192.168.100.1</span></code> - факт блокировки или разблокировки ip-адреса, где:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ban</span></code> - факт блокировки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Unban</span></code> - факт разблокировки.</p></li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>Подключение по VPN</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.100.2</span>	<span class="n">Jan</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">06</span>	<span class="mi">1</span>	<span class="n">local0</span>	<span class="n">info</span>		<span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span><span class="n">T11</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">05</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">ideco</span><span class="o">-</span><span class="n">vpn</span><span class="o">-</span><span class="n">authd</span> <span class="mi">1356</span> <span class="o">-</span> <span class="o">-</span> <span class="n">Start</span> <span class="n">vpn</span> <span class="n">authorization</span> <span class="p">(</span><span class="s1">&#39;user_1&#39;</span><span class="p">,</span> <span class="s1">&#39;192.168.100.11&#39;</span><span class="p">,</span> <span class="s1">&#39;pptp&#39;</span><span class="p">)</span><span class="o">.</span> 
+<span class="mf">192.168.100.2</span>	<span class="n">Jan</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">06</span>	<span class="mi">1</span>	<span class="n">local0</span>	<span class="n">info</span>		<span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span><span class="n">T11</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">05</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">ideco</span><span class="o">-</span><span class="n">vpn</span><span class="o">-</span><span class="n">authd</span> <span class="mi">1356</span> <span class="o">-</span> <span class="o">-</span> <span class="n">Subnet</span> <span class="mf">10.128.187.17</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">authorized</span> <span class="k">as</span> <span class="n">user</span> <span class="s1">&#39;user_1&#39;</span><span class="o">.</span> <span class="n">Connection</span> <span class="n">made</span> <span class="kn">from</span> <span class="s1">&#39;192.168.100.11&#39;</span><span class="p">,</span> <span class="nb">type</span> <span class="s1">&#39;pptp&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1356</span></code> - идентификатор процесса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">vpn</span> <span class="pre">authorization('user_1',</span> <span class="pre">'192.168.100.11',</span> <span class="pre">'pptp')</span></code> - факт запроса на авторизацию с информацией о запрашиваемом подключении, где:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_1</span></code> - логин пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.11</span></code> - ip-адрес, откуда установлено подключение;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pptp</span></code> - протокол.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Subnet</span> <span class="pre">10.128.187.17/32</span></code> - факт успешной авторизации с локальным ip-адресом.</p></li>
+</ul>
+</details>
+<details>
+<summary>Веб-авторизация</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.100.2</span>	<span class="n">Jan</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">06</span>	<span class="mi">1</span>	<span class="n">local0</span>	<span class="n">info</span>		<span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span><span class="n">T11</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">05</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">ideco</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="n">authd</span> <span class="mi">1665</span> <span class="o">-</span> <span class="o">-</span> <span class="n">Subnet</span> <span class="mf">192.168.100.10</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">authorized</span> <span class="k">as</span> <span class="n">user</span> <span class="s1">&#39;user&#39;</span><span class="o">.</span> <span class="n">Connection</span> <span class="n">made</span> <span class="kn">from</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">type</span> <span class="s1">&#39;web&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1665</span></code> - идентификатор процесса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.10/32</span></code> - ip-адрес пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code> - логин пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">'web'</span></code> - тип авторизации веб.</p></li>
+</ul>
+</details>
+<details>
+<summary>Авторизация по IP</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.100.2</span>	<span class="n">Jan</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">06</span>	<span class="mi">1</span>	<span class="n">local0</span>	<span class="n">info</span>		<span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span><span class="n">T11</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">05</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">ideco</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="n">authd</span> <span class="mi">1665</span> <span class="o">-</span> <span class="o">-</span> <span class="n">Subnet</span> <span class="mf">192.168.100.49</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">authorized</span> <span class="k">as</span> <span class="n">user</span> <span class="s1">&#39;user-1717140295.828113&#39;</span><span class="o">.</span> <span class="n">Connection</span> <span class="n">made</span> <span class="kn">from</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">type</span> <span class="s1">&#39;ip_permanent&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1665</span></code> - идентификатор процесса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.49/32</span></code> - ip-адрес пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'user-1717140295.828113'</span></code> - логин пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">'ip_permanent'</span></code> - тип авторизации IP с постоянной авторизацией.</p></li>
+</ul>
+</details>
+<details>
+<summary>Авторизация по MAC</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.100.2</span>	<span class="n">Jan</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">06</span>	<span class="mi">1</span>	<span class="n">local0</span>	<span class="n">info</span>		<span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span><span class="n">T11</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">05</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">ideco</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">backend</span> <span class="mi">3660</span> <span class="o">-</span> <span class="o">-</span> <span class="n">Subnet</span> <span class="mf">192.168.100.10</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">authorized</span> <span class="k">as</span> <span class="n">user</span> <span class="s1">&#39;user&#39;</span><span class="o">.</span> <span class="n">Connection</span> <span class="n">made</span> <span class="kn">from</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">type</span> <span class="s1">&#39;mac&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">3660</span></code> - идентификатор процесса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.10/32</span></code> - ip-адрес пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code> - логин пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">'mac'</span></code> - тип авторизации MAC.</p></li>
+</ul>
+</details>
+<details>
+<summary>Авторизация по подсетям</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.100.2</span>	<span class="n">Jan</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">06</span>	<span class="mi">1</span>	<span class="n">local0</span>	<span class="n">info</span>		<span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">12</span><span class="n">T11</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">05</span><span class="o">+</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span> <span class="n">ideco</span><span class="o">-</span><span class="n">ngfw</span> <span class="n">ideco</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">backend</span> <span class="mi">3660</span> <span class="o">-</span> <span class="o">-</span> <span class="n">Subnet</span> <span class="mf">192.168.100.0</span><span class="o">/</span><span class="mi">24</span> <span class="ow">is</span> <span class="n">authorized</span> <span class="k">as</span> <span class="n">user</span> <span class="s1">&#39;user&#39;</span><span class="o">.</span> <span class="n">Connection</span> <span class="n">made</span> <span class="kn">from</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">type</span> <span class="s1">&#39;net&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">3660</span></code> - идентификатор процесса;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">192.168.100.0/24</span></code> - подсеть пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code> - логин пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">'net'</span></code> - тип авторизации подсеть.</p></li>
+</ul>
+</details></section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="report-designer.html"
+       title="предыдущая страница">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">назад</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Конструктор отчетов</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../server-management/README.html"
+       title="следующая страница">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">вперёд</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Управление сервером</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1. Пересылка системных сообщений</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2. Расшифровка передаваемых логов</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cef">1.2.1. Формат CEF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.2.2. Формат Syslog</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+По Ideco
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Копирайт 2024, Ideco.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
